@@ -22,8 +22,8 @@ export const ContentContainer = styled.div`
 	width: 100%;
 	min-height: 95vh;
 	margin-right: 0;
-	${cssIndex.flexCenter}
-	flex-direction: column;
+	${cssIndex.flexCenterCol}
+	justify-content: flex-start;
 	background: none;
 	padding-bottom: 15rem;
 	margin-top: var(--titleHeight);
