@@ -1,0 +1,11 @@
+{
+	"files.exclude": {
+		"src/**.test.js": true,
+		"src/serviceWorker.js": true,
+		"src/setupTests.js": true,
+		"src/reportWebVitals.js": true,
+		"README.md": true,
+		"src/styles/ghost.*": true,
+		".eslintcache": true
+	}
+}
