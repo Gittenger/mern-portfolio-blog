@@ -9,6 +9,7 @@ import {
   LoginPage,
   ContactPage,
   SkillsPage,
+  ResumePage,
   BlogPage,
 } from './pages/pages-index.js'
 
@@ -30,6 +31,7 @@ const Routes = () => {
         <Route path="/portfolio" exact component={PortfolioPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/skills" exact component={SkillsPage} />
+        <Route path="/resume" exact component={ResumePage} />
         <Route path="/blog" exact component={BlogPage} />
         <AdminRoute path="/admin" exact component={AdminDashboard} />
         <AdminRoute path="/upload-images" exact component={UploadImage} />
