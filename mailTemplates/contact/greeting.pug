@@ -1,0 +1,21 @@
+extends base
+
+block content
+   td(style='display: block; margin-top: 3rem;')
+         table
+            tr
+               td
+                  p Hello Admin,
+   td(style='display: block;')
+      table
+         tr
+            td(style='display: block;')
+               p You have received a new inquiry from a client about booking for an event with YOUR_COMPANY. 
+
+               p(style="margin-bottom: 0;") Here is the information the client provided you:
+            td(style="display: block; font-size: .8em;")
+               p(style="margin-bottom: 0; margin-top: 0;") Name: #{name}
+               p(style="margin-bottom: 0; margin-top: 0;") Email: #{email}
+               p(style="margin-bottom: 0; margin-top: 0;") Phone: #{phone}
+               p(style="margin-bottom: 0; margin-top: 0;") Event description:
+               p(style="margin-bottom: 0; margin-top: 0;") #{desc}

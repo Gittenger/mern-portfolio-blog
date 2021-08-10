@@ -1,0 +1,23 @@
+extends base
+
+block content
+   td(style='display: block;')
+         table
+            tr
+               td
+                  p Hello #{name},
+   td(style='display: block;')
+      table
+         tr
+            td(style='display: block;')
+               p Thank you for your interest in booking work with OUR_COMPANY. We are thrilled you found us and we will do all we can to meet your request. Once we review the details you've sent us, one of our directors will reach out to you to further discuss the details of your booking.
+
+               p As a friendly reminder, you haven't actually booked anything yet, but we're sending you this email to let you know we've received your request and we will be reaching out to you soon to discuss details, at which point we can officially mark our books for your event.
+
+               p(style="margin-bottom: 0;") Here is the information you provided us:
+            td(style="display: block; font-size: .8em;")
+               p(style="margin-bottom: 0; margin-top: 0;") Name: #{name}
+               p(style="margin-bottom: 0; margin-top: 0;") Email: #{email}
+               p(style="margin-bottom: 0; margin-top: 0;") Phone: #{phone}
+               p(style="margin-bottom: 0; margin-top: 0;") Event description:
+               p(style="margin-bottom: 0; margin-top: 0;") #{desc}
