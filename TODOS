@@ -1,0 +1,5 @@
+CLIENT:
+Make blog posts render page path with slug instead of instead
+
+SERVER:
+Update blog post schema to include slugs
