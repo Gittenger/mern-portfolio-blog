@@ -2,7 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config({ path: './.env' })
 const mongoose = require('mongoose')
 
-process.on('uncaughtException', err => {
+process.on('uncaughtException', (err) => {
 	console.log(err.name, err.message)
 	console.log('Uncaught exception! 💥 Shutting down...')
 	process.exit(1)
@@ -10,10 +10,9 @@ process.on('uncaughtException', err => {
 
 const app = require('./app')
 
-const db = process.env.DB_CONNECTION.replace(
-	/<PASSWORD>/,
-	process.env.DB_PW
-).replace(/<DB_NAME>/, process.env.DB_NAME)
+const db = process.env.DB_CONNECTION.replace(/<PASSWORD>/, process.env.DB_PW)
+	.replace(/<DB_NAME>/, process.env.DB_NAME)
+	.replace(/<DB_USER>/, process.env.DB_USER)
 
 mongoose
 	.connect(db, {
@@ -24,7 +23,7 @@ mongoose
 	})
 	.then(
 		() => console.log('database connected successfully'),
-		err => console.log(err)
+		(err) => console.log(err)
 	)
 
 const port = process.env.PORT | 8080
@@ -32,7 +31,7 @@ const server = app.listen(port, () => {
 	console.log(`server is running on port ${port}`)
 })
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
 	console.log(err.name, err.message)
 	console.log('UNHANDLED REJECTION! 💥 Shutting down...')
 	//close server, then end application
