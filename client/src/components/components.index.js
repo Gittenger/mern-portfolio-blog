@@ -1,6 +1,7 @@
 import AdminDashboard from './AdminDashboard/AdminDashboard.component.jsx'
 import AdminMenu from './AdminMenu/AdminMenu.component.jsx'
 import AdminRoute from './AdminRoute/AdminRoute.component.jsx'
+import BlogPost from './BlogPost/BlogPost.component.jsx'
 import ContactForm from './ContactForm/ContactForm.component.jsx'
 import ChangePassword from './ChangePassword/ChangePassword.component.jsx'
 import Checkbox from './Checkbox/Checkbox.component.jsx'
@@ -20,6 +21,7 @@ export const CIndex = {
 	AdminDashboard,
 	AdminMenu,
 	AdminRoute,
+	BlogPost,
 	ContactForm,
 	ChangePassword,
 	Checkbox,

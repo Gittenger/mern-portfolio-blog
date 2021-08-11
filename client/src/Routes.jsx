@@ -22,6 +22,7 @@ const Routes = () => {
     ForgotPassword,
     ResetPassword,
     ChangePassword,
+    BlogPost,
   } = CIndex
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ const Routes = () => {
         <Route path="/skills" exact component={SkillsPage} />
         <Route path="/resume" exact component={ResumePage} />
         <Route path="/blog" exact component={BlogPage} />
+        <Route path="/blog/posts/:id" exact component={BlogPost} />
         <AdminRoute path="/admin" exact component={AdminDashboard} />
         <AdminRoute path="/upload-images" exact component={UploadImage} />
         <AdminRoute path="/delete-images" exact component={DeleteImage} />
