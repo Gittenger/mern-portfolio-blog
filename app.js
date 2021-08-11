@@ -11,6 +11,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 const userRoutes = require('./routes/userRoutes')
 const imageRoutes = require('./routes/imageRoutes')
 const contactRoutes = require('./routes/contactRoutes')
+const postRoutes = require('./routes/postRoutes')
 
 const AppError = require('./utils/appError')
 const globalErrorHandler = require('./controllers/errorController')
@@ -78,7 +79,7 @@ app.use((req, res, next) => {
 app.use('/api/users', userRoutes)
 app.use('/api/images', imageRoutes)
 app.use('/api/contact', contactRoutes)
-
+app.use('/api/posts', postRoutes)
 app.all('*', (req, res, next) => {
 	next(
 		new AppError(`can't find ${req.originalUrl} route not found on server`, 404)
