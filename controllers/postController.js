@@ -19,3 +19,14 @@ exports.getAll = async (req, res) => {
 		data: mds,
 	})
 }
+
+exports.createPost = async (req, res) => {
+	const { title, excerpt, date, content } = req.body
+
+	const mds = await Markdown.create({ title, excerpt, date, content })
+
+	res.status(200).json({
+		message: 'post successfully uploaded',
+		data: mds,
+	})
+}
