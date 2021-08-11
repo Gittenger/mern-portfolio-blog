@@ -80,6 +80,7 @@ app.use('/api/users', userRoutes)
 app.use('/api/images', imageRoutes)
 app.use('/api/contact', contactRoutes)
 app.use('/api/posts', postRoutes)
+
 app.all('*', (req, res, next) => {
 	next(
 		new AppError(`can't find ${req.originalUrl} route not found on server`, 404)
