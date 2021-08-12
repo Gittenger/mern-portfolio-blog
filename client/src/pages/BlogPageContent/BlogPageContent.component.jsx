@@ -26,9 +26,10 @@ const BlogPageContent = () => {
 			{values.posts.map((post) => (
 				<Link
 					to={{
-						pathname: `blog/posts/${post._id}`,
+						pathname: `blog/posts/${post.slug}`,
 						state: {
 							title: post.title,
+							id: post._id,
 						},
 					}}
 				>

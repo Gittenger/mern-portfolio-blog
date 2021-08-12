@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -8,14 +8,12 @@ import { BlogPostContainer } from './BlogPost.styles'
 
 const BlogPost = () => {
 	const [data, setData] = useState({ message: '' })
-	const postId = '61137ad078aaffb924383726'
-	const { id } = useParams()
 	const {
-		state: { title },
+		state: { title, id },
 	} = useLocation()
 
 	useEffect(() => {
-		fetch(`${process.env.REACT_APP_API}/posts/${postId}`, {
+		fetch(`${process.env.REACT_APP_API}/posts/${id}`, {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -50,7 +48,7 @@ const BlogPost = () => {
 
 	return (
 		<BlogPostContainer>
-			<h1>Post: {id}</h1>
+			<h1>Post id: {id}</h1>
 			<h2>Title from parent: {title}</h2>
 			<ReactMarkdown components={renderers} children={data.message} />
 		</BlogPostContainer>

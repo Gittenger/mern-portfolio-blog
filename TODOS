@@ -1,5 +1,8 @@
 CLIENT:
-Make blog posts render page path with slug instead of instead
+Fix markdown upload to have correct encoding -- try remark?
+Add gifs to site for project demos
+Add resume section -- allow display and download (maybe embed)
 
 SERVER:
 Update blog post schema to include slugs
+

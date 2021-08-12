@@ -13,7 +13,7 @@ exports.getFile = async (req, res) => {
 }
 
 exports.getAll = async (req, res) => {
-	const mds = await Markdown.find().select('title excerpt date')
+	const mds = await Markdown.find().select('title excerpt date slug')
 
 	res.status(200).json({
 		message: 'success',
