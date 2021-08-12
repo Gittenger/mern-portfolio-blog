@@ -42,6 +42,12 @@ const NavList = ({ className }) => {
 					<div className="nav-underline"></div>
 				</Link>
 			</li>
+			<li>
+				<Link data-page="build" to="/build">
+					Build
+					<div className="nav-underline"></div>
+				</Link>
+			</li>
 		</NavListContainer>
 	)
 }
