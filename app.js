@@ -25,14 +25,14 @@ app.use(morgan('dev'))
 // request parsing
 app.use(
 	express.json({
-		limit: '10kb',
+		limit: '50kb',
 	})
 )
 app.use(cookieParser())
 app.use(
 	express.urlencoded({
 		extended: true,
-		limit: '10kb',
+		limit: '50kb',
 	})
 )
 
