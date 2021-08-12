@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { remark } from 'remark'
 
 import { BuildPageContentContainer } from './BuildPageContent.styles'
 
@@ -18,15 +19,19 @@ const BuildPageContent = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    const transformedMarkdown = await remark().process(content)
+
+    const formData = new FormData()
+    formData.append('title', title)
+    formData.append('excerpt', excerpt)
+    formData.append('date', date)
+    formData.append('content', String(transformedMarkdown))
+
     fetch(`${process.env.REACT_APP_API}/posts`, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...values }),
+      body: formData,
     })
       .then((res) => res.json())
       .then((res) => {
