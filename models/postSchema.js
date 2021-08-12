@@ -13,6 +13,9 @@ const markdownSchema = new mongoose.Schema({
 		type: String,
 		required: [true, 'Must have an excerpt in metadata'],
 	},
+	slug: {
+		type: String,
+	},
 	date: {
 		type: Date,
 		required: [true, 'Date is required'],
