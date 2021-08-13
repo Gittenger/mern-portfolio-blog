@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
+import PostsContext from '../../contexts/PostsContext.js'
 import { BlogPostContainer } from './BlogPost.styles'
 
 const BlogPost = () => {
-	const [data, setData] = useState({ message: '' })
+	const [data, setData] = useState({ content: '' })
 	const {
 		state: { title, id },
 	} = useLocation()
+	const { urls, setUrlCache } = useContext(PostsContext)
+	const url = `${process.env.REACT_APP_API}/posts/${id}`
 
 	useEffect(() => {
-		fetch(`${process.env.REACT_APP_API}/posts/${id}`, {
+		fetch(url, {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -21,8 +24,10 @@ const BlogPost = () => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
-				setData({ message: res.data.content })
+				setUrlCache(url, res)
+				if (urls[url]) {
+					setData({ ...urls[url].data })
+				}
 			})
 			.catch((err) => console.error(err))
 	}, [])
@@ -50,7 +55,7 @@ const BlogPost = () => {
 		<BlogPostContainer>
 			<h1>Post id: {id}</h1>
 			<h2>Title from parent: {title}</h2>
-			<ReactMarkdown components={renderers} children={data.message} />
+			<ReactMarkdown components={renderers} children={data.content} />
 		</BlogPostContainer>
 	)
 }

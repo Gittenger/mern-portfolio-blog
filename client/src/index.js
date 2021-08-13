@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import GlobalStyles from './styles/global.styles.jsx'
 import PageProvider from './contexts/PageProvider.jsx'
+import PostsProvider from './contexts/PostsProvider'
 
 import { ThemeProvider } from 'styled-components'
 import theme from './styles/theme'
@@ -15,7 +16,9 @@ ReactDOM.render(
 		<ThemeProvider theme={theme}>
 			<GlobalStyles />
 			<PageProvider>
-				<App />
+				<PostsProvider>
+					<App />
+				</PostsProvider>
 			</PageProvider>
 		</ThemeProvider>
 	</React.StrictMode>,
