@@ -16,10 +16,15 @@ const BlogPost = () => {
 	const url = `${process.env.REACT_APP_API}/posts/${id}`
 
 	useEffect(() => {
-		console.log(urls[url])
-		if (urls[url]) {
+		// Try localStorage first
+		if (localStorage.getItem(url)) {
+			setData({ ...JSON.parse(localStorage.getItem(url)) })
+			setUrlCache(url, JSON.parse(localStorage.getItem(url)))
+		} else if (urls[url]) {
+			// then try PostsContext
 			setData({ ...urls[url] })
 		} else {
+			// otherwise fetch from api, then set context and localStorage
 			fetch(url, {
 				headers: {
 					Accept: 'application/json',
@@ -29,13 +34,14 @@ const BlogPost = () => {
 				.then((res) => res.json())
 				.then((res) => {
 					setUrlCache(url, res.data)
+					localStorage.setItem(url, JSON.stringify(res.data))
 					if (urls[url]) {
 						setData({ ...urls[url] })
 					}
 				})
 				.catch((err) => console.error(err))
 		}
-	}, [urls[url]])
+	}, [urls[url], localStorage.getItem(url)])
 
 	const renderers = {
 		code({ node, inline, className, children, ...props }) {
