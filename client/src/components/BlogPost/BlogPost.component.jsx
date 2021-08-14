@@ -16,21 +16,26 @@ const BlogPost = () => {
 	const url = `${process.env.REACT_APP_API}/posts/${id}`
 
 	useEffect(() => {
-		fetch(url, {
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				setUrlCache(url, res)
-				if (urls[url]) {
-					setData({ ...urls[url].data })
-				}
+		console.log(urls[url])
+		if (urls[url]) {
+			setData({ ...urls[url] })
+		} else {
+			fetch(url, {
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
 			})
-			.catch((err) => console.error(err))
-	}, [])
+				.then((res) => res.json())
+				.then((res) => {
+					setUrlCache(url, res.data)
+					if (urls[url]) {
+						setData({ ...urls[url] })
+					}
+				})
+				.catch((err) => console.error(err))
+		}
+	}, [urls[url]])
 
 	const renderers = {
 		code({ node, inline, className, children, ...props }) {
