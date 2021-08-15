@@ -1,21 +1,18 @@
-import AdminDashboard from './AdminDashboard/AdminDashboard.component.jsx'
-import AdminMenu from './AdminMenu/AdminMenu.component.jsx'
-import AdminRoute from './AdminRoute/AdminRoute.component.jsx'
-import BlogPost from './BlogPost/BlogPost.component.jsx'
-import ContactForm from './ContactForm/ContactForm.component.jsx'
-import ChangePassword from './ChangePassword/ChangePassword.component.jsx'
-import Checkbox from './Checkbox/Checkbox.component.jsx'
-import DeleteImage from './DeleteImage/DeleteImage.component.jsx'
-import Footer from './Footer/Footer.component.jsx'
-import ForgotPassword from './ForgotPassword/ForgotPassword.component.jsx'
-import ImageBox from './ImageBox/ImageBox.component.jsx'
-import Layout from './Layout/Layout.component.jsx'
-import NavDesk from './NavDesk/NavDesk.component.jsx'
-import NavList from './NavList/NavList.component.jsx'
-import NavMobile from './NavMobile/NavMobile.component.jsx'
-import ResetPassword from './ResetPassword/ResetPassword.component.jsx'
-import ToggleNavButton from './ToggleNavButton/ToggleNavButton.component.jsx'
-import UploadImage from './UploadImage/UploadImage.component.jsx'
+import AdminDashboard from './Admin/AdminDashboard/AdminDashboard.component.jsx'
+import AdminMenu from './Admin/AdminMenu/AdminMenu.component.jsx'
+import AdminRoute from './Admin/AdminRoute/AdminRoute.component.jsx'
+import BlogPost from './General/BlogPost/BlogPost.component.jsx'
+import ContactForm from './General/ContactForm/ContactForm.component.jsx'
+import ChangePassword from './Admin/ChangePassword/ChangePassword.component.jsx'
+import Checkbox from './General/Checkbox/Checkbox.component.jsx'
+import Footer from './Core/Footer/Footer.component.jsx'
+import ForgotPassword from './Admin/ForgotPassword/ForgotPassword.component.jsx'
+import Layout from './Core/Layout/Layout.component.jsx'
+import NavDesk from './Core/NavDesk/NavDesk.component.jsx'
+import NavList from './Core/NavList/NavList.component.jsx'
+import NavMobile from './Core/NavMobile/NavMobile.component.jsx'
+import ResetPassword from './Admin/ResetPassword/ResetPassword.component.jsx'
+import ToggleNavButton from './Core/ToggleNavButton/ToggleNavButton.component.jsx'
 import TComp from './typography/typography.components.js'
 export const CIndex = {
 	AdminDashboard,
@@ -25,17 +22,14 @@ export const CIndex = {
 	ContactForm,
 	ChangePassword,
 	Checkbox,
-	DeleteImage,
 	Footer,
 	ForgotPassword,
-	ImageBox,
 	Layout,
 	NavDesk,
 	NavList,
 	NavMobile,
 	ResetPassword,
 	ToggleNavButton,
-	UploadImage,
 	TComp,
 }
 export default CIndex

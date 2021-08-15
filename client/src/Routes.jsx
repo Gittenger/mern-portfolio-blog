@@ -18,8 +18,6 @@ const Routes = () => {
   const {
     AdminRoute,
     AdminDashboard,
-    UploadImage,
-    DeleteImage,
     ForgotPassword,
     ResetPassword,
     ChangePassword,
@@ -38,8 +36,6 @@ const Routes = () => {
         <Route path="/blog" exact component={BlogPage} />
         <Route path="/blog/posts/:slug" exact component={BlogPost} />
         <AdminRoute path="/admin" exact component={AdminDashboard} />
-        <AdminRoute path="/upload-images" exact component={UploadImage} />
-        <AdminRoute path="/delete-images" exact component={DeleteImage} />
         <AdminRoute path="/forgot-password" exact component={ForgotPassword} />
         <AdminRoute path="/change-password" exact component={ChangePassword} />
         <AdminRoute
