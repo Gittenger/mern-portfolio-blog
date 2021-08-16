@@ -1,8 +1,6 @@
 CLIENT:
+set up caching for projects overview and details
+Set up loading states
+Create dummy blank images ?
 Add gifs to site for project demos
 Add resume section -- allow display and download (maybe embed)
-Context -- Add context for PostsOverview
-
-SERVER:
-Update blog post schema to include slugs
-
