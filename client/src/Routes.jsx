@@ -6,6 +6,7 @@ import CIndex from './components/components.index.js'
 import {
   HomePage,
   PortfolioPage,
+  PortfolioDetails,
   LoginPage,
   ContactPage,
   SkillsPage,
@@ -29,6 +30,11 @@ const Routes = () => {
         <Route path="/" exact component={HomePage} />
         <Route path="/login" exact component={LoginPage} />
         <Route path="/portfolio" exact component={PortfolioPage} />
+        <Route
+          path="/portfolio/:projectName"
+          exact
+          component={PortfolioDetails}
+        />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/skills" exact component={SkillsPage} />
         <Route path="/resume" exact component={ResumePage} />

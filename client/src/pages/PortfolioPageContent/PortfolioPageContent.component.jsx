@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-gallery-carousel/dist/index.css'
 
 import { CIndex } from '../../components/components.index.js'
 import {
