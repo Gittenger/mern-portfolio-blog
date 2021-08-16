@@ -1,5 +1,4 @@
 CLIENT:
-Fix markdown upload to have correct encoding -- try remark?
 Add gifs to site for project demos
 Add resume section -- allow display and download (maybe embed)
 Context -- Add context for PostsOverview
