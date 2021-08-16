@@ -18,7 +18,8 @@ body {
 
 #root {
 	${({ theme: { css } }) => css.flexCenterCol};
-  min-width: 80vw;
+  width: calc(100vw - 10px);
+  // width is minus the scrollbar width
     
     /* set font vars in root */
     ${({ theme: { typography } }) => typography.fontVars.fontMain};

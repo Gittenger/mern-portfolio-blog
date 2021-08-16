@@ -6,10 +6,14 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import PostsContext from '../../contexts/PostsContext.js'
 
-import { BlogPostContainer } from './BlogDetails.styles'
+import { BlogDetailsContainer } from './BlogDetails.styles'
+import CIndex from '../../components/components.index.js'
 
 const BlogDetails = () => {
-	const [data, setData] = useState({ content: '', title: '', id: '' })
+	const {
+		TComp: { PSmall },
+	} = CIndex
+	const [data, setData] = useState({ content: '', title: '' })
 	const { slug } = useParams()
 	const { urls, setUrlCache } = useContext(PostsContext)
 	const url = `${process.env.REACT_APP_API}/posts/${slug}`
@@ -59,16 +63,18 @@ const BlogDetails = () => {
 				</code>
 			)
 		},
+		p({ ...props }) {
+			return <PSmall {...props} />
+		},
 	}
 
-	const { content, title, id } = data
+	const { content, title } = data
 
 	return (
-		<BlogPostContainer>
-			<h1>Post id: {id}</h1>
-			<h2>Title from parent: {title}</h2>
+		<BlogDetailsContainer>
+			<h2>{title}</h2>
 			<ReactMarkdown components={renderers} children={content} />
-		</BlogPostContainer>
+		</BlogDetailsContainer>
 	)
 }
 
