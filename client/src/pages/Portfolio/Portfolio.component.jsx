@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { CIndex } from '../../components/components.index.js'
 import { PortfolioPageContainer, PortfolioCardList } from './Portfolio.styles'
@@ -8,35 +8,37 @@ import DesignThree from '../../assets/img/design-3.png'
 
 const Portfolio = () => {
 	const { Card } = CIndex
+	const [values, setValues] = useState([])
+	const url = `${process.env.REACT_APP_API}/projects`
+
+	useEffect(() => {
+		fetch(url, {
+			method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+		})
+			.then((res) => res.json())
+			.then((res) => {
+				setValues(res.data)
+			})
+			.catch((err) => console.error(err))
+	}, [url])
+
 	return (
 		<PortfolioPageContainer>
 			<PortfolioCardList>
-				<li>
-					<Card
-						title="Fantastic Flames"
-						description="A MERN SPA marketing web page built for a local entertainment business"
-						anchor="portfolio/fantastic-flames"
-						coverImg={DesignOne}
-					/>
-				</li>
-				<li>
-					<Card
-						title="Fantastic Flames"
-						description="A MERN SPA marketing web page built for a local entertainment business"
-						anchor="portfolio/fantastic-flames"
-						bgColor="green"
-						coverImg={DesignTwo}
-					/>
-				</li>
-				<li>
-					<Card
-						title="Fantastic Flames"
-						description="A MERN SPA marketing web page built for a local entertainment business"
-						anchor="portfolio/fantastic-flames"
-						bgColor="blue"
-						coverImg={DesignThree}
-					/>
-				</li>
+				{values.map(({ name, description, slug }) => (
+					<li>
+						<Card
+							title={name}
+							description={description}
+							anchor={`portfolio/${slug}`}
+							coverImg={DesignOne}
+						/>
+					</li>
+				))}
 			</PortfolioCardList>
 		</PortfolioPageContainer>
 	)
