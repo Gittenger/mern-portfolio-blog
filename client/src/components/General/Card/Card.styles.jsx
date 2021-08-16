@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { cssIndex } from '../../../styles/css/utils.styles.js'
 
 export const CardContainer = styled.div`
@@ -12,7 +13,7 @@ export const CardContainer = styled.div`
 	height: 800px;
 `
 
-export const Overlay = styled.div`
+export const Overlay = styled(Link)`
 	position: absolute;
 	top: 0;
 	left: 0;

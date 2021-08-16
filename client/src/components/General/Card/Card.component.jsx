@@ -27,7 +27,7 @@ const Card = () => {
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			<Overlay className={hoverState ? 'active' : ''}>
+			<Overlay to="/" className={hoverState ? 'active' : ''}>
 				<Link to="/">See Details</Link>
 			</Overlay>
 			<TextContainer>
