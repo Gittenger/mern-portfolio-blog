@@ -1,5 +1,6 @@
 const Project = require('../models/projectSchema')
 const catchAsync = require('../utils/catchAsync')
+const formidable = require('formidable')
 
 exports.getAll = catchAsync(async (req, res, next) => {
 	const projects = await Project.find().select('name description slug')
@@ -20,10 +21,14 @@ exports.getOne = catchAsync(async (req, res, next) => {
 })
 
 exports.createProject = catchAsync(async (req, res, next) => {
-	const project = await Project.create({ ...req.body })
+	const newForm = formidable()
+	newForm.parse(req, async (err, fields) => {
+		const techStack = fields.techStack.split(', ')
+		const project = await Project.create({ ...fields, techStack })
 
-	res.status(200).json({
-		message: 'success',
-		data: project,
+		res.status(200).json({
+			message: 'success',
+			data: project,
+		})
 	})
 })
