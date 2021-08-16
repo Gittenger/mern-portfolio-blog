@@ -1,3 +1,4 @@
+import AddProject from './Admin/AddProject/AddProject.component.jsx'
 import AdminDashboard from './Admin/AdminDashboard/AdminDashboard.component.jsx'
 import AdminMenu from './Admin/AdminMenu/AdminMenu.component.jsx'
 import AdminRoute from './Admin/AdminRoute/AdminRoute.component.jsx'
@@ -16,6 +17,7 @@ import Checkbox from './General/Checkbox/Checkbox.component.jsx'
 import ContactForm from './General/ContactForm/ContactForm.component.jsx'
 import TComp from './typography/typography.components.js'
 export const CIndex = {
+	AddProject,
 	AdminDashboard,
 	AdminMenu,
 	AdminRoute,

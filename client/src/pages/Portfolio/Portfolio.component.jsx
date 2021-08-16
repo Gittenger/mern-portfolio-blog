@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { CIndex } from '../../components/components.index.js'
 import { PortfolioPageContainer, PortfolioCardList } from './Portfolio.styles'
@@ -28,6 +29,7 @@ const Portfolio = () => {
 
 	return (
 		<PortfolioPageContainer>
+			<Link to="/addProject">Add Project</Link>
 			<PortfolioCardList>
 				{values.map(({ name, description, slug }) => (
 					<li>

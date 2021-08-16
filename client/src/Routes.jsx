@@ -23,6 +23,7 @@ const Routes = () => {
     ResetPassword,
     ChangePassword,
     BlogPost,
+    AddProject,
   } = CIndex
   return (
     <BrowserRouter>
@@ -35,6 +36,7 @@ const Routes = () => {
           exact
           component={PortfolioDetailsPage}
         />
+        <Route path="/addProject" exact component={AddProject} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/skills" exact component={SkillsPage} />
         <Route path="/resume" exact component={ResumePage} />
