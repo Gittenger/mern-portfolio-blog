@@ -8,7 +8,12 @@ export const CardContainer = styled.div`
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 60%;
 	justify-content: center;
-	background: orange;
+	background: ${({ bgColor }) =>
+		bgColor == 'blue'
+			? 'powderblue'
+			: bgColor == 'green'
+			? 'mediumseagreen'
+			: 'orange'};
 	width: 650px;
 	height: 800px;
 `
@@ -18,7 +23,7 @@ export const Overlay = styled(Link)`
 	top: 0;
 	left: 0;
 	${cssIndex.flexCenterCol}
-	background: rgba(255, 0, 0, 0%);
+	background: rgba(144, 150, 150, 0%);
 	width: 650px;
 	height: 800px;
 	cursor: pointer;
@@ -29,7 +34,7 @@ export const Overlay = styled(Link)`
 	}
 
 	&.active {
-		background: rgba(255, 0, 0, 50%);
+		background: rgba(144, 150, 150, 70%);
 
 		a {
 			opacity: 100%;

@@ -7,11 +7,8 @@ import {
 	ImgContainer,
 	Overlay,
 } from './Card.styles'
-import DesignOne from '../../../assets/img/design-1.png'
-import DesignTwo from '../../../assets/img/design-2.png'
-import DesignThree from '../../../assets/img/design-3.png'
 
-const Card = () => {
+const Card = ({ title, description, anchor, coverImg, bgColor }) => {
 	const [hoverState, setHoverState] = useState(false)
 
 	const handleMouseEnter = () => {
@@ -24,18 +21,19 @@ const Card = () => {
 
 	return (
 		<CardContainer
+			bgColor={bgColor}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			<Overlay to="/" className={hoverState ? 'active' : ''}>
-				<Link to="/">See Details</Link>
+			<Overlay to={anchor} className={hoverState ? 'active' : ''}>
+				<Link to={anchor}>See Details</Link>
 			</Overlay>
 			<TextContainer>
-				<h1>Card Title</h1>
-				<p>Card Description</p>
+				<h1>{title}</h1>
+				<p>{description}</p>
 			</TextContainer>
 			<ImgContainer>
-				<img src={DesignOne} alt="" />
+				<img src={coverImg} alt="" />
 			</ImgContainer>
 		</CardContainer>
 	)
