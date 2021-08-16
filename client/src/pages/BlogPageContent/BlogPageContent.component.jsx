@@ -16,7 +16,6 @@ const BlogPageContent = () => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
 				setValues({ ...values, posts: res.data })
 			})
 	}, [])
@@ -24,17 +23,7 @@ const BlogPageContent = () => {
 	return (
 		<BlogPageContentContainer>
 			{values.posts.map((post) => (
-				<Link
-					to={{
-						pathname: `blog/posts/${post.slug}`,
-						state: {
-							title: post.title,
-							id: post._id,
-						},
-					}}
-				>
-					{post.title}
-				</Link>
+				<Link to={`/blog/posts/${post.slug}`}>{post.title}</Link>
 			))}
 		</BlogPageContentContainer>
 	)

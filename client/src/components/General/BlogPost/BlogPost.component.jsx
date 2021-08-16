@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -8,12 +8,10 @@ import PostsContext from '../../../contexts/PostsContext.js'
 import { BlogPostContainer } from './BlogPost.styles'
 
 const BlogPost = () => {
-	const [data, setData] = useState({ content: '' })
-	const {
-		state: { title, id },
-	} = useLocation()
+	const [data, setData] = useState({ content: '', title: '', id: '' })
+	const { slug } = useParams()
 	const { urls, setUrlCache } = useContext(PostsContext)
-	const url = `${process.env.REACT_APP_API}/posts/${id}`
+	const url = `${process.env.REACT_APP_API}/posts/${slug}`
 
 	useEffect(() => {
 		// Try localStorage first
@@ -62,11 +60,13 @@ const BlogPost = () => {
 		},
 	}
 
+	const { content, title, id } = data
+
 	return (
 		<BlogPostContainer>
 			<h1>Post id: {id}</h1>
 			<h2>Title from parent: {title}</h2>
-			<ReactMarkdown components={renderers} children={data.content} />
+			<ReactMarkdown components={renderers} children={content} />
 		</BlogPostContainer>
 	)
 }

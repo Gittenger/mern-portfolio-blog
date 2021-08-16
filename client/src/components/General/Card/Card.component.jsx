@@ -8,7 +8,7 @@ import {
 	Overlay,
 } from './Card.styles'
 
-const Card = ({ title, description, anchor, coverImg, bgColor, dbKey }) => {
+const Card = ({ title, description, anchor, coverImg, bgColor }) => {
 	const [hoverState, setHoverState] = useState(false)
 
 	const handleMouseEnter = () => {
@@ -19,21 +19,14 @@ const Card = ({ title, description, anchor, coverImg, bgColor, dbKey }) => {
 		setHoverState(false)
 	}
 
-	const locationObj = {
-		pathname: anchor,
-		state: {
-			dbKey,
-		},
-	}
-
 	return (
 		<CardContainer
 			bgColor={bgColor}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			<Overlay to={locationObj} className={hoverState ? 'active' : ''}>
-				<Link to={locationObj}>See Details</Link>
+			<Overlay to={anchor} className={hoverState ? 'active' : ''}>
+				<Link to={anchor}>See Details</Link>
 			</Overlay>
 			<TextContainer>
 				<h1>{title}</h1>
