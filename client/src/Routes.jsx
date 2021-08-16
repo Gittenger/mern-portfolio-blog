@@ -13,6 +13,7 @@ import {
   ResumePage,
   BuildPage,
   BlogPage,
+  BlogDetailsPage,
 } from './pages/pages-index.js'
 
 const Routes = () => {
@@ -22,7 +23,6 @@ const Routes = () => {
     ForgotPassword,
     ResetPassword,
     ChangePassword,
-    BlogPost,
     AddProject,
   } = CIndex
   return (
@@ -43,7 +43,7 @@ const Routes = () => {
         <Route path="/build" exact component={BuildPage} />
         <Route path="/blog" exact component={BlogPage} />
         <Route path="/blog/posts" exact component={BlogPage} />
-        <Route path="/blog/posts/:slug" exact component={BlogPost} />
+        <Route path="/blog/posts/:slug" exact component={BlogDetailsPage} />
         <AdminRoute path="/admin" exact component={AdminDashboard} />
         <AdminRoute path="/forgot-password" exact component={ForgotPassword} />
         <AdminRoute path="/change-password" exact component={ChangePassword} />

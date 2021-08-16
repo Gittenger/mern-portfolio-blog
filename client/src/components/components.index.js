@@ -12,7 +12,6 @@ import NavDesk from './Core/NavDesk/NavDesk.component.jsx'
 import NavList from './Core/NavList/NavList.component.jsx'
 import NavMobile from './Core/NavMobile/NavMobile.component.jsx'
 import ToggleNavButton from './Core/ToggleNavButton/ToggleNavButton.component.jsx'
-import BlogPost from './General/BlogPost/BlogPost.component.jsx'
 import Checkbox from './General/Checkbox/Checkbox.component.jsx'
 import ContactForm from './General/ContactForm/ContactForm.component.jsx'
 import TComp from './typography/typography.components.js'
@@ -31,7 +30,6 @@ export const CIndex = {
 	NavList,
 	NavMobile,
 	ToggleNavButton,
-	BlogPost,
 	Checkbox,
 	ContactForm,
 	TComp,

@@ -5,6 +5,7 @@ import Login from './Login/Login.component.jsx'
 import Contact from './Contact/Contact.component.jsx'
 import Skills from './Skills/Skills.component.jsx'
 import Blog from './Blog/Blog.component.jsx'
+import BlogDetails from './BlogDetails/BlogDetails.component.jsx'
 import Resume from './Resume/Resume.component.jsx'
 import Build from './Build/Build.component.jsx'
 
@@ -18,6 +19,7 @@ const pages = {
 	ContactPage: getPage('Contact', Contact),
 	SkillsPage: getPage('Skills', Skills),
 	BlogPage: getPage('Blog', Blog),
+	BlogDetailsPage: getPage('Blog', BlogDetails),
 	ResumePage: getPage('Resume', Resume),
 	BuildPage: getPage('Build', Build),
 }
@@ -30,6 +32,7 @@ export const {
 	ContactPage,
 	SkillsPage,
 	BlogPage,
+	BlogDetailsPage,
 	ResumePage,
 	BuildPage,
 } = pages

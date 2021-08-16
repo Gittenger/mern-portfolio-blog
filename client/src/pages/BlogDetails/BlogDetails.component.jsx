@@ -4,10 +4,11 @@ import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-import PostsContext from '../../../contexts/PostsContext.js'
-import { BlogPostContainer } from './BlogPost.styles'
+import PostsContext from '../../contexts/PostsContext.js'
 
-const BlogPost = () => {
+import { BlogPostContainer } from './BlogDetails.styles'
+
+const BlogDetails = () => {
 	const [data, setData] = useState({ content: '', title: '', id: '' })
 	const { slug } = useParams()
 	const { urls, setUrlCache } = useContext(PostsContext)
@@ -71,4 +72,4 @@ const BlogPost = () => {
 	)
 }
 
-export default BlogPost
+export default BlogDetails
