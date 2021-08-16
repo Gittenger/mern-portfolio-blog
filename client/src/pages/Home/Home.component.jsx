@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 import Images from '../../assets/img/img-index'
 
-import { HomePageContainer } from './HomePageContent.styles.jsx'
+import { HomePageContainer } from './Home.styles.jsx'
 import CIndex from '../../components/components.index.js'
 
 const { ProfileImg } = Images
 
-const HomePageContent = () => {
+const Home = () => {
 	const {
 		TComp: { P, PSmall },
 	} = CIndex
@@ -65,4 +65,4 @@ const HomePageContent = () => {
 	)
 }
 
-export default HomePageContent
+export default Home

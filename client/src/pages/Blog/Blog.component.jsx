@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import { BlogPageContentContainer } from './BlogPageContent.styles'
+import { BlogPageContentContainer } from './Blog.styles'
 
-const BlogPageContent = () => {
+const Blog = () => {
 	const [values, setValues] = useState({ posts: [] })
 
 	useEffect(() => {
@@ -29,4 +29,4 @@ const BlogPageContent = () => {
 	)
 }
 
-export default BlogPageContent
+export default Blog

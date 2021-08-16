@@ -7,6 +7,10 @@ const { tabletMM, mobileS } = device
 export const SkillsPageContentContainer = styled.div`
   ${cssIndex.flexCenterCol}
 
+  & > div {
+    ${cssIndex.flexCenterCol}
+  }
+
   ul {
     display: none;
     max-width: 85%;

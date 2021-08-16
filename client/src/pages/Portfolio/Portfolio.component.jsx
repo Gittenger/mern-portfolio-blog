@@ -1,10 +1,7 @@
 import React from 'react'
 
 import { CIndex } from '../../components/components.index.js'
-import {
-	PortfolioPageContainer,
-	PortfolioCardList,
-} from './PortfolioPageContent.styles'
+import { PortfolioPageContainer, PortfolioCardList } from './Portfolio.styles'
 import DesignOne from '../../assets/img/design-1.png'
 import DesignTwo from '../../assets/img/design-2.png'
 import DesignThree from '../../assets/img/design-3.png'

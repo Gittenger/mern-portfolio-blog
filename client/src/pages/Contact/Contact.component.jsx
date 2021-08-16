@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 
 import CIndex from '../../components/components.index.js'
 
-import { ContactPageContainer } from './ContactPageContent.styles.jsx'
+import { ContactPageContainer } from './Contact.styles.jsx'
 
-const ContactPageContent = () => {
+const Contact = () => {
 	const { ContactForm } = CIndex
 
 	useEffect(() => {
@@ -18,4 +18,4 @@ const ContactPageContent = () => {
 	)
 }
 
-export default ContactPageContent
+export default Contact

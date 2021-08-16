@@ -1,35 +1,35 @@
-import HomePageContent from './HomePageContent/HomePageContent.component.jsx'
-import PortfolioPageContent from './PortfolioPageContent/PortfolioPageContent.component.jsx'
-import PortfolioDetailsContent from './PortfolioDetailsContent/PortfolioDetailsContent.component.jsx'
-import LoginPageContent from './LoginPageContent/LoginPageContent.component.jsx'
-import ContactPageContent from './ContactPageContent/ContactPageContent.component.jsx'
-import SkillsPageContent from './SkillsPageContent/SkillsPageContent.component.jsx'
-import BlogPageContent from './BlogPageContent/BlogPageContent.component.jsx'
-import ResumePageContent from './ResumePageContent/ResumePageContent.component.jsx'
-import BuildPageContent from './BuildPageContent/BuildPageContent.component.jsx'
+import Home from './Home/Home.component.jsx'
+import Portfolio from './Portfolio/Portfolio.component.jsx'
+import PortfolioDetails from './PortfolioDetails/PortfolioDetails.component.jsx'
+import Login from './Login/Login.component.jsx'
+import Contact from './Contact/Contact.component.jsx'
+import Skills from './Skills/Skills.component.jsx'
+import Blog from './Blog/Blog.component.jsx'
+import Resume from './Resume/Resume.component.jsx'
+import Build from './Build/Build.component.jsx'
 
 import getPage from './PageComponent.jsx'
 
 const pages = {
-  HomePage: getPage('Home', HomePageContent),
-  PortfolioPage: getPage('Portfolio', PortfolioPageContent),
-  PortfolioDetails: getPage('Portfolio', PortfolioDetailsContent),
-  LoginPage: getPage('Login', LoginPageContent),
-  ContactPage: getPage('Contact', ContactPageContent),
-  SkillsPage: getPage('Skills', SkillsPageContent),
-  BlogPage: getPage('Blog', BlogPageContent),
-  ResumePage: getPage('Resume', ResumePageContent),
-  BuildPage: getPage('Build', BuildPageContent),
+	HomePage: getPage('Home', Home),
+	PortfolioPage: getPage('Portfolio', Portfolio),
+	PortfolioDetailsPage: getPage('Portfolio', PortfolioDetails),
+	LoginPage: getPage('Login', Login),
+	ContactPage: getPage('Contact', Contact),
+	SkillsPage: getPage('Skills', Skills),
+	BlogPage: getPage('Blog', Blog),
+	ResumePage: getPage('Resume', Resume),
+	BuildPage: getPage('Build', Build),
 }
 
 export const {
-  HomePage,
-  PortfolioPage,
-  PortfolioDetails,
-  LoginPage,
-  ContactPage,
-  SkillsPage,
-  BlogPage,
-  ResumePage,
-  BuildPage,
+	HomePage,
+	PortfolioPage,
+	PortfolioDetailsPage,
+	LoginPage,
+	ContactPage,
+	SkillsPage,
+	BlogPage,
+	ResumePage,
+	BuildPage,
 } = pages
