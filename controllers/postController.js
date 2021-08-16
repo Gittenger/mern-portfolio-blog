@@ -3,9 +3,9 @@ const slugify = require('slugify')
 const formidable = require('formidable')
 
 exports.getFile = async (req, res) => {
-	const id = req.params.id
+	const slug = req.params.slug
 
-	const md = await Markdown.findById(id)
+	const md = await Markdown.findOne({ slug })
 
 	res.status(200).json({
 		message: 'success',

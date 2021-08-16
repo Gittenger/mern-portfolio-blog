@@ -5,7 +5,7 @@ const { getFile, getAll, createPost } = postController
 
 const router = express.Router()
 
-router.get('/:id', getFile)
+router.get('/:slug', getFile)
 router.get('/', getAll)
 router.post('/', createPost)
 
