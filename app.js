@@ -12,6 +12,7 @@ const userRoutes = require('./routes/userRoutes')
 const imageRoutes = require('./routes/imageRoutes')
 const contactRoutes = require('./routes/contactRoutes')
 const postRoutes = require('./routes/postRoutes')
+const projectRoutes = require('./routes/projectRoutes')
 
 const AppError = require('./utils/appError')
 const globalErrorHandler = require('./controllers/errorController')
@@ -80,6 +81,7 @@ app.use('/api/users', userRoutes)
 app.use('/api/images', imageRoutes)
 app.use('/api/contact', contactRoutes)
 app.use('/api/posts', postRoutes)
+app.use('/api/projects', projectRoutes)
 
 app.all('*', (req, res, next) => {
 	next(
