@@ -38,9 +38,7 @@ const BlogDetails = () => {
 				.then((res) => {
 					setUrlCache(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
-					if (urls[url]) {
-						setData({ ...urls[url] })
-					}
+					setData({ ...res.data })
 				})
 				.catch((err) => console.error(err))
 		}
