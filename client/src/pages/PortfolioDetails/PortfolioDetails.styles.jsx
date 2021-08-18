@@ -4,4 +4,10 @@ import { cssIndex } from '../../styles/css/utils.styles.js'
 
 export const PortfolioDetailsContainer = styled.div`
   ${cssIndex.flexCenterCol}
+
+  ul {
+    img {
+      max-width: 100px;
+    }
+  }
 `
