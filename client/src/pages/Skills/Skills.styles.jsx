@@ -11,18 +11,19 @@ export const SkillsPageContentContainer = styled.div`
     ${cssIndex.flexCenterCol}
   }
 
-  ul {
-    display: none;
-    max-width: 85%;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    grid-auto-rows: 250px;
+  & > div.accordion > ul {
+    display: grid;
+    max-width: 95%;
+    grid-template-columns: 1fr;
+    // grid-auto-rows: 250px;
     grid-row-gap: 4rem;
     grid-column-gap: 3rem;
     justify-content: center;
     justify-items: center;
     li {
-      ${cssIndex.flexCenterCol}
-      width: 100%;
+      // ${cssIndex.flexCenterCol}
+      align-items: flex-start;
+      width: 70%;
       img {
         max-width: 100%;
         max-height: 100%;
