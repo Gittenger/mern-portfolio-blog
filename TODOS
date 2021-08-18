@@ -1,7 +1,38 @@
-CLIENT:
-set up caching for projects overview and details
-Set up loading states
-Create dummy blank images ?
-Add gifs to site for project demos
-Add resume section -- allow display and download (maybe embed)
-Skills section -- change to cards with info about my skills with each
+A) Skills Page
+___
+1. Create cards design for skills page.
+	--Write up skill details to go on each card.
+2. Create skills API to hold skill details data in DB
+	--Skill name, description, key bullet points, competency level
+3. Implement skills API by mapping through DB response and declaratively rendering cards
+
+B) Resume Page
+___
+1. Design resume page
+	--Sections include: Project history, Education, Brief bio, brief what I'm looking for, Link to mail/github/linkedin
+	--Display Resume on page?
+	--Link to drive hosted resume?
+	--Link to download PDF (look up how)
+
+C) Structure
+___
+1. Refactor caching to be even more efficient
+	--cache entire site, all portolio once land on portfolio overview page, same for blog
+2. reorganize imgs in assets
+3. refactor code for consistency
+	--Check naming convention for useState
+4. Improved naming convention (js vs jsx for styles?)
+	--Project vs portfolio?
+
+D) General improvements
+___
+1. Dummy blank images when images haven't loaded yet
+	--Simply a box of a predetermined size to hold/mask image, grey box til load
+2. Loading spinner while API is fetching for Portfolio/Blog
+3. Write Markdowns describing a couple projects
+	--In meantime, use a simple README to stand-in for demo
+4. Add test GIF's to project details page
+
+...
+Later...
+- Create GIF's of finished projects running, for demo on project page
