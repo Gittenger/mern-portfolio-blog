@@ -11,9 +11,9 @@ body {
 	${({ theme: { css } }) => css.flexCenterCol};
     font-size: 1.7rem;
  
-    transition: background-color .3s, color .3s;
-
     ${({ theme: { css } }) => css.scrollBarStyles};
+    background: var(--grey);
+    
 }
 
 #root {
@@ -23,6 +23,12 @@ body {
     
     /* set font vars in root */
     ${({ theme: { typography } }) => typography.fontVars.fontMain};
+
+}
+
+html {
+        /* set shared typography styles */
+    ${({ theme: { typography } }) => typography.sharedStyles};
 
    /* Custom Variables */
     /* Colors */
@@ -57,11 +63,6 @@ body {
     --gradFooter: ${({ theme: { gradient } }) => gradient.footer};
     --gradTitle: ${({ theme: { gradient } }) => gradient.title};
     --gradForm: ${({ theme: { gradient } }) => gradient.form};
-}
-
-html {
-        /* set shared typography styles */
-    ${({ theme: { typography } }) => typography.sharedStyles};
 }
 `
 
