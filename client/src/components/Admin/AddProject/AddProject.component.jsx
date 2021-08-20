@@ -45,26 +45,47 @@ const AddProject = () => {
 	const { name, description, descriptionLong, slug, techStack, link } = values
 	return (
 		<form>
-			<input onChange={handleChange} type="text" value={name} name="name" />
+			<input
+				onChange={handleChange}
+				type="text"
+				value={name}
+				name="name"
+				placeholder="name"
+			/>
 			<input
 				onChange={handleChange}
 				type="text"
 				value={description}
 				name="description"
+				placeholder="description"
 			/>
-			<input onChange={handleChange} type="text" value={slug} name="slug" />
+			<input
+				onChange={handleChange}
+				type="text"
+				value={slug}
+				name="slug"
+				placeholder="slug"
+			/>
 			<input
 				onChange={handleChange}
 				type="text"
 				value={techStack}
 				name="techStack"
+				placeholder="techStack"
 			/>
-			<input onChange={handleChange} type="text" value={link} name="link" />
+			<input
+				onChange={handleChange}
+				type="text"
+				value={link}
+				name="link"
+				placeholder="link"
+			/>
 			<textarea
 				name="descriptionLong"
 				cols="30"
 				rows="10"
 				onChange={handleChange}
+				placeholder="descriptionLong"
 			></textarea>
 			<button onClick={handleSubmit}>Submit</button>
 		</form>

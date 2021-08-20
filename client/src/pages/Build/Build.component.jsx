@@ -43,19 +43,33 @@ const Build = () => {
 	return (
 		<BuildPageContentContainer>
 			<form>
-				<input name="title" type="text" onChange={handleChange} value={title} />
+				<input
+					name="title"
+					type="text"
+					onChange={handleChange}
+					value={title}
+					placeholder="title"
+				/>
 				<input
 					name="excerpt"
 					type="text"
 					onChange={handleChange}
 					value={excerpt}
+					placeholder="excerpt"
 				/>
-				<input name="date" type="text" onChange={handleChange} value={date} />
+				<input
+					name="date"
+					type="text"
+					onChange={handleChange}
+					value={date}
+					placeholder="date"
+				/>
 				<textarea
 					name="content"
 					cols="30"
 					rows="10"
 					onChange={handleChange}
+					placeholder="content"
 				></textarea>
 
 				<button onClick={handleSubmit}>Submit</button>
