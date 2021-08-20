@@ -10,6 +10,7 @@ export const SkillCardContainer = styled.div`
 
 	& > ul {
 		display: list-item;
+
 		li {
 			margin-left: 5rem;
 			list-style: disc;
@@ -17,7 +18,7 @@ export const SkillCardContainer = styled.div`
 	}
 
 	.img {
-		background: var(--white);
+		// background: var(--white);
 		border-radius: 10px;
 		padding: 0.7rem;
 		max-width: 220px;

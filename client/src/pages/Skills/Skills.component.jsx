@@ -1,21 +1,17 @@
 import React, { useState } from 'react'
 
-import { SkillsPageContentContainer } from './Skills.styles'
+import {
+	SkillsPageContentContainer,
+	SkillCardsContainer,
+} from './Skills.styles'
 import SkillCard from '../../components/General/SkillCard/SkillCard.component'
 
 const Skills = () => {
-	const [showList, setShowList] = useState(false)
-
-	const handleClick = () => {
-		setShowList(!showList)
-	}
-
 	return (
 		<SkillsPageContentContainer>
 			{/* Have a setup section to explain my development environment */}
-			<div className="accordion">
-				<button onClick={handleClick}>Click</button>
-				<ul className={showList ? 'active' : ''}>
+			<SkillCardsContainer>
+				<ul>
 					<li>
 						<SkillCard
 							name="NodeJS"
@@ -38,7 +34,7 @@ const Skills = () => {
 						/>
 					</li>
 				</ul>
-			</div>
+			</SkillCardsContainer>
 		</SkillsPageContentContainer>
 	)
 }

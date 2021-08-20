@@ -18,8 +18,6 @@ const SkillCard = ({ name, desc, bullet, competency, img }) => {
 	return (
 		<SkillCardContainer>
 			<h1>{name}</h1>
-			<p>{desc}</p>
-			<p>Core skills:</p>
 			<div className="img">
 				<img
 					src={
@@ -50,6 +48,8 @@ const SkillCard = ({ name, desc, bullet, competency, img }) => {
 					alt=""
 				/>
 			</div>
+			<p>{desc}</p>
+			<p>Core skills:</p>
 			<ul>
 				{bullet.map((el) => (
 					<li>{el}</li>
