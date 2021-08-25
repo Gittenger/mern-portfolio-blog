@@ -14,48 +14,49 @@ import VimSvg from '../../../assets/img/skills/svg/vim.svg'
 
 import { SkillCardContainer } from './SkillCard.styles'
 
-const SkillCard = ({ name, desc, bullet, competency, img }) => {
+const SkillCard = ({ name, desc, bullet, img }) => {
 	return (
 		<SkillCardContainer>
-			<h1>{name}</h1>
-			<div className="img">
-				<img
-					src={
-						img === 'nodejs'
-							? NodeImg
-							: img === 'git'
-							? GitImg
-							: img === 'redux'
-							? ReduxImg
-							: img === 'aws'
-							? AwsImg
-							: img === 'python'
-							? PythonImg
-							: img === 'react'
-							? ReactSvg
-							: img === 'figma'
-							? FigmaSvg
-							: img === 'firebase'
-							? FirebaseSvg
-							: img === 'graphql'
-							? GraphqlSvg
-							: img === 'linux'
-							? LinuxSvg
-							: img === 'vim'
-							? VimSvg
-							: ReactSvg
-					}
-					alt=""
-				/>
+			<div className="title-box">
+				<div className="img-box">
+					<img
+						src={
+							img === 'nodejs'
+								? NodeImg
+								: img === 'git'
+								? GitImg
+								: img === 'redux'
+								? ReduxImg
+								: img === 'aws'
+								? AwsImg
+								: img === 'python'
+								? PythonImg
+								: img === 'react'
+								? ReactSvg
+								: img === 'figma'
+								? FigmaSvg
+								: img === 'firebase'
+								? FirebaseSvg
+								: img === 'graphql'
+								? GraphqlSvg
+								: img === 'linux'
+								? LinuxSvg
+								: img === 'vim'
+								? VimSvg
+								: ReactSvg
+						}
+						alt=""
+					/>
+				</div>
+				<h1>{name}</h1>
 			</div>
-			<p>{desc}</p>
+			<p className="desc">{desc}</p>
 			<p>Core skills:</p>
 			<ul>
 				{bullet.map((el) => (
 					<li>{el}</li>
 				))}
 			</ul>
-			<p>Competency level: {competency}</p>
 		</SkillCardContainer>
 	)
 }
