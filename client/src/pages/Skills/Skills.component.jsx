@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import {
 	SkillsPageContentContainer,
@@ -7,6 +7,27 @@ import {
 import SkillCard from '../../components/General/SkillCard/SkillCard.component'
 
 const Skills = () => {
+	const [values, setValues] = useState([
+		{ name: '', desc: '', bullet: [], img: '', years: '' },
+	])
+
+	const url = `${process.env.REACT_APP_API}/skills`
+
+	useEffect(() => {
+		fetch(url, {
+			method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+		})
+			.then((res) => res.json())
+			.then((res) => {
+				setValues(res.skills)
+			})
+			.catch((err) => console.error(err))
+	}, [])
+
 	return (
 		<SkillsPageContentContainer>
 			{/* Have a setup section to explain my development environment */}
@@ -15,32 +36,11 @@ const Skills = () => {
 			</div>
 			<SkillCardsContainer>
 				<ul>
-					<li>
-						<SkillCard
-							name="NodeJS"
-							desc="I am very experienced at building web applications on the Node runtime. I am extremely familiar with all the basics of its ins and outs and can quickly set up and configure new applications to be powered with a NodeJS back-end."
-							bullet={[
-								'Using NPM to find and manage all necessary tools and plugins',
-								'Building robust back-ends using tools and libraries such as Express or Adonis',
-								"Creating API's to run server side to be consumed by client",
-								'Scripting production commands to run application on production server such as inside a cloud-based VPS or container',
-								'Custom Node scripts to be executed at the command line for managing read/write operations on file system',
-							]}
-							img="nodejs"
-						/>
-					</li>
-					<li>
-						<SkillCard
-							name="Git"
-							desc="I am highly competent at using git to manage projects. I use it on every personal project and have gotten better over the years at using it efficiently."
-							bullet={[
-								'All basics -- branching, pulling, pushing, merging, sending pull requests, comparing with diff',
-								'I use it daily and utilize shell aliases to issue almost all git commands with only a few keystrokes',
-								'Small commits for better traceability',
-							]}
-							img="git"
-						/>
-					</li>
+					{values.map(({ ...props }) => (
+						<li>
+							<SkillCard {...props} />
+						</li>
+					))}
 				</ul>
 			</SkillCardsContainer>
 		</SkillsPageContentContainer>

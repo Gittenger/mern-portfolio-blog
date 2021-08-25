@@ -14,7 +14,7 @@ import VimSvg from '../../../assets/img/skills/svg/vim.svg'
 
 import { SkillCardContainer } from './SkillCard.styles'
 
-const SkillCard = ({ name, desc, bullet, img }) => {
+const SkillCard = ({ name, desc, bullet, img, years }) => {
 	return (
 		<SkillCardContainer>
 			<div className="title-box">
