@@ -35,6 +35,7 @@ html {
     --main: ${({ theme: { colors } }) => colors.main};
     --white: ${({ theme: { colors } }) => colors.white};
     --grey: ${({ theme: { colors } }) => colors.greyLight};
+    --greyMedium: ${({ theme: { colors } }) => colors.greyMedium};
     --black: ${({ theme: { colors } }) => colors.black};
     --main: ${({ theme: { colors } }) => colors.redDark};
 
