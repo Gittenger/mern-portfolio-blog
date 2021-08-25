@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 
+import SkillsContext from '../../contexts/SkillsContext.js'
+
 import {
 	SkillsPageContentContainer,
 	SkillCardsContainer,
@@ -10,22 +12,38 @@ const Skills = () => {
 	const [values, setValues] = useState([
 		{ name: '', desc: '', bullet: [], img: '', years: '' },
 	])
+	const { skillsUrls, setSkillsContext } = useContext(SkillsContext)
 
 	const url = `${process.env.REACT_APP_API}/skills`
 
 	useEffect(() => {
-		fetch(url, {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				setValues(res.skills)
+		if (localStorage.getItem(url)) {
+			console.log('getting from local')
+			setValues(JSON.parse(localStorage.getItem(url)))
+			setSkillsContext(
+				url,
+				localStorage.getItem(JSON.parse(localStorage.getItem(url)))
+			)
+		} else if (skillsUrls[url]) {
+			console.log('getting from context')
+			setValues(skillsUrls[url])
+		} else {
+			console.log('getting from api')
+			fetch(url, {
+				method: 'GET',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
 			})
-			.catch((err) => console.error(err))
+				.then((res) => res.json())
+				.then((res) => {
+					localStorage.setItem(url, JSON.stringify(res.skills))
+					setSkillsContext(url, res.skills)
+					setValues(res.skills)
+				})
+				.catch((err) => console.error(err))
+		}
 	}, [])
 
 	return (

@@ -6,6 +6,7 @@ import GlobalStyles from './styles/global.styles.jsx'
 import PageProvider from './contexts/PageProvider.jsx'
 import PostsProvider from './contexts/PostsProvider.jsx'
 import ProjectsProvider from './contexts/ProjectsProvider.jsx'
+import SkillsProvider from './contexts/SkillsProvider.jsx'
 
 import { ThemeProvider } from 'styled-components'
 import theme from './styles/theme'
@@ -17,11 +18,13 @@ ReactDOM.render(
 		<ThemeProvider theme={theme}>
 			<GlobalStyles />
 			<PageProvider>
-				<ProjectsProvider>
-					<PostsProvider>
-						<App />
-					</PostsProvider>
-				</ProjectsProvider>
+				<SkillsProvider>
+					<ProjectsProvider>
+						<PostsProvider>
+							<App />
+						</PostsProvider>
+					</ProjectsProvider>
+				</SkillsProvider>
 			</PageProvider>
 		</ThemeProvider>
 	</React.StrictMode>,

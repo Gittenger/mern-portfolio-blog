@@ -3,7 +3,7 @@ ___
 ###1. Create cards design for skills page.
 	--Write up skill details to go on each card.
 ###2. Create skills API to hold skill details data in DB
-3. Implement skills API by mapping through DB response and declaratively rendering cards
+###3. Implement skills API by mapping through DB response and declaratively rendering cards
 4. Check for ::marker compatibility, if compatible, custom marker using ::marker
 
 B) Resume Page
