@@ -3,13 +3,13 @@ import { cssIndex } from './css/utils.styles'
 
 const colors = {
 	white: '#fefefe',
-	greyLight: '#f8f8f8',
-	greyMedium: '#dddddd',
+	greyLight: '#f5f5f5',
+	greyMedium: '#5c6370',
 	dark: '#363435',
 	darker: '#252324',
 	blackLight: `#131213`,
-	black: '#0a0a0a',
-	main: '#1479EB',
+	black: '#17191e',
+	cyan: '#56b6c2',
 }
 
 const colorsRGB = {
@@ -19,7 +19,6 @@ const colorsRGB = {
 	dark: '54, 52, 53',
 	darker: '37, 35, 36',
 	black: '15, 14, 15',
-	main: '20, 121, 235',
 }
 
 const gradient = {

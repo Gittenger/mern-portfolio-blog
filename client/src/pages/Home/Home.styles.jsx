@@ -106,6 +106,7 @@ export const HomePageContainer = styled.div`
 		margin-bottom: 4rem;
 
 		& > .project-link {
+			${cssIndex.flexCenterCol}
 			background: red;
 			border-radius: 50%;
 			width: 100px;
@@ -114,6 +115,7 @@ export const HomePageContainer = styled.div`
 
 			a {
 				${cssIndex.flexCenterCol}
+				text-align: center;
 				width: 100%;
 				height: 100%;
 			}

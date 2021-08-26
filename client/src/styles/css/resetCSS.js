@@ -26,6 +26,7 @@ export const resetCSS = css`
 	a:link,
 	a:visited {
 		color: unset;
+		color: var(--white);
 	}
 
 	ul,

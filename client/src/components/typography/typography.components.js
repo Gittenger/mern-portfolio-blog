@@ -6,6 +6,7 @@ import { device } from '../../styles/css/utils.styles'
 
 export const H2Styles = css`
 	font-family: var(--fontHeading);
+	color: var(--white);
 	letter-spacing: 0.05em;
 	white-space: nowrap;
 	text-align: center;
@@ -36,6 +37,7 @@ export const H2Styles = css`
 export const PStyles = css`
 	font-family: var(--fontMain);
 	font-weight: 400;
+	color: var(--white);
 	letter-spacing: 0.03em;
 	margin-bottom: 0.9rem;
 	text-align: center;
@@ -61,8 +63,9 @@ export const PStyles = css`
 `
 export const PSmallStyles = css`
 	${PStyles}
-	--scale: .75;
-	line-height: 1.2;
+	color: var(--white);
+	--scale: 0.75;
+	line-height: 1.3;
 	letter-spacing: 0.02em;
 `
 

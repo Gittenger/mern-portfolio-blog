@@ -12,8 +12,7 @@ body {
     font-size: 1.7rem;
  
     ${({ theme: { css } }) => css.scrollBarStyles};
-    background: var(--grey);
-    
+    background: var(--black);
 }
 
 #root {
@@ -32,12 +31,12 @@ html {
 
    /* Custom Variables */
     /* Colors */
-    --main: ${({ theme: { colors } }) => colors.main};
     --white: ${({ theme: { colors } }) => colors.white};
     --grey: ${({ theme: { colors } }) => colors.greyLight};
     --greyMedium: ${({ theme: { colors } }) => colors.greyMedium};
     --black: ${({ theme: { colors } }) => colors.black};
-    --main: ${({ theme: { colors } }) => colors.redDark};
+    --main: ${({ theme: { colors } }) => colors.cyan};
+    --cyan: ${({ theme: { colors } }) => colors.cyan};
 
     /* Measurements */
     --bRadSm: ${({ theme: { styles } }) => styles.borderRadiusSm};

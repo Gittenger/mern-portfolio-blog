@@ -4,9 +4,14 @@ import { cssIndex } from '../../../styles/css/utils.styles.js'
 export const SkillCardContainer = styled.div`
 	${cssIndex.flexCenterCol}
 	align-items: flex-start;
-	background: var(--white);
+	background-image: linear-gradient(
+		160deg,
+		var(--white) 0%,
+		var(--greyMedium) 250%
+	);
 	padding: 1rem 3rem 5rem;
 	border-radius: 10px;
+	box-shadow: var(--shadowBoxOne);
 
 	& > ul {
 		display: list-item;
@@ -42,6 +47,10 @@ export const SkillCardContainer = styled.div`
 		border-radius: 7px;
 		padding: 1.5rem;
 		box-shadow: var(--shadowBoxTwo);
-		background-image: linear-gradient(310deg, white 0%, var(--greyMedium) 170%);
+		background-image: linear-gradient(
+			270deg,
+			white -50%,
+			var(--greyMedium) 500%
+		);
 	}
 `

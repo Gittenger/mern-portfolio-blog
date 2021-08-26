@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom'
 
 import ProjectsContext from '../../contexts/ProjectsContext.js'
 
+import CIndex from '../../components/components.index.js'
 import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
+
 import GatsbyImg from '../../assets/img/skills/gatsby.png'
 import NodeImg from '../../assets/img/skills/node.png'
 import CSS3Img from '../../assets/img/skills/css3.png'
@@ -13,6 +15,9 @@ import NextjsImg from '../../assets/img/skills/svg/nextjs.svg'
 import PugImg from '../../assets/img/skills/svg/pug.svg'
 
 const PortfolioDetails = () => {
+	const {
+		TComp: { PSmall },
+	} = CIndex
 	const [fields, setFields] = useState({
 		name: '',
 		descriptionLong: '',
@@ -51,8 +56,8 @@ const PortfolioDetails = () => {
 
 	return (
 		<PortfolioDetailsContainer>
-			<p>{name}</p>
-			<p>{descriptionLong}</p>
+			<PSmall>{name}</PSmall>
+			<PSmall>{descriptionLong}</PSmall>
 			<a href={link}>Link to project</a>
 			<ul>
 				{techStack.map((el) => {

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { cssIndex } from '../../styles/css/utils.styles.js'
+import { cssIndex, device } from '../../styles/css/utils.styles.js'
+const { tabletMM, mobileM } = device
 
 export const BlogDetailsContainer = styled.div`
 	${cssIndex.flexCenterCol}
@@ -13,8 +14,9 @@ export const BlogDetailsContainer = styled.div`
 	}
 
 	& > p > code {
-		background: black;
-		color: white;
+		background: #282a36;
+		color: #f1fa8c;
+		padding: 5px;
 	}
 
 	& > pre > div > code {
@@ -36,5 +38,31 @@ export const BlogDetailsContainer = styled.div`
 
 	pre {
 		margin-bottom: 0.8rem;
+	}
+
+	${tabletMM} {
+		pre > div {
+			padding: 0.8em !important;
+			line-height: 1.1 !important;
+
+			& code {
+				line-height: 1.1 !important;
+
+				span {
+					font-size: 0.85em;
+				}
+			}
+		}
+
+		// embedded code
+		& > p > code {
+			padding: 1px;
+		}
+	}
+
+	${mobileM} {
+		pre > div code span {
+			font-size: 0.6em;
+		}
 	}
 `

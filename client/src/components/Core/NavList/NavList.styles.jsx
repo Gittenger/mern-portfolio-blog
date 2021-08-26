@@ -20,7 +20,7 @@ export const NavListContainer = styled.ul`
 
 		&:link,
 		&:visited {
-			color: var(--black);
+			color: var(--white);
 		}
 	}
 

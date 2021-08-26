@@ -6,7 +6,6 @@ const { laptopS, tabletM, mobileM } = device
 
 export const SkillsPageContentContainer = styled.div`
   ${cssIndex.flexCenterCol}
-  background: var(--main);
   padding: 3rem 0;
   width: 100%;
 
@@ -15,7 +14,11 @@ export const SkillsPageContentContainer = styled.div`
       font-family: var(--fontHeadingSpecial);
       font-style: italic;
       margin-bottom: 2rem;
-      background-image: linear-gradient(210deg, black, red);
+      background-image: linear-gradient(
+        210deg,
+        var(--main) 0%,
+        var(--black) 200%
+      );
       background-clip: text;
       -webkit-background-clip: text;
       text-fill-color: transparent;

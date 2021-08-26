@@ -11,7 +11,7 @@ import CIndex from '../../components/components.index.js'
 
 const BlogDetails = () => {
 	const {
-		TComp: { PSmall },
+		TComp: { PSmall, H2 },
 	} = CIndex
 	const [data, setData] = useState({ content: '', title: '' })
 	const { slug } = useParams()
@@ -70,7 +70,7 @@ const BlogDetails = () => {
 
 	return (
 		<BlogDetailsContainer>
-			<h2>{title}</h2>
+			<H2>{title}</H2>
 			<ReactMarkdown components={renderers} children={content} />
 		</BlogDetailsContainer>
 	)
