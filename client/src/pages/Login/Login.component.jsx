@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import auth from '../../utils/auth.js'
 
 import { Form, Row, LoginPageContentContainer } from './Login.styles'
+
+import auth from '../../utils/auth.js'
 
 const { authUser, setAuthToken } = auth
 

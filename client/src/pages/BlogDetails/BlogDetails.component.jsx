@@ -4,10 +4,10 @@ import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-import PostsContext from '../../contexts/PostsContext.js'
-
-import { BlogDetailsContainer } from './BlogDetails.styles'
 import CIndex from '../../components/components.index.js'
+import { BlogDetailsContainer } from './BlogDetails.styles'
+
+import PostsContext from '../../contexts/PostsContext.js'
 
 const BlogDetails = () => {
 	const {
@@ -34,13 +34,13 @@ const BlogDetails = () => {
 					'Content-Type': 'application/json',
 				},
 			})
-				.then((res) => res.json())
-				.then((res) => {
+				.then(res => res.json())
+				.then(res => {
 					setUrlCache(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
 					setData({ ...res.data })
 				})
-				.catch((err) => console.error(err))
+				.catch(err => console.error(err))
 		}
 	}, [urls[url], localStorage.getItem(url)])
 

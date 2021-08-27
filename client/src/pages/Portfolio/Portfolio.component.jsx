@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { CIndex } from '../../components/components.index.js'
+import CIndex from '../../components/components.index.js'
 import { PortfolioPageContainer, PortfolioCardList } from './Portfolio.styles'
+
 import DesignOne from '../../assets/img/design-1.png'
 import DesignTwo from '../../assets/img/design-2.png'
 import DesignThree from '../../assets/img/design-3.png'

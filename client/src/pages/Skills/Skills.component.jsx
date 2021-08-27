@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 
-import SkillsContext from '../../contexts/SkillsContext.js'
-
+import CIndex from '../../components/components.index'
 import {
 	SkillsPageContentContainer,
 	SkillCardsContainer,
 } from './Skills.styles'
-import SkillCard from '../../components/General/SkillCard/SkillCard.component'
+
+import SkillsContext from '../../contexts/SkillsContext.js'
 
 const Skills = () => {
+	const { SkillCard } = CIndex
 	const [values, setValues] = useState([
 		{ name: '', desc: '', bullet: [], img: '', years: '' },
 	])
@@ -36,13 +37,13 @@ const Skills = () => {
 					'Content-Type': 'application/json',
 				},
 			})
-				.then((res) => res.json())
-				.then((res) => {
+				.then(res => res.json())
+				.then(res => {
 					localStorage.setItem(url, JSON.stringify(res.skills))
 					setSkillsContext(url, res.skills)
 					setValues(res.skills)
 				})
-				.catch((err) => console.error(err))
+				.catch(err => console.error(err))
 		}
 	}, [])
 

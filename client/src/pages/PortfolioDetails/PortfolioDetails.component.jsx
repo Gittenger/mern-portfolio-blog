@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 
-import ProjectsContext from '../../contexts/ProjectsContext.js'
-
 import CIndex from '../../components/components.index.js'
 import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
+
+import ProjectsContext from '../../contexts/ProjectsContext.js'
 
 import GatsbyImg from '../../assets/img/skills/gatsby.png'
 import NodeImg from '../../assets/img/skills/node.png'
@@ -42,13 +42,13 @@ const PortfolioDetails = () => {
 					'Content-Type': 'application/json',
 				},
 			})
-				.then((res) => res.json())
-				.then((res) => {
+				.then(res => res.json())
+				.then(res => {
 					setUrlCache(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
 					setFields({ ...res.data })
 				})
-				.catch((err) => console.error(err))
+				.catch(err => console.error(err))
 		}
 	}, [urls[url], localStorage.getItem(url)])
 
@@ -60,7 +60,7 @@ const PortfolioDetails = () => {
 			<PSmall>{descriptionLong}</PSmall>
 			<a href={link}>Link to project</a>
 			<ul>
-				{techStack.map((el) => {
+				{techStack.map(el => {
 					const elLow = el.toLowerCase()
 					return (
 						<li>

@@ -1,7 +1,8 @@
 import React, { useEffect, useContext } from 'react'
-import PageContext from '../contexts/PageContext.js'
 
 import CIndex from '../components/components.index.js'
+
+import PageContext from '../contexts/PageContext.js'
 
 const PageComponent = ({ title, Component, ...props }) => {
 	const { Layout } = CIndex
