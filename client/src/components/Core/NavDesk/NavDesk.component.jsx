@@ -1,18 +1,15 @@
 import React from 'react'
 
-import { NavContainer } from './NavDesk.styles.jsx'
 import CIndex from '../../components.index.js'
+import { NavDeskContainer } from './NavDesk.styles.jsx'
 
-import { setActiveColor } from '../NavFunctions.js'
-
-const NavDesk = ({ activePage }) => {
+const NavDesk = () => {
 	const { NavList } = CIndex
-	setActiveColor(activePage)
 
 	return (
-		<NavContainer>
-			<NavList className="nav-list-desk" />
-		</NavContainer>
+		<NavDeskContainer>
+			<NavList />
+		</NavDeskContainer>
 	)
 }
 

@@ -3,6 +3,7 @@ import AdminDashboard from './Admin/AdminDashboard/AdminDashboard.component.jsx'
 import AdminMenu from './Admin/AdminMenu/AdminMenu.component.jsx'
 import AdminRoute from './Admin/AdminRoute/AdminRoute.component.jsx'
 import ChangePassword from './Admin/ChangePassword/ChangePassword.component.jsx'
+import Content from './Core/Content/Content.component.jsx'
 import ForgotPassword from './Admin/ForgotPassword/ForgotPassword.component.jsx'
 import ResetPassword from './Admin/ResetPassword/ResetPassword.component.jsx'
 import Card from './General/Card/Card.component.jsx'
@@ -22,6 +23,7 @@ export const CIndex = {
 	AdminMenu,
 	AdminRoute,
 	ChangePassword,
+	Content,
 	ForgotPassword,
 	ResetPassword,
 	Card,
@@ -33,6 +35,7 @@ export const CIndex = {
 	ToggleNavButton,
 	Checkbox,
 	ContactForm,
+	SkillCard,
 	TComp,
 }
 export default CIndex

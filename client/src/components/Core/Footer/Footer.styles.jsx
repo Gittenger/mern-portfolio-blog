@@ -31,45 +31,40 @@ export const Copyright = styled.div`
 	}
 `
 
-export const Links = styled.div`
-	width: 40%;
-	${cssIndex.flexCenter}
+export const Links = styled.ul`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 50%;
 
-	ul {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		width: 100%;
+	li {
+		${cssIndex.flexCenter}
 
-		li {
+		a {
 			${cssIndex.flexCenter}
 
-			a {
-				${cssIndex.flexCenter}
+			svg {
+				width: 35px;
+				height: 35px;
+				fill: var(--white);
+				transition: fill 0.3s;
+			}
 
+			&:hover svg {
+				fill: var(--main);
+			}
+
+			${mobileMM} {
 				svg {
-					width: 35px;
-					height: 35px;
-					fill: var(--black);
-					transition: fill 0.3s;
+					width: 30px;
+					height: 30px;
 				}
-
-				&:hover svg {
-					fill: var(--main);
-				}
-
-				${mobileMM} {
-					svg {
-						width: 30px;
-						height: 30px;
-					}
-				}
-				${mobileXS} {
-					svg {
-						width: 27px;
-						height: 27px;
-					}
+			}
+			${mobileXS} {
+				svg {
+					width: 27px;
+					height: 27px;
 				}
 			}
 		}

@@ -1,14 +1,15 @@
 import React from 'react'
 
-import NavList from '../NavList/NavList.component'
-
-import { NavContainer } from './NavMobile.styles.jsx'
+import CIndex from '../../components.index.js'
+import { NavMobileContainer } from './NavMobile.styles.jsx'
 
 const NavMobile = ({ showNavList }) => {
+	const { NavList } = CIndex
+
 	return (
-		<NavContainer className={showNavList ? 'show' : 'hide'}>
+		<NavMobileContainer className={showNavList ? 'show' : 'hide'}>
 			<NavList />
-		</NavContainer>
+		</NavMobileContainer>
 	)
 }
 

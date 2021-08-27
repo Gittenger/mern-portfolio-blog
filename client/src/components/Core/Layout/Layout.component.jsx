@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react'
-import PageContext from '../../../contexts/PageContext'
+
 import CIndex from '../../components.index.js'
+import { BackgroundContainer } from './Layout.styles'
 
+import PageContext from '../../../contexts/PageContext'
 import { sizes } from '../../../styles/css/utils.styles.js'
-import { setActiveColor } from '../NavFunctions.js'
-
-import { BackgroundContainer, ContentContainer } from './Layout.styles'
+import { setActiveColor } from '../../../utils/NavFunctions.js'
 
 const Layout = ({ children }) => {
-	const { NavDesk, NavMobile, ToggleNavButton, Footer, AdminMenu } = CIndex
+	const { NavDesk, NavMobile, ToggleNavButton, AdminMenu, Content } = CIndex
 
 	// STATES and CONTEXT
 	const [navMobileActive, setNavMobileActive] = useState(false)
 	const [showNavList, setShowNavList] = useState(false)
 	const { activePage } = useContext(PageContext)
+	setActiveColor(activePage)
 
 	// TOGGLE NAV ACTION
 	const toggleNav = () => {
@@ -44,34 +45,28 @@ const Layout = ({ children }) => {
 		}
 	}, [activePage, navMobileActive, checkNavMobileActive, mobileBreakpoint])
 
-	return (
-		<>
-			{navMobileActive ? (
-				<BackgroundContainer>
-					<ToggleNavButton
-						onClickFunc={toggleNav}
-						className="toggle-nav-button"
-						showNavList={showNavList}
-					/>
-					<NavMobile showNavList={showNavList} />
-					<ContentContainer>
-						{children}
-						<Footer />
-					</ContentContainer>
-					<AdminMenu />
-				</BackgroundContainer>
-			) : (
-				<BackgroundContainer>
-					<NavDesk activePage={activePage} />
-					<ContentContainer>
-						{children}
-						<Footer />
-					</ContentContainer>
-					<AdminMenu />
-				</BackgroundContainer>
-			)}
-		</>
+	const DeskLayout = () => (
+		<BackgroundContainer>
+			<NavDesk />
+			<Content>{children}</Content>
+			<AdminMenu />
+		</BackgroundContainer>
 	)
+
+	const MobileLayout = () => (
+		<BackgroundContainer>
+			<ToggleNavButton
+				onClickFunc={toggleNav}
+				className="toggle-nav-button"
+				showNavList={showNavList}
+			/>
+			<NavMobile showNavList={showNavList} />
+			<Content>{children}</Content>
+			<AdminMenu />
+		</BackgroundContainer>
+	)
+
+	return <>{navMobileActive ? MobileLayout() : DeskLayout()}</>
 }
 
 export default Layout

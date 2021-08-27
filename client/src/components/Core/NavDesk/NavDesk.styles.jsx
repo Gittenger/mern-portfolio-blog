@@ -4,7 +4,7 @@ import { cssIndex, device } from '../../../styles/css/utils.styles.js'
 
 const { tabletMM } = device
 
-export const NavContainer = styled.div`
+export const NavDeskContainer = styled.nav`
 	width: 100%;
 	${cssIndex.flexCenter}
 	height: 9rem;

@@ -18,31 +18,29 @@ const Footer = () => {
 				<PSmall>&copy; 2021 My Website</PSmall>
 			</Copyright>
 			<Links>
-				<ul>
-					<li>
-						<a href={`mailto:${process.env.REACT_APP_MAIN_EMAIL}`}>
-							<EmailImg />
-						</a>
-					</li>
-					<li>
-						<a
-							target="_blank"
-							rel="noopener noreferrer"
-							href="https://www.facebook.com"
-						>
-							<FacebookImg />
-						</a>
-					</li>
-					<li>
-						<a
-							target="_blank"
-							rel="noopener noreferrer"
-							href="https://www.instagram.com/"
-						>
-							<InstagramImg />
-						</a>
-					</li>
-				</ul>
+				<li>
+					<a href={`mailto:${process.env.REACT_APP_MAIN_EMAIL}`}>
+						<EmailImg />
+					</a>
+				</li>
+				<li>
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://www.facebook.com"
+					>
+						<FacebookImg />
+					</a>
+				</li>
+				<li>
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://www.instagram.com/"
+					>
+						<InstagramImg />
+					</a>
+				</li>
 			</Links>
 			<Credits>
 				<div>

@@ -4,7 +4,7 @@ import { cssIndex, device } from '../../../styles/css/utils.styles.js'
 
 const { tabletS, mobileMM } = device
 
-export const NavContainer = styled.div`
+export const NavMobileContainer = styled.nav`
 	position: fixed;
 	background: var(--black);
 	bottom: 0;
@@ -14,7 +14,7 @@ export const NavContainer = styled.div`
 	${cssIndex.flexCenter};
 	transition: transform 0.3s;
 
-	& .nav-list {
+	ul {
 		flex-direction: row;
 		width: 99%;
 		padding: 2.6rem 0;
@@ -38,7 +38,7 @@ export const NavContainer = styled.div`
 		background: ${({ theme: { gradient } }) => gradient.navGradient};
 		width: 100vw;
 
-		& .nav-list {
+		ul {
 			flex-direction: column;
 			letter-spacing: 0.35em;
 			font-size: 1.5rem;
@@ -60,7 +60,7 @@ export const NavContainer = styled.div`
 	}
 
 	${mobileMM} {
-		& .nav-list {
+		ul {
 			padding: 3.5rem 0;
 		}
 	}
