@@ -20,7 +20,7 @@ ___
 	--cache entire site, all portolio once land on portfolio overview page, same for blog
 2. reorganize imgs in assets
 3. refactor code for consistency
-	--Check naming convention for useState
+	###--Check naming convention for useState
 4. Improved naming convention (js vs jsx for styles?)
 	--Project vs portfolio?
 

@@ -13,7 +13,7 @@ const BlogDetails = () => {
 	const {
 		TComp: { PSmall, H2 },
 	} = CIndex
-	const [data, setData] = useState({ content: '', title: '' })
+	const [values, setValues] = useState({ content: '', title: '' })
 	const { slug } = useParams()
 	const { urls, setUrlCache } = useContext(PostsContext)
 	const url = `${process.env.REACT_APP_API}/posts/${slug}`
@@ -21,11 +21,11 @@ const BlogDetails = () => {
 	useEffect(() => {
 		// Try localStorage first
 		if (localStorage.getItem(url)) {
-			setData({ ...JSON.parse(localStorage.getItem(url)) })
+			setValues({ ...JSON.parse(localStorage.getItem(url)) })
 			setUrlCache(url, JSON.parse(localStorage.getItem(url)))
 		} else if (urls[url]) {
 			// then try PostsContext
-			setData({ ...urls[url] })
+			setValues({ ...urls[url] })
 		} else {
 			// otherwise fetch from api, then set context and localStorage
 			fetch(url, {
@@ -38,7 +38,7 @@ const BlogDetails = () => {
 				.then(res => {
 					setUrlCache(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
-					setData({ ...res.data })
+					setValues({ ...res.data })
 				})
 				.catch(err => console.error(err))
 		}
@@ -66,7 +66,7 @@ const BlogDetails = () => {
 		},
 	}
 
-	const { content, title } = data
+	const { content, title } = values
 
 	return (
 		<BlogDetailsContainer>

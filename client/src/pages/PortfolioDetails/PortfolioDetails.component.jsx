@@ -18,7 +18,7 @@ const PortfolioDetails = () => {
 	const {
 		TComp: { PSmall },
 	} = CIndex
-	const [fields, setFields] = useState({
+	const [values, setValues] = useState({
 		name: '',
 		descriptionLong: '',
 		link: '',
@@ -30,10 +30,10 @@ const PortfolioDetails = () => {
 
 	useEffect(() => {
 		if (localStorage.getItem(url)) {
-			setFields({ ...JSON.parse(localStorage.getItem(url)) })
+			setValues({ ...JSON.parse(localStorage.getItem(url)) })
 			setUrlCache(url, JSON.parse(localStorage.getItem(url)))
 		} else if (urls[url]) {
-			setFields({ ...urls[url] })
+			setValues({ ...urls[url] })
 		} else {
 			fetch(url, {
 				method: 'GET',
@@ -46,13 +46,13 @@ const PortfolioDetails = () => {
 				.then(res => {
 					setUrlCache(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
-					setFields({ ...res.data })
+					setValues({ ...res.data })
 				})
 				.catch(err => console.error(err))
 		}
 	}, [urls[url], localStorage.getItem(url)])
 
-	const { name, descriptionLong, link, techStack } = fields
+	const { name, descriptionLong, link, techStack } = values
 
 	return (
 		<PortfolioDetailsContainer>
