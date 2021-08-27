@@ -53,8 +53,8 @@ const SkillCard = ({ name, desc, bullet, img }) => {
 			<p className="desc">{desc}</p>
 			<p>Core skills:</p>
 			<ul>
-				{bullet.map(el => (
-					<li>{el}</li>
+				{bullet.map((el, i) => (
+					<li key={i}>{el}</li>
 				))}
 			</ul>
 		</SkillCardContainer>

@@ -32,8 +32,8 @@ const Portfolio = () => {
 		<PortfolioPageContainer>
 			<Link to="/addProject">Add Project</Link>
 			<PortfolioCardList>
-				{values.map(({ name, description, slug }) => (
-					<li>
+				{values.map(({ name, description, slug }, i) => (
+					<li key={i}>
 						<ProjectCard
 							title={name}
 							description={description}

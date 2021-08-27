@@ -60,13 +60,13 @@ const PortfolioDetails = () => {
 			<PSmall>{descriptionLong}</PSmall>
 			<a href={link}>Link to project</a>
 			<ul>
-				{techStack.map(el => {
+				{techStack.map((el, i) => {
 					const elLow = el.toLowerCase()
 					return (
-						<li>
+						<li key={i}>
 							<img
 								src={
-									elLow.toLowerCase() === 'gatsby'
+									elLow === 'gatsby'
 										? GatsbyImg
 										: elLow === 'reactjs'
 										? ReactImg

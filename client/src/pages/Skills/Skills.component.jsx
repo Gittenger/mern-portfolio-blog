@@ -55,8 +55,8 @@ const Skills = () => {
 			</div>
 			<SkillCardsContainer>
 				<ul>
-					{values.map(({ ...props }) => (
-						<li>
+					{values.map(({ ...props }, i) => (
+						<li key={i}>
 							<SkillCard {...props} />
 						</li>
 					))}

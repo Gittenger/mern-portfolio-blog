@@ -14,16 +14,18 @@ const Blog = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then((res) => res.json())
-			.then((res) => {
+			.then(res => res.json())
+			.then(res => {
 				setValues({ ...values, posts: res.data })
 			})
 	}, [])
 
 	return (
 		<BlogPageContentContainer>
-			{values.posts.map((post) => (
-				<Link to={`/blog/posts/${post.slug}`}>{post.title}</Link>
+			{values.posts.map((post, i) => (
+				<Link key={i} to={`/blog/posts/${post.slug}`}>
+					{post.title}
+				</Link>
 			))}
 		</BlogPageContentContainer>
 	)
