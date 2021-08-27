@@ -26,12 +26,12 @@ ___
 
 
 **NEW -- Add "ApiUpdated" schema to DB
-1. ApiUpdated Schema
-2. Every time API is updated on server, update the timestamp on ApiUpdated
-3. When client saves Api data to localStorage, save timestamp it was saved
-4. When client is ready to check for localStorage data, perform Api call to "ApiUpdated" to get most recent timestamp of server data update
-5. If localStorage saved timestamp is after the ApiUpdated timestamp, safe to use localStorage data
-6. If localStorage saved timestamp is prior to ApiUpdated timestamp, update local data with new Api data
+###1. ApiUpdated Schema
+###2. Every time API is updated on server, update the timestamp on ApiUpdated
+###3. When client saves Api data to localStorage, save timestamp it was saved
+###4. When client is ready to check for localStorage data, perform Api call to "ApiUpdated" to get most recent timestamp of server data update
+###5. If localStorage saved timestamp is after the ApiUpdated timestamp, safe to use localStorage data
+###6. If localStorage saved timestamp is prior to ApiUpdated timestamp, update local data with new Api data
 
 D) General improvements
 ___
