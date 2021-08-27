@@ -1,4 +1,5 @@
 const Markdown = require('../models/postSchema')
+const ServerUpdated = require('../models/serverUpdated')
 const slugify = require('slugify')
 const formidable = require('formidable')
 
@@ -33,6 +34,13 @@ exports.createPost = async (req, res) => {
 		})
 
 		const mds = await Markdown.create({ title, excerpt, date, slug, content })
+
+		const serverUpdateRes = await ServerUpdated.find()
+		const serverUpdateObj = serverUpdateRes[0]
+
+		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+			value: Date.now(),
+		})
 
 		res.status(200).json({
 			message: 'post successfully uploaded',

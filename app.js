@@ -14,6 +14,7 @@ const contactRoutes = require('./routes/contactRoutes')
 const postRoutes = require('./routes/postRoutes')
 const projectRoutes = require('./routes/projectRoutes')
 const skillRoutes = require('./routes/skillRoutes')
+const checkForUpdateRoute = require('./routes/checkForUpdateRoute')
 
 const AppError = require('./utils/appError')
 const globalErrorHandler = require('./controllers/errorController')
@@ -84,6 +85,7 @@ app.use('/api/contact', contactRoutes)
 app.use('/api/posts', postRoutes)
 app.use('/api/projects', projectRoutes)
 app.use('/api/skills', skillRoutes)
+app.use('/api/checkForUpdate', checkForUpdateRoute)
 
 app.all('*', (req, res, next) => {
 	next(
