@@ -13,22 +13,15 @@ export const SkillCardContainer = styled.div`
 	border-radius: 10px;
 	box-shadow: var(--shadowBoxOne);
 
-	& > ul {
-		display: list-item;
-
-		li {
-			margin-left: 5rem;
-			list-style: disc;
-		}
-	}
-
-	.title-box {
+	// title
+	& > .title-box {
 		${cssIndex.flexCenter}
 		margin-bottom: .8rem;
 
 		h1 {
 			margin-left: 1.4rem;
 		}
+
 		.img-box {
 			border-radius: 10px;
 			padding: 0.7rem;
@@ -40,17 +33,24 @@ export const SkillCardContainer = styled.div`
 		}
 	}
 
-	.desc {
+	// description box
+	& > .desc {
 		width: 80%;
 		margin-bottom: 2rem;
 		border: solid var(--black) 2px;
 		border-radius: 7px;
 		padding: 1.5rem;
 		box-shadow: var(--shadowBoxTwo);
-		background-image: linear-gradient(
-			270deg,
-			white -50%,
-			var(--greyMedium) 500%
-		);
+		background-image: linear-gradient(270deg, white -50%, var(--greyMedium) 500%);
+	}
+
+	// bullet list
+	& > ul {
+		display: list-item;
+
+		li {
+			margin-left: 5rem;
+			list-style: disc;
+		}
 	}
 `

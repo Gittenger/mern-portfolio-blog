@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { CIndex } from '../../components.index.js'
 
+import CIndex from '../../components.index.js'
 import {
 	ContactFormContainer,
 	Row,
@@ -25,7 +25,7 @@ const ContactForm = () => {
 
 	const { name, email, desc, phone, sendCopy } = formData
 
-	const handleInputChange = (e) => {
+	const handleInputChange = e => {
 		if (e.target.name === 'sendCopy') {
 			setFormData({ ...formData, sendCopy: !sendCopy })
 		} else {
@@ -62,7 +62,7 @@ const ContactForm = () => {
 		}
 	}
 
-	const handleSubmitForm = (e) => {
+	const handleSubmitForm = e => {
 		e.preventDefault()
 
 		const validated = performValidation()
@@ -76,9 +76,9 @@ const ContactForm = () => {
 				},
 				body: JSON.stringify(formData),
 			})
-				.then((res) => res.json())
+				.then(res => res.json())
 				.then(
-					(res) => {
+					res => {
 						console.log(res)
 						setFormData({
 							name: '',
@@ -89,7 +89,7 @@ const ContactForm = () => {
 						})
 						setError('')
 					},
-					(err) => {
+					err => {
 						setFormData({
 							name: '',
 							email: '',
@@ -113,8 +113,8 @@ const ContactForm = () => {
 			<H2>Contact Me:</H2>
 			<ContactFormForm onSubmit={handleSubmitForm}>
 				<FormInstructions>
-					If you need a web developer, I'd love to have a conversation with you.
-					Fill out this brief form and it'll go straight to my inbox!
+					If you need a web developer, I'd love to have a conversation with you. Fill
+					out this brief form and it'll go straight to my inbox!
 				</FormInstructions>
 				<Row>
 					<label htmlFor="email">Your email:</label>
@@ -136,21 +136,11 @@ const ContactForm = () => {
 				</Row>
 				<Row>
 					<label htmlFor="name">Name:</label>
-					<input
-						onChange={handleInputChange}
-						type="text"
-						name="name"
-						value={name}
-					/>
+					<input onChange={handleInputChange} type="text" name="name" value={name} />
 				</Row>
 				<Row>
 					<label htmlFor="desc">Any comments:</label>
-					<textarea
-						rows="4"
-						onChange={handleInputChange}
-						name="desc"
-						value={desc}
-					/>
+					<textarea rows="4" onChange={handleInputChange} name="desc" value={desc} />
 				</Row>
 				<Checkbox
 					handleInputChange={handleInputChange}

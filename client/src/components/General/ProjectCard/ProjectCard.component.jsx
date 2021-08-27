@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import {
-	CardContainer,
-	TextContainer,
-	ImgContainer,
-	Overlay,
-} from './Card.styles'
+import { CardContainer, Overlay } from './ProjectCard.styles'
 
-const Card = ({ title, description, anchor, coverImg, bgColor }) => {
+const ProjectCard = ({ title, description, anchor, coverImg, bgColor }) => {
 	const [hoverState, setHoverState] = useState(false)
 
 	const handleMouseEnter = () => {
@@ -28,15 +23,15 @@ const Card = ({ title, description, anchor, coverImg, bgColor }) => {
 			<Overlay to={anchor} className={hoverState ? 'active' : ''}>
 				<Link to={anchor}>See Details</Link>
 			</Overlay>
-			<TextContainer>
+			<div className="text-box">
 				<h1>{title}</h1>
 				<p>{description}</p>
-			</TextContainer>
-			<ImgContainer>
+			</div>
+			<div className="img-box">
 				<img src={coverImg} alt="" />
-			</ImgContainer>
+			</div>
 		</CardContainer>
 	)
 }
 
-export default Card
+export default ProjectCard

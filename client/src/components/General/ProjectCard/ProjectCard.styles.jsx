@@ -16,6 +16,21 @@ export const CardContainer = styled.div`
 			: 'orange'};
 	width: 650px;
 	height: 800px;
+
+	& > div.text-box {
+		${cssIndex.flexCenterCol}
+		width: 100%;
+	}
+
+	& > .img-box {
+		${cssIndex.flexCenterCol}
+		width: 100%;
+		img {
+			object-fit: fill;
+			width: 90%;
+			max-height: 90%;
+		}
+	}
 `
 
 export const Overlay = styled(Link)`
@@ -53,20 +68,5 @@ export const Overlay = styled(Link)`
 			background: white;
 			color: black;
 		}
-	}
-`
-
-export const TextContainer = styled.div`
-	${cssIndex.flexCenterCol}
-	width: 100%;
-`
-
-export const ImgContainer = styled.div`
-	${cssIndex.flexCenterCol}
-	width: 100%;
-	img {
-		object-fit: fill;
-		width: 90%;
-		max-height: 90%;
 	}
 `

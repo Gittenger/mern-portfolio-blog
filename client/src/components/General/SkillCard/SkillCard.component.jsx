@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { SkillCardContainer } from './SkillCard.styles'
+
 import NodeImg from '../../../assets/img/skills/node.png'
 import GitImg from '../../../assets/img/skills/git.png'
 import ReduxImg from '../../../assets/img/skills/redux.png'
@@ -12,9 +14,7 @@ import GraphqlSvg from '../../../assets/img/skills/svg/graphql.svg'
 import LinuxSvg from '../../../assets/img/skills/svg/linux.svg'
 import VimSvg from '../../../assets/img/skills/svg/vim.svg'
 
-import { SkillCardContainer } from './SkillCard.styles'
-
-const SkillCard = ({ name, desc, bullet, img, years }) => {
+const SkillCard = ({ name, desc, bullet, img }) => {
 	return (
 		<SkillCardContainer>
 			<div className="title-box">
@@ -53,7 +53,7 @@ const SkillCard = ({ name, desc, bullet, img, years }) => {
 			<p className="desc">{desc}</p>
 			<p>Core skills:</p>
 			<ul>
-				{bullet.map((el) => (
+				{bullet.map(el => (
 					<li>{el}</li>
 				))}
 			</ul>

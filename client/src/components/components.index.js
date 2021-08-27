@@ -6,7 +6,7 @@ import ChangePassword from './Admin/ChangePassword/ChangePassword.component.jsx'
 import Content from './Core/Content/Content.component.jsx'
 import ForgotPassword from './Admin/ForgotPassword/ForgotPassword.component.jsx'
 import ResetPassword from './Admin/ResetPassword/ResetPassword.component.jsx'
-import Card from './General/Card/Card.component.jsx'
+import ProjectCard from './General/ProjectCard/ProjectCard.component.jsx'
 import Footer from './Core/Footer/Footer.component.jsx'
 import Layout from './Core/Layout/Layout.component.jsx'
 import NavDesk from './Core/NavDesk/NavDesk.component.jsx'
@@ -26,7 +26,7 @@ export const CIndex = {
 	Content,
 	ForgotPassword,
 	ResetPassword,
-	Card,
+	ProjectCard,
 	Footer,
 	Layout,
 	NavDesk,

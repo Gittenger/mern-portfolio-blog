@@ -8,7 +8,7 @@ import DesignTwo from '../../assets/img/design-2.png'
 import DesignThree from '../../assets/img/design-3.png'
 
 const Portfolio = () => {
-	const { Card } = CIndex
+	const { ProjectCard } = CIndex
 	const [values, setValues] = useState([])
 	const url = `${process.env.REACT_APP_API}/projects`
 
@@ -20,11 +20,11 @@ const Portfolio = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then((res) => res.json())
-			.then((res) => {
+			.then(res => res.json())
+			.then(res => {
 				setValues(res.data)
 			})
-			.catch((err) => console.error(err))
+			.catch(err => console.error(err))
 	}, [url])
 
 	return (
@@ -33,7 +33,7 @@ const Portfolio = () => {
 			<PortfolioCardList>
 				{values.map(({ name, description, slug }) => (
 					<li>
-						<Card
+						<ProjectCard
 							title={name}
 							description={description}
 							anchor={`portfolio/${slug}`}
