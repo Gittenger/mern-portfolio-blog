@@ -7,7 +7,7 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import CIndex from '../../components/components.index.js'
 import { BlogDetailsContainer } from './BlogDetails.styles'
 
-import PostsContext from '../../contexts/PostsContext.js'
+import UrlsContext from '../../contexts/UrlsContext.js'
 
 const BlogDetails = () => {
 	const {
@@ -15,14 +15,14 @@ const BlogDetails = () => {
 	} = CIndex
 	const [values, setValues] = useState({ content: '', title: '' })
 	const { slug } = useParams()
-	const { urls, setUrlCache } = useContext(PostsContext)
+	const { urls, setUrlsContext } = useContext(UrlsContext)
 	const url = `${process.env.REACT_APP_API}/posts/${slug}`
 
 	useEffect(() => {
 		// Try localStorage first
 		if (localStorage.getItem(url)) {
 			setValues({ ...JSON.parse(localStorage.getItem(url)) })
-			setUrlCache(url, JSON.parse(localStorage.getItem(url)))
+			setUrlsContext(url, JSON.parse(localStorage.getItem(url)))
 		} else if (urls[url]) {
 			// then try PostsContext
 			setValues({ ...urls[url] })
@@ -36,7 +36,7 @@ const BlogDetails = () => {
 			})
 				.then(res => res.json())
 				.then(res => {
-					setUrlCache(url, res.data)
+					setUrlsContext(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
 					setValues({ ...res.data })
 				})

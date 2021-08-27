@@ -6,14 +6,14 @@ import {
 	SkillCardsContainer,
 } from './Skills.styles'
 
-import SkillsContext from '../../contexts/SkillsContext.js'
+import UrlsContext from '../../contexts/UrlsContext.js'
 
 const Skills = () => {
 	const { SkillCard } = CIndex
 	const [values, setValues] = useState([
 		{ name: '', desc: '', bullet: [], img: '', years: '' },
 	])
-	const { skillsUrls, setSkillsContext } = useContext(SkillsContext)
+	const { urls, setUrlsContext } = useContext(UrlsContext)
 
 	const url = `${process.env.REACT_APP_API}/skills`
 
@@ -21,13 +21,13 @@ const Skills = () => {
 		if (localStorage.getItem(url)) {
 			console.log('getting from local')
 			setValues(JSON.parse(localStorage.getItem(url)))
-			setSkillsContext(
+			setUrlsContext(
 				url,
 				localStorage.getItem(JSON.parse(localStorage.getItem(url)))
 			)
-		} else if (skillsUrls[url]) {
+		} else if (urls[url]) {
 			console.log('getting from context')
-			setValues(skillsUrls[url])
+			setValues(urls[url])
 		} else {
 			console.log('getting from api')
 			fetch(url, {
@@ -40,7 +40,7 @@ const Skills = () => {
 				.then(res => res.json())
 				.then(res => {
 					localStorage.setItem(url, JSON.stringify(res.skills))
-					setSkillsContext(url, res.skills)
+					setUrlsContext(url, res.skills)
 					setValues(res.skills)
 				})
 				.catch(err => console.error(err))

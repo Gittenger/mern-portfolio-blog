@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import CIndex from '../../components/components.index.js'
 import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
 
-import ProjectsContext from '../../contexts/ProjectsContext.js'
+import UrlsContext from '../../contexts/UrlsContext.js'
 
 import GatsbyImg from '../../assets/img/skills/gatsby.png'
 import NodeImg from '../../assets/img/skills/node.png'
@@ -25,13 +25,13 @@ const PortfolioDetails = () => {
 		techStack: [],
 	})
 	const { projectName } = useParams()
-	const { urls, setUrlCache } = useContext(ProjectsContext)
+	const { urls, setUrlsContext } = useContext(UrlsContext)
 	const url = `${process.env.REACT_APP_API}/projects/${projectName}`
 
 	useEffect(() => {
 		if (localStorage.getItem(url)) {
 			setValues({ ...JSON.parse(localStorage.getItem(url)) })
-			setUrlCache(url, JSON.parse(localStorage.getItem(url)))
+			setUrlsContext(url, JSON.parse(localStorage.getItem(url)))
 		} else if (urls[url]) {
 			setValues({ ...urls[url] })
 		} else {
@@ -44,7 +44,7 @@ const PortfolioDetails = () => {
 			})
 				.then(res => res.json())
 				.then(res => {
-					setUrlCache(url, res.data)
+					setUrlsContext(url, res.data)
 					localStorage.setItem(url, JSON.stringify(res.data))
 					setValues({ ...res.data })
 				})
