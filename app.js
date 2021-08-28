@@ -63,6 +63,12 @@ app.use('/', limiter)
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(
+	express.static(path.join(__dirname, 'public', 'pdf'), {
+		setHeaders: (res, filepath) =>
+			res.attachment(`my-pdf-${path.basename(filepath)}`),
+	})
+)
 
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use(express.static('client/build'))
