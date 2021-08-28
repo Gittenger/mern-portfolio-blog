@@ -38,7 +38,7 @@ ___
 1. Dummy blank images when images haven't loaded yet
 	--Simply a box of a predetermined size to hold/mask image, grey box til load
 2. Loading spinner while API is fetching for Portfolio/Blog
-3. Write Markdowns describing a couple projects
+###3. Write Markdowns describing a couple projects
 	--In meantime, use a simple README to stand-in for demo
 4. Add test GIF's to project details page
 
