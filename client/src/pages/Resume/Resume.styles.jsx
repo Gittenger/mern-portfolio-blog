@@ -6,8 +6,12 @@ export const ResumePageContentContainer = styled.div`
   ${cssIndex.flexCenterCol}
   color: white;
 
-  & > a:link,
-  & > a:visited {
+  button {
+    background: none;
+    border: none;
     color: var(--main);
+    text-decoration: underline;
+    font-size: 1.2em;
+    cursor: pointer;
   }
 `
