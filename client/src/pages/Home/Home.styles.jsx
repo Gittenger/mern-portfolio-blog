@@ -56,10 +56,10 @@ export const HomePageContainer = styled.div`
 	& > ul {
 		margin-bottom: 6rem;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		grid-row-gap: 1.2rem;
 		grid-column-gap: 4rem;
-		grid-auto-rows: 40px;
+		grid-auto-rows: 200px;
 		width: 80%;
 
 		li {
@@ -69,6 +69,12 @@ export const HomePageContainer = styled.div`
 				margin-bottom: 0;
 				font-style: italic;
 				font-weight: bold;
+			}
+
+			.skill-img {
+				max-width: 90px;
+				max-height: 100px;
+				padding: 1rem;
 			}
 		}
 
