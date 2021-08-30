@@ -16,6 +16,7 @@ import ToggleNavButton from './Core/ToggleNavButton/ToggleNavButton.component.js
 import SkillCard from './General/SkillCard/SkillCard.component.jsx'
 import Checkbox from './General/Checkbox/Checkbox.component.jsx'
 import ContactForm from './General/ContactForm/ContactForm.component.jsx'
+import SkillImage from './General/SkillImage/SkillImage.component.jsx'
 import TComp from './typography/typography.components.js'
 export const CIndex = {
 	AddProject,
@@ -36,6 +37,7 @@ export const CIndex = {
 	Checkbox,
 	ContactForm,
 	SkillCard,
+	SkillImage,
 	TComp,
 }
 export default CIndex

@@ -2,45 +2,14 @@ import React from 'react'
 
 import { SkillCardContainer } from './SkillCard.styles'
 
-import Images from '../../../assets/img/img-index.js'
+import CIndex from '../../components.index.js'
 
 const SkillCard = ({ name, desc, bullet, img }) => {
-	const {
-		skills: { png, svg },
-	} = Images
+	const { SkillImage } = CIndex
 	return (
 		<SkillCardContainer>
 			<div className="title-box">
-				<div className="img-box">
-					<img
-						src={
-							img === 'nodejs'
-								? png.node
-								: img === 'git'
-								? png.git
-								: img === 'redux'
-								? png.redux
-								: img === 'aws'
-								? png.aws
-								: img === 'python'
-								? png.python
-								: img === 'react'
-								? svg.react
-								: img === 'figma'
-								? svg.figma
-								: img === 'firebase'
-								? svg.firebase
-								: img === 'graphql'
-								? svg.graphql
-								: img === 'linux'
-								? svg.linux
-								: img === 'vim'
-								? svg.vim
-								: svg.react
-						}
-						alt=""
-					/>
-				</div>
+				<SkillImage img={img} className="img-box" />
 				<h1>{name}</h1>
 			</div>
 			<p className="desc">{desc}</p>
