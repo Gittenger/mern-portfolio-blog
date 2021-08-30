@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { cssIndex, device, deviceMin } from '../../styles/css/utils.styles.js'
-const { tabletMM } = device
+const { desktop, tabletMM, laptopS, tabletLand, mobileMM, mobileS } = device
 const { minLaptopS } = deviceMin
 
 export const HomePageContainer = styled.div`
@@ -35,13 +35,7 @@ export const HomePageContainer = styled.div`
 
 	// img
 	& > .img-box {
-		max-width: 95%;
 		margin-bottom: 1.8rem;
-
-		img {
-			width: 100%;
-			border-radius: 30px;
-		}
 	}
 
 	// page-desc
@@ -124,5 +118,56 @@ export const HomePageContainer = styled.div`
 
 	${tabletMM} {
 		padding: 4rem 0 5rem;
+	}
+`
+
+export const BgImgBox = styled.div`
+	@keyframes fadein {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 100%;
+		}
+	}
+
+	animation-name: fadein;
+	animation-duration: 1s;
+	border-radius: 50px;
+	background-image: ${({ bgImg }) => `url('${bgImg}')`};
+	background-size: cover;
+	background-position: bottom 0 left 0;
+	background-repeat: no-repeat;
+	width: 50%;
+	height: 1400px;
+
+	${desktop} {
+		width: 60%;
+		height: 1300px;
+	}
+
+	${laptopS} {
+		width: 70%;
+		height: 1150px;
+	}
+
+	${tabletLand} {
+		width: 80%;
+		height: 970px;
+	}
+
+	${tabletMM} {
+		width: 85%;
+		height: 800px;
+	}
+
+	${mobileMM} {
+		width: 90%;
+		height: 650px;
+	}
+
+	${mobileS} {
+		height: 500px;
 	}
 `
