@@ -22,14 +22,9 @@ export const SkillCardContainer = styled.div`
 			margin-left: 1.4rem;
 		}
 
-		.img-box {
-			border-radius: 10px;
-			padding: 0.7rem;
+		.logo-img {
+			padding: 1rem;
 			max-width: 90px;
-
-			img {
-				max-width: 100%;
-			}
 		}
 	}
 
@@ -41,7 +36,11 @@ export const SkillCardContainer = styled.div`
 		border-radius: 7px;
 		padding: 1.5rem;
 		box-shadow: var(--shadowBoxTwo);
-		background-image: linear-gradient(270deg, white -50%, var(--greyMedium) 500%);
+		background-image: linear-gradient(
+			270deg,
+			white -50%,
+			var(--greyMedium) 500%
+		);
 	}
 
 	// bullet list

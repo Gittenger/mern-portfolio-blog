@@ -9,7 +9,7 @@ const SkillCard = ({ name, desc, bullet, img }) => {
 	return (
 		<SkillCardContainer>
 			<div className="title-box">
-				<SkillImage img={img} className="img-box" />
+				<SkillImage img={img} className="logo-img" />
 				<h1>{name}</h1>
 			</div>
 			<p className="desc">{desc}</p>
