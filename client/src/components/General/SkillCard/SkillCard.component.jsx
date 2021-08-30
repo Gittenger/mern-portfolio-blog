@@ -2,19 +2,12 @@ import React from 'react'
 
 import { SkillCardContainer } from './SkillCard.styles'
 
-import NodeImg from '../../../assets/img/skills/node.png'
-import GitImg from '../../../assets/img/skills/git.png'
-import ReduxImg from '../../../assets/img/skills/redux.png'
-import AwsImg from '../../../assets/img/skills/aws.png'
-import PythonImg from '../../../assets/img/skills/python.png'
-import ReactSvg from '../../../assets/img/skills/svg/react.svg'
-import FigmaSvg from '../../../assets/img/skills/svg/figma.svg'
-import FirebaseSvg from '../../../assets/img/skills/svg/firebase.svg'
-import GraphqlSvg from '../../../assets/img/skills/svg/graphql.svg'
-import LinuxSvg from '../../../assets/img/skills/svg/linux.svg'
-import VimSvg from '../../../assets/img/skills/svg/vim.svg'
+import Images from '../../../assets/img/img-index.js'
 
 const SkillCard = ({ name, desc, bullet, img }) => {
+	const {
+		skills: { png, svg },
+	} = Images
 	return (
 		<SkillCardContainer>
 			<div className="title-box">
@@ -22,28 +15,28 @@ const SkillCard = ({ name, desc, bullet, img }) => {
 					<img
 						src={
 							img === 'nodejs'
-								? NodeImg
+								? png.node
 								: img === 'git'
-								? GitImg
+								? png.git
 								: img === 'redux'
-								? ReduxImg
+								? png.redux
 								: img === 'aws'
-								? AwsImg
+								? png.aws
 								: img === 'python'
-								? PythonImg
+								? png.python
 								: img === 'react'
-								? ReactSvg
+								? svg.react
 								: img === 'figma'
-								? FigmaSvg
+								? svg.figma
 								: img === 'firebase'
-								? FirebaseSvg
+								? svg.firebase
 								: img === 'graphql'
-								? GraphqlSvg
+								? svg.graphql
 								: img === 'linux'
-								? LinuxSvg
+								? svg.linux
 								: img === 'vim'
-								? VimSvg
-								: ReactSvg
+								? svg.vim
+								: svg.react
 						}
 						alt=""
 					/>

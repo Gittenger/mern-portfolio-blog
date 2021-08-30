@@ -6,18 +6,15 @@ import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
 
 import UrlsContext from '../../contexts/UrlsContext.js'
 
-import GatsbyImg from '../../assets/img/skills/gatsby.png'
-import NodeImg from '../../assets/img/skills/node.png'
-import CSS3Img from '../../assets/img/skills/css3.png'
-import Html5Img from '../../assets/img/skills/html5.png'
-import ReactImg from '../../assets/img/skills/svg/react.svg'
-import NextjsImg from '../../assets/img/skills/svg/nextjs.svg'
-import PugImg from '../../assets/img/skills/svg/pug.svg'
+import Images from '../../assets/img/img-index.js'
 
 const PortfolioDetails = () => {
 	const {
 		TComp: { PSmall },
 	} = CIndex
+	const {
+		skills: { svg, png },
+	} = Images
 	const [values, setValues] = useState({
 		name: '',
 		descriptionLong: '',
@@ -67,20 +64,20 @@ const PortfolioDetails = () => {
 							<img
 								src={
 									elLow === 'gatsby'
-										? GatsbyImg
+										? png.gatsby
 										: elLow === 'reactjs'
-										? ReactImg
+										? svg.react
 										: elLow === 'css3'
-										? CSS3Img
+										? png.css
 										: elLow === 'nodejs'
-										? NodeImg
+										? png.node
 										: elLow === 'html5'
-										? Html5Img
+										? png.html
 										: elLow === 'nextjs'
-										? NextjsImg
+										? svg.nextjs
 										: elLow === 'pug'
-										? PugImg
-										: ReactImg
+										? svg.pug
+										: svg.react
 								}
 								alt=""
 							/>
