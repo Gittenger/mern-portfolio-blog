@@ -37,6 +37,8 @@ const SkillImage = ({ img, className, ...props }) => {
 					? png.python
 					: img === 'html'
 					? png.html
+					: img === 'sass'
+					? png.sass
 					: img === 'gatsby'
 					? png.gatsby
 					: img === 'react'
