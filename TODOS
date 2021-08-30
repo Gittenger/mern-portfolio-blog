@@ -14,7 +14,7 @@ C) Structure
 ___
 1. Refactor caching to be even more efficient
 	--cache entire site, all portolio once land on portfolio overview page, same for blog
-2. rename imgs in assets (skills)
+###2. rename imgs in assets (skills)
 3. refactor code for consistency
 4. Improved naming convention (js vs jsx for styles?)
 	--Project vs portfolio?
