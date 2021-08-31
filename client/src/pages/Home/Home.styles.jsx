@@ -9,7 +9,11 @@ export const HomePageContainer = styled.div`
 	flex-direction: column;
 	width: 100%;
 	background: none;
-	padding: 0 0 10rem;
+	padding: 7rem 0 10rem;
+
+	${tabletMM} {
+		padding: 4rem 0 5rem;
+	}
 
 	// all text-boxes
 	.text-box {
@@ -24,31 +28,54 @@ export const HomePageContainer = styled.div`
 	// intro
 	& > .intro-text {
 		.leading {
-			margin-bottom: 0;
-			--scale: 1.3;
+			margin-bottom: 3rem;
+			font-weight: bold;
+			--scale: 1.5;
 
 			&-sub {
-				margin-bottom: 1.5rem;
+				margin-bottom: 2rem;
+				--scale: 1.1;
+
+				&-two {
+					max-width: 60%;
+					margin-bottom: 5rem;
+					--scale: 0.8;
+
+					${mobileS} {
+						margin-bottom: 3rem;
+					}
+				}
 			}
 		}
 	}
 
 	// img
 	& > .img-box {
-		margin-bottom: 1.8rem;
+		margin-bottom: 8rem;
+
+		${tabletMM} {
+			margin-bottom: 6rem;
+		}
+
+		${mobileS} {
+			margin-bottom: 5rem;
+		}
 	}
 
 	// page-desc
 	& > .page-desc > p {
-		margin-bottom: 2rem;
+		margin-bottom: 7rem;
 	}
 
 	// list-header
 	& > .list-header {
 		width: 100%;
+
 		& > p {
 			width: 100%;
-			margin-bottom: 1.5rem;
+			--scale: 1.1;
+			font-weight: bold;
+			margin-bottom: 3rem;
 		}
 	}
 
@@ -60,10 +87,21 @@ export const HomePageContainer = styled.div`
 		grid-row-gap: 1.2rem;
 		grid-column-gap: 4rem;
 		grid-auto-rows: 200px;
+		align-items: start;
 		width: 80%;
 
 		li {
-			${cssIndex.flexCenterCol}
+			height: 100%;
+
+			.icon-box {
+				height: 100%;
+
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: 30% 1fr;
+				justify-items: center;
+				align-items: center;
+			}
 
 			p {
 				margin-bottom: 0;
@@ -72,9 +110,9 @@ export const HomePageContainer = styled.div`
 			}
 
 			.skill-img {
+				margin-top: -30px;
 				max-width: 90px;
 				max-height: 100px;
-				padding: 1rem;
 			}
 		}
 
@@ -91,10 +129,12 @@ export const HomePageContainer = styled.div`
 	// project-desc
 	& > .project-desc {
 		& > p:first-child {
-			margin-bottom: 3rem;
+			--scale: 0.8;
+			margin-bottom: 8rem;
 		}
 
 		& > p:last-child {
+			--scale: 0.9;
 			margin-bottom: 2rem;
 		}
 	}
@@ -103,7 +143,7 @@ export const HomePageContainer = styled.div`
 	& > .projects-sample {
 		${cssIndex.flexCenter}
 		align-items: space-evenly;
-		margin-bottom: 4rem;
+		margin-bottom: 9rem;
 
 		& > .project-link {
 			${cssIndex.flexCenterCol}
@@ -122,8 +162,39 @@ export const HomePageContainer = styled.div`
 		}
 	}
 
-	${tabletMM} {
-		padding: 4rem 0 5rem;
+	// cta
+	& > .cta {
+		& > .cta-leading {
+			--scale: 0.9;
+			margin-bottom: 7rem;
+		}
+
+		& > .cta-sub {
+			--scale: 0.7;
+			margin-bottom: 2rem;
+		}
+
+		a:link,
+		a:visited {
+			color: var(--white);
+			background: black;
+			border: 2px solid transparent;
+			padding: 10px;
+			border-radius: 10px;
+			transition: all .3s;
+
+			&:hover {
+				color: var(--main);
+				border 2px solid var(--white);
+				transition: all .3s;
+			}
+
+			&:active {
+				color: var(--black);
+				background: var(--white);
+				border: 2px solid black;
+			}
+		}
 	}
 `
 
