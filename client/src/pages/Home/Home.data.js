@@ -3,6 +3,8 @@ export const data = [
 	{ name: 'React', img: 'react' },
 	{ name: 'Sass/CSS', img: 'sass' },
 	{ name: 'Linux/Unix', img: 'linux' },
+	{ name: 'MongoDB', img: 'mongo' },
+	{ name: 'Mongoose', img: 'mongoose' },
 	{ name: 'Vim', img: 'vim' },
 	{ name: 'Cloud computing', img: 'aws' },
 	{ name: 'Git', img: 'git' },

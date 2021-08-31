@@ -7,6 +7,8 @@ import gatsby from './skills/gatsby.png'
 import python from './skills/python.png'
 import git from './skills/git.png'
 import sass from './skills/sass.png'
+import mongoose from './skills/mongoose.png'
+import mongo from './skills/mongodb.png'
 import figma from './skills/svg/figma.svg'
 import firebase from './skills/svg/firebase.svg'
 import graphql from './skills/svg/graphql.svg'
@@ -19,7 +21,19 @@ import profile from './profile.jpeg'
 
 export const Images = {
 	skills: {
-		png: { node, aws, html, redux, css, gatsby, python, git, sass },
+		png: {
+			node,
+			aws,
+			html,
+			redux,
+			css,
+			gatsby,
+			python,
+			git,
+			sass,
+			mongo,
+			mongoose,
+		},
 		svg: { figma, firebase, graphql, linux, nextjs, pug, react, vim },
 	},
 	profile,

@@ -41,6 +41,10 @@ const SkillImage = ({ img, className, ...props }) => {
 					? png.sass
 					: img === 'gatsby'
 					? png.gatsby
+					: img === 'mongo'
+					? png.mongo
+					: img === 'mongoose'
+					? png.mongoose
 					: img === 'react'
 					? svg.react
 					: img === 'figma'
