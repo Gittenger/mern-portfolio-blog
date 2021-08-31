@@ -3,25 +3,20 @@ ___
 1. Write up skill details to go on each card
 2. Check for ::marker compatibility, if compatible, custom marker using ::marker
 
-B) Resume Page
-___
-1. Design resume page
-	*--Sections include: Project history, Education, Brief bio, brief what I'm looking for, Link to mail/github/linkedin
-	--Display Resume inline on page?
-	--Link to drive hosted resume?
-
-C) Structure
+B) Structure
 ___
 1. Refactor caching to be even more efficient
 	--cache entire site, all portolio once land on portfolio overview page, same for blog
+	--add api update check to projects/blog posts
 ###2. rename imgs in assets (skills)
 3. refactor code for consistency
 4. Improved naming convention (js vs jsx for styles?)
 	--Project vs portfolio?
+	--project/blog overview?
 5. Move "Build" to admin section
 	--need to build admin section UI
 
-D) General improvements
+C) General improvements
 ___
 1. Loading spinner while API is fetching for Portfolio/Blog
 2. Write Markdowns describing projects
@@ -29,6 +24,12 @@ ___
 3. Add test GIF's to project details page
 4. Animations for pages/components
 5. Change Nav UI.
+	--sticky nav?
 6. Tighten up UI in general. Margins, etc.
+	###--Front page
+	--Projects section on front page
+	--Blog overview
+	--Contact UI
+	--Resume ui --drive resume? --inline resume?
 7. Build UI for projects page!
 	--Create GIF's of finished projects running, for demo on project page
