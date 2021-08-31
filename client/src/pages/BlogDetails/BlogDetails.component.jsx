@@ -10,39 +10,41 @@ import { BlogDetailsContainer } from './BlogDetails.styles'
 import UrlsContext from '../../contexts/UrlsContext.js'
 
 const BlogDetails = () => {
-	const {
-		TComp: { PSmall, H2 },
-	} = CIndex
 	const [values, setValues] = useState({ content: '', title: '' })
 	const { slug } = useParams()
 	const { urls, setUrlsContext } = useContext(UrlsContext)
-	const url = `${process.env.REACT_APP_API}/posts/${slug}`
+	const postsUrl = `${process.env.REACT_APP_API}/posts`
+	const postUrl = `${process.env.REACT_APP_API}/posts/${slug}`
+
+	const cachedItem = JSON.parse(localStorage.getItem(postsUrl)).data[slug]
 
 	useEffect(() => {
 		// Try localStorage first
-		if (localStorage.getItem(url)) {
-			setValues({ ...JSON.parse(localStorage.getItem(url)) })
-			setUrlsContext(url, JSON.parse(localStorage.getItem(url)))
-		} else if (urls[url]) {
+		if (cachedItem) {
+			console.log('from local')
+			setValues(cachedItem)
+			setUrlsContext(postUrl, cachedItem)
+		} else if (urls[postUrl]) {
 			// then try PostsContext
-			setValues({ ...urls[url] })
+			console.log('from context')
+			setValues({ ...urls[postUrl] })
 		} else {
-			// otherwise fetch from api, then set context and localStorage
-			fetch(url, {
+			// otherwise fetch from api, then set context
+			console.log('from api')
+			fetch(postUrl, {
 				headers: {
 					Accept: 'application/json',
 					'Content-Type': 'application/json',
 				},
 			})
-				.then(res => res.json())
-				.then(res => {
-					setUrlsContext(url, res.data)
-					localStorage.setItem(url, JSON.stringify(res.data))
+				.then((res) => res.json())
+				.then((res) => {
+					setUrlsContext(postUrl, res.data)
 					setValues({ ...res.data })
 				})
-				.catch(err => console.error(err))
+				.catch((err) => console.error(err))
 		}
-	}, [urls[url], localStorage.getItem(url)])
+	}, [])
 
 	const renderers = {
 		code({ node, inline, className, children, ...props }) {
@@ -67,6 +69,10 @@ const BlogDetails = () => {
 	}
 
 	const { content, title } = values
+
+	const {
+		TComp: { PSmall, H2 },
+	} = CIndex
 
 	return (
 		<BlogDetailsContainer>
