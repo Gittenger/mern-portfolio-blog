@@ -3,7 +3,7 @@ const catchAsync = require('../utils/catchAsync')
 const formidable = require('formidable')
 
 exports.getAll = catchAsync(async (req, res, next) => {
-	const projects = await Project.find().select('name description slug')
+	const projects = await Project.find()
 
 	res.status(200).json({
 		message: 'success',
