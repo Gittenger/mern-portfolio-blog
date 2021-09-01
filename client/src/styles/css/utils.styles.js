@@ -101,6 +101,21 @@ export const cssIndex = {
 		align-items: center;
 		flex-direction: column;
 	`,
+	keyFrames: {
+		fadein: css`
+			@keyframes fadein {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 100%;
+				}
+			}
+
+			animation-name: fadein;
+			animation-duration: 1s;
+		`,
+	},
 	scrollBarStyles: css`
 		&::-webkit-scrollbar-track {
 			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);

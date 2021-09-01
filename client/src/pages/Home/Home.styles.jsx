@@ -199,18 +199,8 @@ export const HomePageContainer = styled.div`
 `
 
 export const BgImgBox = styled.div`
-	@keyframes fadein {
-		from {
-			opacity: 0;
-		}
+	${cssIndex.keyFrames.fadein}
 
-		to {
-			opacity: 100%;
-		}
-	}
-
-	animation-name: fadein;
-	animation-duration: 1s;
 	border-radius: 50px;
 	background-image: ${({ bgImg }) => `url('${bgImg}')`};
 	background-size: cover;

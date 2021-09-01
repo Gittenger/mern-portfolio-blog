@@ -6,8 +6,8 @@ const { tabletMM, mobileM } = device
 export const BlogDetailsContainer = styled.div`
 	${cssIndex.flexCenterCol}
 	align-items: flex-start;
-
 	width: 70%;
+	${cssIndex.keyFrames.fadein}
 
 	pre {
 		width: 100%;
