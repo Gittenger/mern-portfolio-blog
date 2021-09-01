@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useShouldUpdateCache } from '../../utils/hooks.js'
 import { Link } from 'react-router-dom'
 
 import { BlogPageContentContainer } from './Blog.styles'
@@ -15,51 +16,27 @@ const Blog = () => {
 		},
 		timeStamp: '',
 	})
-	const [shouldFetchNewApi, setShouldFetchNewApi] = useState(false)
-
 	const { urls, setUrlsContext } = useContext(UrlsContext)
 
 	const url = `${process.env.REACT_APP_API}/posts`
-	const checkServerUrl = `${process.env.REACT_APP_API}/checkForUpdate`
+	const shouldFetchNewApi = useShouldUpdateCache(url)
+
+	const cachedItem = JSON.parse(localStorage.getItem(url))
 
 	useEffect(() => {
-		fetch(checkServerUrl, {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				const cachedItem = JSON.parse(localStorage.getItem(url))
-
-				if (cachedItem && cachedItem.timeStamp < res.lastUpdated) {
-					setShouldFetchNewApi(true)
-				} else if (
-					urls[url] &&
-					urls[url].timestamp &&
-					urls[url].timestamp < res.lastUpdated
-				) {
-					setShouldFetchNewApi(true)
-				} else if (cachedItem && !cachedItem.timeStamp) {
-					setShouldFetchNewApi(true)
-				} else if (urls[url] && !urls[url].timeStamp) {
-					setShouldFetchNewApi(true)
-				} else setShouldFetchNewApi(false)
-			})
-	}, [])
-
-	useEffect(() => {
-		const cachedItem = JSON.parse(localStorage.getItem(url))
+		let unmounted = false
 
 		if (cachedItem && shouldFetchNewApi === false) {
 			console.log('from local')
-			setValues(cachedItem)
+			if (!unmounted) {
+				setValues(cachedItem)
+			}
 			setUrlsContext(url, cachedItem)
 		} else if (urls[url] && shouldFetchNewApi === false) {
 			console.log('from context')
-			setValues(urls[url])
+			if (!unmounted) {
+				setValues(urls[url])
+			}
 		} else {
 			console.log('from api')
 			fetch(url, {
@@ -78,9 +55,15 @@ const Blog = () => {
 					const dataObject = { timeStamp: new Date(), data: fromData }
 					localStorage.setItem(url, JSON.stringify(dataObject))
 					setUrlsContext(url, dataObject)
-					setValues(dataObject)
+					if (!unmounted) {
+						setValues(dataObject)
+					}
 				})
 				.catch((err) => console.error(err))
+		}
+
+		return () => {
+			unmounted = true
 		}
 	}, [])
 

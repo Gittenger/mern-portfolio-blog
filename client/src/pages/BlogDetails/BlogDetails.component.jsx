@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useShouldUpdateCache } from '../../utils/hooks.js'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
@@ -13,21 +14,30 @@ const BlogDetails = () => {
 	const [values, setValues] = useState({ content: '', title: '' })
 	const { slug } = useParams()
 	const { urls, setUrlsContext } = useContext(UrlsContext)
+
 	const postsUrl = `${process.env.REACT_APP_API}/posts`
 	const postUrl = `${process.env.REACT_APP_API}/posts/${slug}`
+	const shouldFetchNewApi = useShouldUpdateCache(postUrl)
 
 	const cachedItem = JSON.parse(localStorage.getItem(postsUrl)).data[slug]
 
 	useEffect(() => {
+		let unmounted = false
+		if (unmounted) return
+
 		// Try localStorage first
-		if (cachedItem) {
+		if (cachedItem && shouldFetchNewApi === false) {
 			console.log('from local')
-			setValues(cachedItem)
+			if (!unmounted) {
+				setValues(cachedItem)
+			}
 			setUrlsContext(postUrl, cachedItem)
-		} else if (urls[postUrl]) {
+		} else if (urls[postUrl] && shouldFetchNewApi === false) {
 			// then try PostsContext
 			console.log('from context')
-			setValues({ ...urls[postUrl] })
+			if (!unmounted) {
+				setValues({ ...urls[postUrl] })
+			}
 		} else {
 			// otherwise fetch from api, then set context
 			console.log('from api')
@@ -40,9 +50,15 @@ const BlogDetails = () => {
 				.then((res) => res.json())
 				.then((res) => {
 					setUrlsContext(postUrl, res.data)
-					setValues({ ...res.data })
+					if (!unmounted) {
+						setValues({ ...res.data })
+					}
 				})
 				.catch((err) => console.error(err))
+		}
+
+		return () => {
+			unmounted = true
 		}
 	}, [])
 
