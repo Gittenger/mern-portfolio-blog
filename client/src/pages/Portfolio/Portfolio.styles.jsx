@@ -7,6 +7,7 @@ export const PortfolioPageContainer = styled.div`
 `
 
 export const PortfolioCardList = styled.ul`
+  ${cssIndex.keyFrames.fadein}
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;

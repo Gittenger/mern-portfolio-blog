@@ -31,6 +31,7 @@ export const SkillsPageContentContainer = styled.div`
 
 export const SkillCardsContainer = styled.div`
   ${cssIndex.flexCenterCol}
+  ${cssIndex.keyFrames.fadein}
   width: 100%;
 
   & > ul {
