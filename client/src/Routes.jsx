@@ -35,7 +35,7 @@ const Routes = () => {
           <Route path="/login" exact component={LoginPage} />
           <Route path="/portfolio" exact component={PortfolioPage} />
           <Route
-            path="/portfolio/:projectName"
+            path="/portfolio/:slug"
             exact
             component={PortfolioDetailsPage}
           />
