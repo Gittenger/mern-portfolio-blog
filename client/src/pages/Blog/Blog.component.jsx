@@ -25,6 +25,7 @@ const Blog = () => {
 
 	useEffect(() => {
 		let unmounted = false
+		if (unmounted) return
 
 		if (cachedItem && shouldFetchNewApi === false) {
 			console.log('from local')
