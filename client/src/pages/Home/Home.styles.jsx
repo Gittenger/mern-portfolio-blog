@@ -10,6 +10,7 @@ export const HomePageContainer = styled.div`
 	width: 100%;
 	background: none;
 	padding: 7rem 0 10rem;
+	${cssIndex.keyFrames.fadein}
 
 	${tabletMM} {
 		padding: 4rem 0 5rem;
@@ -199,8 +200,6 @@ export const HomePageContainer = styled.div`
 `
 
 export const BgImgBox = styled.div`
-	${cssIndex.keyFrames.fadein}
-
 	border-radius: 50px;
 	background-image: ${({ bgImg }) => `url('${bgImg}')`};
 	background-size: cover;

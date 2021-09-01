@@ -10,6 +10,7 @@ export const ContactPageContainer = styled.div`
 	flex-direction: column;
 	width: 100%;
 	padding: 0 0 15rem;
+	${cssIndex.keyFrames.fadein}
 
 	${tabletLand} {
 		padding: 2rem 0 7rem;
