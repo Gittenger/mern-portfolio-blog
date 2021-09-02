@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import sal from 'sal.js'
+import 'sal.js/dist/sal.css'
 
 import CIndex from '../../components/components.index.js'
 import { HomePageContainer, BgImgBox } from './Home.styles.jsx'
@@ -8,6 +10,10 @@ import Images from '../../assets/img/img-index'
 import data from './Home.data.js'
 
 const Home = () => {
+	useEffect(() => {
+		sal()
+	}, [])
+
 	const {
 		TComp: { P, PSmall },
 		SkillIconBox,
@@ -15,7 +21,7 @@ const Home = () => {
 
 	return (
 		<HomePageContainer>
-			<div className="intro-text text-box">
+			<div className="intro-text text-box" data-sal="fade" data-sal-delay="200">
 				<P className="leading">Hi! I'm John...</P>
 				<P className="leading-sub">
 					I'm a software developer with a passion for learning and a bold
@@ -27,7 +33,7 @@ const Home = () => {
 				</PSmall>
 			</div>
 			<BgImgBox className="img-box" bgImg={Images.profile}></BgImgBox>
-			<div className="text-box page-desc">
+			<div className="text-box page-desc" data-sal="fade" data-sal-delay="200">
 				<PSmall>
 					This web page was built using the MERN stack and deployed using a
 					virtual private server (VPS) with Amazon Web Services (AWS). I built a
@@ -35,12 +41,16 @@ const Home = () => {
 					and any others in the future.
 				</PSmall>
 			</div>
-			<div className="text-box list-header">
+			<div
+				className="text-box list-header"
+				data-sal="fade"
+				data-sal-delay="200"
+			>
 				<P>My skills include but are not limited to...</P>
 			</div>
 			<ul>
 				{data.map((el, i) => (
-					<li key={i}>
+					<li key={i} data-sal="fade" data-sal-repeat>
 						<SkillIconBox
 							skillClassName="skill-img"
 							className="icon-box"
@@ -50,7 +60,11 @@ const Home = () => {
 					</li>
 				))}
 			</ul>
-			<div className="text-box project-desc">
+			<div
+				className="text-box project-desc"
+				data-sal="fade"
+				data-sal-delay="200"
+			>
 				<PSmall>
 					In my years of study, I have tried lots of things in an effort to
 					broaden my skill set. I enjoy web development a lot, and I am
@@ -58,7 +72,7 @@ const Home = () => {
 				</PSmall>
 				<PSmall>Here is a sampling of the work I've done:</PSmall>
 			</div>
-			<div className="projects-sample">
+			<div className="projects-sample" data-sal="fade" data-sal-delay="200">
 				<div className="project-link">
 					<Link to="/portfolio/my-first-project">Project One</Link>
 				</div>
@@ -67,7 +81,7 @@ const Home = () => {
 					<Link to="/portfolio/project-two">Project Two</Link>
 				</div>
 			</div>
-			<div className="text-box cta">
+			<div className="text-box cta" data-sal="fade" data-sal-delay="200">
 				<P className="cta-leading">
 					Right now I am more than ready to put my skills to good use and am
 					currently looking for an employer with whom I'll be a good fit. I'm
