@@ -11,7 +11,9 @@ import data from './Home.data.js'
 
 const Home = () => {
 	useEffect(() => {
-		sal()
+		sal({
+			threshold: 0.25,
+		})
 	}, [])
 
 	const {
@@ -21,7 +23,11 @@ const Home = () => {
 
 	return (
 		<HomePageContainer>
-			<div className="intro-text text-box" data-sal="fade" data-sal-delay="200">
+			<div
+				className="intro-text text-box"
+				data-sal="fade"
+				data-sal-duration="800"
+			>
 				<P className="leading">Hi! I'm John...</P>
 				<P className="leading-sub">
 					I'm a software developer with a passion for learning and a bold
@@ -32,7 +38,12 @@ const Home = () => {
 					technologies. My stack of choice is MERN.
 				</PSmall>
 			</div>
-			<BgImgBox className="img-box" bgImg={Images.profile}></BgImgBox>
+			<BgImgBox
+				className="img-box"
+				bgImg={Images.profile}
+				data-sal="fade"
+				data-sal-duration="800"
+			></BgImgBox>
 			<div className="text-box page-desc" data-sal="fade" data-sal-delay="200">
 				<PSmall>
 					This web page was built using the MERN stack and deployed using a
@@ -50,7 +61,7 @@ const Home = () => {
 			</div>
 			<ul>
 				{data.map((el, i) => (
-					<li key={i} data-sal="fade" data-sal-repeat>
+					<li key={i} data-sal="fade" data-sal-duration="800">
 						<SkillIconBox
 							skillClassName="skill-img"
 							className="icon-box"

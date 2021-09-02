@@ -10,7 +10,6 @@ export const HomePageContainer = styled.div`
 	width: 100%;
 	background: none;
 	padding: 7rem 0 10rem;
-	${cssIndex.keyFrames.fadein}
 
 	${tabletMM} {
 		padding: 4rem 0 5rem;
