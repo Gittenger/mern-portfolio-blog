@@ -20,13 +20,15 @@ ___
 2. Write Markdowns describing projects
 	--In meantime, use a simple README to stand-in for demo
 3. Add test GIF's to project details page
-4. Animations for pages/components
+###4. Animations for pages/components
+	--working now, but try diff anim lib
 5. Change Nav UI.
 	--sticky nav?
 6. Tighten up UI in general. Margins, etc.
 	###--Front page
 	--Projects section on front page
-	--Blog/Projects overview
+	###--Projects overview
+	--Blog overview
 	--Contact UI
 	--Resume ui --drive resume? --inline resume?
 7. Build UI for projects details

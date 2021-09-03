@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { cssIndex } from '../../../styles/css/utils.styles.js'
+import { cssIndex, device } from '../../../styles/css/utils.styles.js'
+const { desktop, laptopM, laptopS, tabletLand, tabletMM } = device
 
 export const CardContainer = styled.div`
+	--cardWidth: 650px;
+	--cardHeight: 800px;
+
 	position: relative;
 	display: grid;
 	grid-template-columns: 1fr;
@@ -14,8 +18,33 @@ export const CardContainer = styled.div`
 			: bgColor == 'green'
 			? 'mediumseagreen'
 			: 'orange'};
-	width: 650px;
-	height: 800px;
+	width: var(--cardWidth);
+	height: var(--cardHeight);
+
+	${desktop} {
+		--cardWidth: 600px;
+		--cardHeight: 730px;
+	}
+
+	${laptopM} {
+		--cardWidth: 500px;
+		--cardHeight: 650px;
+	}
+
+	${laptopS} {
+		--cardWidth: 420px;
+		--cardHeight: 550px;
+	}
+
+	${tabletLand} {
+		--cardWidth: 730px;
+		--cardHeight: 550px;
+	}
+
+	${tabletMM} {
+		--cardWidth: 100%;
+		--cardHeight: 490px;
+	}
 
 	& > div.text-box {
 		${cssIndex.flexCenterCol}
@@ -26,7 +55,7 @@ export const CardContainer = styled.div`
 		${cssIndex.flexCenterCol}
 		width: 100%;
 		img {
-			object-fit: fill;
+			object-fit: contain;
 			width: 90%;
 			max-height: 90%;
 		}
@@ -39,10 +68,15 @@ export const Overlay = styled(Link)`
 	left: 0;
 	${cssIndex.flexCenterCol}
 	background: rgba(144, 150, 150, 0%);
-	width: 650px;
-	height: 800px;
+	width: var(--cardWidth);
+	height: var(--cardHeight);
 	cursor: pointer;
 	transition: all 0.3s;
+
+	${tabletMM} {
+		width: 100%;
+		height: 100%;
+	}
 
 	a {
 		opacity: 0;
