@@ -28,10 +28,13 @@ ___
 	###--Front page
 	--Projects section on front page
 	###--Projects overview
+	--Projects overview -- have different picture/bg color for project display
 	--Blog overview
 	--Contact UI
 	--Resume ui --drive resume? --inline resume?
 7. Build UI for projects details
 	--Create GIF's of finished projects running, for demo on project page
-	--markdown component
+	###--markdown component
+	--style markdown render better
+	--finish overall layout
 8. Remove all console.logs()
