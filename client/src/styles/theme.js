@@ -9,6 +9,7 @@ const colors = {
 	darker: '#252324',
 	blackLight: `#131213`,
 	black: '#17191e',
+	blackDark: '#0c0d0e',
 	cyan: '#56b6c2',
 }
 
