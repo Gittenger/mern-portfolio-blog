@@ -26,11 +26,9 @@ ___
 5. Change Nav UI.
 	--sticky nav?
 6. Tighten up UI in general. Margins, etc.
-	###--Front page
 	--Projects section on front page
 		--load from cache ?
 			--or, just pick a select few to display
-	###--Projects overview
 	--Blog overview
 	--Contact UI
 	--Resume ui --drive resume? --inline resume?
@@ -42,6 +40,5 @@ ___
 	--finish media queries
 		--youtube embed
 	--finish nitpick styling
-	###--add youtube ID to mongodb schema
 8. Remove all console.logs()
 9. Make README
