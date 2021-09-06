@@ -19,6 +19,8 @@ import pug from './skills/svg/pug.svg'
 import react from './skills/svg/react.svg'
 import vim from './skills/svg/vim.svg'
 import profile from './profile.jpeg'
+import projectDefault from './projects/default.png'
+import projectFF from './projects/ff.png'
 
 export const Images = {
 	skills: {
@@ -37,6 +39,10 @@ export const Images = {
 			digitalOcean,
 		},
 		svg: { figma, firebase, graphql, linux, nextjs, pug, react, vim },
+	},
+	projects: {
+		ff: projectFF,
+		default: projectDefault,
 	},
 	profile,
 }
