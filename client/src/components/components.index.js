@@ -18,6 +18,7 @@ import Checkbox from './General/Checkbox/Checkbox.component.jsx'
 import ContactForm from './General/ContactForm/ContactForm.component.jsx'
 import SkillImage from './General/SkillImage/SkillImage.component.jsx'
 import SkillIconBox from './General/SkillIconBox/SkillIconBox.component.jsx'
+import YtEmbed from './General/YtEmbed/YtEmbed.component.jsx'
 import TComp from './typography/typography.components.js'
 export const CIndex = {
 	AddProject,
@@ -40,6 +41,7 @@ export const CIndex = {
 	SkillCard,
 	SkillImage,
 	SkillIconBox,
+	YtEmbed,
 	TComp,
 }
 export default CIndex
