@@ -9,6 +9,7 @@ import CIndex from '../../components/components.index.js'
 import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
 
 import UrlsContext from '../../contexts/UrlsContext.js'
+import leo from '../../assets/gif/leo.gif'
 
 const PortfolioDetails = () => {
 	const [values, setValues] = useState({
@@ -106,16 +107,20 @@ const PortfolioDetails = () => {
 	const {
 		TComp: { PSmall, H1, H3, H2 },
 		SkillImage,
+		YtEmbed,
 	} = CIndex
 
 	return (
 		<PortfolioDetailsContainer>
-			<PSmall>{name}</PSmall>
+			<H1 className="title">{name}</H1>
+			<img src={leo} alt="" className="gif" />
 			<div className="description-long">
 				<ReactMarkdown components={renderers} children={descriptionLong} />
 			</div>
-			<a href={link}>Link to project</a>
-			<ul>
+			<a className="project-link" href={link} target="_blank">
+				Link to project
+			</a>
+			<ul className="tech-stack">
 				{techStack.map((el, i) => {
 					const elLow = el.toLowerCase()
 					return (
@@ -125,6 +130,8 @@ const PortfolioDetails = () => {
 					)
 				})}
 			</ul>
+			<H2 className="demo-section">Project Demo:</H2>
+			<YtEmbed linkId="FOg5UFERRHA" />
 		</PortfolioDetailsContainer>
 	)
 }
