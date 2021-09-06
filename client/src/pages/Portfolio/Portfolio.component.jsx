@@ -6,9 +6,6 @@ import CIndex from '../../components/components.index.js'
 import { PortfolioPageContainer, PortfolioCardList } from './Portfolio.styles'
 
 import UrlsContext from '../../contexts/UrlsContext.js'
-import DesignOne from '../../assets/img/design-1.png'
-// import DesignTwo from '../../assets/img/design-2.png'
-// import DesignThree from '../../assets/img/design-3.png'
 
 const Portfolio = () => {
 	const { ProjectCard } = CIndex
@@ -83,7 +80,7 @@ const Portfolio = () => {
 							title={values.data[project].name}
 							description={values.data[project].description}
 							anchor={`portfolio/${values.data[project].slug}`}
-							coverImg={DesignOne}
+							coverImg={values.data[project].slug}
 						/>
 					</li>
 				))}

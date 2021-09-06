@@ -10,16 +10,12 @@ export const CardContainer = styled.div`
 	position: relative;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 60%;
+	grid-template-rows: 1fr 80%;
 	justify-content: center;
-	background: ${({ bgColor }) =>
-		bgColor == 'blue'
-			? 'powderblue'
-			: bgColor == 'green'
-			? 'mediumseagreen'
-			: 'orange'};
+	background: var(--blackDark);
 	width: var(--cardWidth);
 	height: var(--cardHeight);
+	border-radius: 10px;
 
 	${desktop} {
 		--cardWidth: 600px;
@@ -49,6 +45,14 @@ export const CardContainer = styled.div`
 	& > div.text-box {
 		${cssIndex.flexCenterCol}
 		width: 100%;
+
+		h1 {
+			--scale: 0.85;
+		}
+
+		p {
+			--scale: 0.5;
+		}
 	}
 
 	& > .img-box {
@@ -56,8 +60,7 @@ export const CardContainer = styled.div`
 		width: 100%;
 		img {
 			object-fit: contain;
-			width: 90%;
-			max-height: 90%;
+			max-height: 100%;
 		}
 	}
 `
@@ -70,6 +73,7 @@ export const Overlay = styled(Link)`
 	background: rgba(144, 150, 150, 0%);
 	width: var(--cardWidth);
 	height: var(--cardHeight);
+	border-radius: 10px;
 	cursor: pointer;
 	transition: all 0.3s;
 
