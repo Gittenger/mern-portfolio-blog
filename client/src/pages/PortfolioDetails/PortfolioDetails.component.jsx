@@ -10,6 +10,7 @@ import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
 
 import UrlsContext from '../../contexts/UrlsContext.js'
 import leo from '../../assets/gif/leo.gif'
+import poke from '../../assets/gif/poke.gif'
 
 const PortfolioDetails = () => {
 	const [values, setValues] = useState({
@@ -113,7 +114,11 @@ const PortfolioDetails = () => {
 	return (
 		<PortfolioDetailsContainer>
 			<H1 className="title">{name}</H1>
-			<img src={leo} alt="" className="gif" />
+			<img
+				src={slug === 'fantastic-flames' ? leo : poke}
+				alt=""
+				className="gif"
+			/>
 			<div className="description-long">
 				<ReactMarkdown components={renderers} children={descriptionLong} />
 			</div>
