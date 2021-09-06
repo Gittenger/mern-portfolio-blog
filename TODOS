@@ -31,8 +31,6 @@ ___
 		--load from cache ?
 			--or, just pick a select few to display
 	###--Projects overview
-	--Projects overview -- have different picture/bg color for project display
-		--create image display component which uses conditional per project (slug should work)
 	--Blog overview
 	--Contact UI
 	--Resume ui --drive resume? --inline resume?
@@ -42,7 +40,8 @@ ___
 	--Create GIF's of finished projects running, for demo on project page
 		--same as above for picture w/ proj overview
 	--finish media queries
+		--youtube embed
 	--finish nitpick styling
-	--add youtube ID to mongodb schema
+	###--add youtube ID to mongodb schema
 8. Remove all console.logs()
 9. Make README
