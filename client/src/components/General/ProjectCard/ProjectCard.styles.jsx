@@ -10,8 +10,9 @@ export const CardContainer = styled.div`
 	position: relative;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 80%;
+	grid-template-rows: 1fr 78%;
 	justify-content: center;
+	padding-bottom: 2rem;
 	background: var(--blackDark);
 	width: var(--cardWidth);
 	height: var(--cardHeight);
@@ -60,7 +61,9 @@ export const CardContainer = styled.div`
 		width: 100%;
 		img {
 			object-fit: contain;
+			max-width: 90%;
 			max-height: 100%;
+			border-radius: 7px;
 		}
 	}
 `
