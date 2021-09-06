@@ -78,29 +78,29 @@ export const Overlay = styled(Link)`
 		height: 100%;
 	}
 
-	a {
+	button {
 		opacity: 0;
-	}
-
-	&.active {
-		background: rgba(144, 150, 150, 70%);
-
-		a {
-			opacity: 100%;
-		}
-	}
-
-	a:link,
-	a:visited {
+		cursor: pointer;
 		background: black;
 		color: white;
 		transition: all 0.3s;
 		padding: 10px;
 		border-radius: 10px;
+		border-style: none;
+
+		transition: all 0.3s;
 
 		&:hover {
 			background: white;
 			color: black;
+		}
+	}
+
+	&.active {
+		background: rgba(144, 150, 150, 70%);
+
+		button {
+			opacity: 100%;
 		}
 	}
 `

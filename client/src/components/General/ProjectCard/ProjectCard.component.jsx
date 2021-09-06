@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import { CardContainer, Overlay } from './ProjectCard.styles'
 
@@ -21,7 +20,7 @@ const ProjectCard = ({ title, description, anchor, coverImg, bgColor }) => {
 			onMouseLeave={handleMouseLeave}
 		>
 			<Overlay to={anchor} className={hoverState ? 'active' : ''}>
-				<Link to={anchor}>See Details</Link>
+				<button>See Details</button>
 			</Overlay>
 			<div className="text-box">
 				<h1>{title}</h1>
