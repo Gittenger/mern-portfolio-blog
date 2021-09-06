@@ -45,6 +45,8 @@ const SkillImage = ({ img, className, ...props }) => {
 					? png.mongo
 					: img === 'mongoose'
 					? png.mongoose
+					: img === 'digitalocean'
+					? png.digitalOcean
 					: img === 'css'
 					? png.css
 					: img === 'react'

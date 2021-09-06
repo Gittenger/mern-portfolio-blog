@@ -9,6 +9,7 @@ import git from './skills/git.png'
 import sass from './skills/sass.png'
 import mongoose from './skills/mongoose.png'
 import mongo from './skills/mongodb.png'
+import digitalOcean from './skills/digital-ocean.png'
 import figma from './skills/svg/figma.svg'
 import firebase from './skills/svg/firebase.svg'
 import graphql from './skills/svg/graphql.svg'
@@ -33,6 +34,7 @@ export const Images = {
 			sass,
 			mongo,
 			mongoose,
+			digitalOcean,
 		},
 		svg: { figma, firebase, graphql, linux, nextjs, pug, react, vim },
 	},
