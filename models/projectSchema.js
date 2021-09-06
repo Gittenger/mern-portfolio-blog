@@ -25,6 +25,10 @@ const projectSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	github: {
+		type: String,
+		default: 'https://www.github.com/Gittenger',
+	},
 	youtubeId: {
 		type: String,
 		default: 'aaa',
