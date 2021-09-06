@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useShouldUpdateCache } from '../../utils/hooks.js'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -11,12 +11,14 @@ import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
 import UrlsContext from '../../contexts/UrlsContext.js'
 import leo from '../../assets/gif/leo.gif'
 import poke from '../../assets/gif/poke.gif'
+import { ReactComponent as GithubLogo } from '../../assets/icons/github.svg'
 
 const PortfolioDetails = () => {
 	const [values, setValues] = useState({
 		name: '',
 		descriptionLong: '',
 		link: '',
+		github: '',
 		techStack: [],
 	})
 	const { slug } = useParams()
@@ -103,7 +105,7 @@ const PortfolioDetails = () => {
 		},
 	}
 
-	const { name, descriptionLong, link, techStack } = values
+	const { name, descriptionLong, link, github, techStack } = values
 
 	const {
 		TComp: { PSmall, H1, H3, H2 },
@@ -122,9 +124,17 @@ const PortfolioDetails = () => {
 			<div className="description-long">
 				<ReactMarkdown components={renderers} children={descriptionLong} />
 			</div>
-			<a className="project-link" href={link} target="_blank">
-				Link to project
-			</a>
+			<div className="links">
+				<a className="text-link" href={link} target="_blank">
+					Link to project
+				</a>
+				<a className="text-link" href={github} target="_blank">
+					GitHub Link
+				</a>
+				<a className="icon-link" href={github} target="_blank">
+					<GithubLogo />
+				</a>
+			</div>
 			<ul className="tech-stack">
 				{techStack.map((el, i) => {
 					const elLow = el.toLowerCase()

@@ -31,13 +31,13 @@ export const PortfolioDetailsContainer = styled.div`
     margin-bottom: 6rem;
 
     ${laptopXS} {
-      width: 70%
+      width: 70%;
     }
 
     p {
-    text-align: left;
-    line-height: 1.5;
-    margin-bottom: 3rem;
+      text-align: left;
+      line-height: 1.5;
+      margin-bottom: 3rem;
     }
 
     h2,
@@ -45,7 +45,7 @@ export const PortfolioDetailsContainer = styled.div`
       margin-top: 4rem;
     }
 
-    pre  {
+    pre {
       width: 100%;
     }
 
@@ -72,13 +72,45 @@ export const PortfolioDetailsContainer = styled.div`
     }
   }
 
-  & > .project-link {
+  & > .links {
+    ${cssIndex.flexCenter}
+
+    & > *:not(:last-child) {
+      margin-right: 2rem;
+      margin-bottom: 0;
+    }
+
+    & > .text-link {
       color: var(--main);
+      text-decoration: underline;
       transition: color 0.3s;
 
       &:hover {
         color: royalblue;
         transition: color 0.3s;
+      }
+    }
+
+    & > .icon-link {
+      svg {
+        ${cssIndex.flexCenterCol}
+        width: 50px;
+        height: 50px;
+        fill: var(--white);
+
+        & * {
+          fill: var(--white) !important;
+          transition: all 0.4s;
+        }
+
+        &:hover {
+          fill: var(--main);
+
+          & * {
+            fill: var(--main) !important;
+            transition: all 0.4s;
+          }
+        }
       }
     }
   }
@@ -122,11 +154,11 @@ export const PortfolioDetailsContainer = styled.div`
     }
 
     ${tabletS} {
-    flex-direction: column;
-    margin-top: 5rem;
+      flex-direction: column;
+      margin-top: 5rem;
 
-    li:not(:last-child) {
-      margin-bottom: 3rem;
+      li:not(:last-child) {
+        margin-bottom: 3rem;
       }
     }
   }
