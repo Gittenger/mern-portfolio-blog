@@ -22,7 +22,6 @@ body {
     
     /* set font vars in root */
     ${({ theme: { typography } }) => typography.fontVars.fontMain};
-
 }
 
 html {
@@ -64,6 +63,12 @@ html {
     --gradFooter: ${({ theme: { gradient } }) => gradient.footer};
     --gradTitle: ${({ theme: { gradient } }) => gradient.title};
     --gradForm: ${({ theme: { gradient } }) => gradient.form};
+
+}
+
+::selection {
+    background: var(--main);
+    color: var(--white);
 }
 `
 
