@@ -177,7 +177,7 @@ export const HomePageContainer = styled.div`
 		a:link,
 		a:visited {
 			color: var(--white);
-			background: black;
+			background: var(--blackDark);
 			border: 2px solid transparent;
 			padding: 10px;
 			border-radius: 10px;
