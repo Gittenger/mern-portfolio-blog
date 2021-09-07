@@ -9,37 +9,76 @@ const { tabletS, tabletMM } = device
 export const NavListContainer = styled.ul`
 	${navStyles}
 	${cssIndex.flexCenter}
+	height: 100%;
 
 	li {
-		margin-right: 2rem;
+		${cssIndex.flexCenter}
+		height: 100%;
 	}
 
-	a {
+	.nav-link-box {
+		${cssIndex.flexCenter}
 		position: relative;
-		transition: color -1px.3s, text-shadow 0.3s;
+		z-index: 0;
+		height: 100%;
 
-		&:link,
-		&:visited {
-			color: var(--white);
+		// link with hover
+		a {
+			position: relative;
+			z-index: 10;
+			${cssIndex.flexCenter}
+			padding: 0 1rem;
+			// transition: all 0.3s;
+
+			&:link,
+			&:visited {
+				color: var(--white);
+			}
+
+			&:hover + .nav-highlight {
+				opacity: 100%;
+			}
+
+			&.active-page {
+				filter: invert(35%);
+			}
 		}
-	}
 
-	a:hover {
-		color: var(--main);
-	}
+		// box under link for effect
+		& > .nav-highlight {
+			position: absolute;
+			z-index: 0;
+			opacity: 0;
+			background: var(--main);
+			top: 0;
+			left: -2px;
+			height: 100%;
+			width: 100%;
+			transform: skew(-3deg);
+			transition: all 0.3s;
 
-	a.active-page .nav-underline {
-		display: block;
-	}
-
-	a > .nav-underline {
-		display: none;
-		position: absolute;
-		bottom: -7px;
-		left: -2px;
-		height: 3px;
-		width: 100%;
-		background: var(--main);
+			&-1 {
+				filter: brightness(0.9);
+			}
+			&-2 {
+				filter: brightness(0.75);
+			}
+			&-3 {
+				filter: brightness(0.6);
+			}
+			&-4 {
+				filter: brightness(0.5);
+			}
+			&-5 {
+				filter: brightness(0.38);
+			}
+			&-6 {
+				filter: brightness(0.3);
+			}
+			&-7 {
+				filter: brightness(0.2);
+			}
+		}
 	}
 
 	${tabletMM} {
@@ -54,7 +93,7 @@ export const NavListContainer = styled.ul`
 	}
 
 	${tabletS} {
-		a.active-page .nav-underline {
+		a.active-page .nav-highlight {
 			display: none;
 		}
 
