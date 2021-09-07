@@ -5,7 +5,7 @@ import { BackgroundContainer } from './Layout.styles'
 
 import PageContext from '../../../contexts/PageContext'
 import { sizes } from '../../../styles/css/utils.styles.js'
-import { setActiveColor } from '../../../utils/NavFunctions.js'
+import { setActiveNavPage } from '../../../utils/NavFunctions.js'
 
 const Layout = ({ children }) => {
 	const { NavDesk, NavMobile, ToggleNavButton, AdminMenu, Content } = CIndex
@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
 	const [navMobileActive, setNavMobileActive] = useState(false)
 	const [showNavList, setShowNavList] = useState(false)
 	const { activePage } = useContext(PageContext)
-	setActiveColor(activePage)
+	setActiveNavPage(activePage)
 
 	// TOGGLE NAV ACTION
 	const toggleNav = () => {
@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
 
 	// ON COMPONENT RENDER
 	useEffect(() => {
-		setActiveColor(activePage)
+		setActiveNavPage(activePage)
 		checkNavMobileActive()
 		if (window.screen.width <= mobileBreakpoint) {
 			setNavMobileActive(true)
