@@ -117,11 +117,22 @@ export const HomePageContainer = styled.div`
 		}
 
 		${minLaptopS} {
-			grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-			li {
-				p {
-					white-space: nowrap;
+				grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+				li {
+					p {
+						white-space: nowrap;
 				}
+			}
+		}
+
+		${tabletMM} {
+			grid-auto-rows: 140px;
+
+			li .skill-img {
+				margin-top: 0;
+				max-width: 80px;
+				max-height: 90px;
 			}
 		}
 	}
