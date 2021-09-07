@@ -6,15 +6,13 @@ ___
 B) Structure
 ___
 ###1. Refactor caching to be even more efficient -- almost done
-	--on update/create projects/blog posts, set update time on server side
-		--should already work since cache checks for update time
+	--on update/create projects/blog posts, set update time on SERVER SIDE
 ###2. rename imgs in assets (skills)
 3. refactor code for consistency -- check for needed refactor, mostly good
 4. Improved naming convention (js vs jsx for styles?)
 	--Project vs portfolio?
 	--project/blog overview?
 5. Move "Build" to admin section
-	--need to build admin section UI
 
 C) General improvements
 ___
@@ -23,22 +21,22 @@ ___
 3. Add test GIF's to project details page
 ###4. Animations for pages/components
 	--working now, but try diff anim lib
-5. Change Nav UI.
-	--sticky nav?
-6. Tighten up UI in general. Margins, etc.
+5. Tighten up UI in general. Margins, etc.
 	--Projects section on front page
 		--load from cache ?
 			--or, just pick a select few to display
 	--Blog overview
 	--Contact UI
 	--Resume ui --drive resume? --inline resume?
-	--better/different navbar
+	###--better/different navbar
+		---improve for mobile
+			---bring in from side, like bootstrap nav
+		---sticky
 	--admin UI
-7. Build UI for projects details
-	--Create GIF's of finished projects running, for demo on project page
-		--same as above for picture w/ proj overview
-	--finish media queries
-		--youtube embed
+	###--projects details -- almost done
+		--Create GIF's of finished projects running, for demo on project page
+			--same as above for picture w/ proj overview
 	--finish nitpick styling
-8. Remove all console.logs()
-9. Make README
+6. Remove all console.logs()
+7. Make README
+8. aria
