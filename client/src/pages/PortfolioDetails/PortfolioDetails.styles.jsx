@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { cssIndex, device } from '../../styles/css/utils.styles.js'
-const { laptopXS, laptopL, tabletMM, tabletS } = device
+const { laptopXS, laptopL, tabletMM, tabletS, mobileM } = device
 
 export const PortfolioDetailsContainer = styled.div`
   ${cssIndex.flexCenterCol}
@@ -28,10 +28,14 @@ export const PortfolioDetailsContainer = styled.div`
   & > .description-long {
     width: 55%;
     text-align: left;
-    margin-bottom: 6rem;
+    margin-bottom: 3.8rem;
 
     ${laptopXS} {
       width: 70%;
+    }
+
+    ${tabletMM} {
+      margin-bottom: 2.4rem;
     }
 
     p {
@@ -43,6 +47,10 @@ export const PortfolioDetailsContainer = styled.div`
     h2,
     h3 {
       margin-top: 4rem;
+
+      ${mobileM} {
+        margin-top: 3rem;
+      }
     }
 
     pre {
@@ -74,6 +82,7 @@ export const PortfolioDetailsContainer = styled.div`
 
   & > .links {
     ${cssIndex.flexCenter}
+    margin-bottom: 5rem;
 
     & > *:not(:last-child) {
       margin-right: 2rem;
@@ -125,7 +134,7 @@ export const PortfolioDetailsContainer = styled.div`
     min-width: 40%;
 
     img {
-      max-width: 100px;
+      max-width: 90px;
 
       &.is-svg {
         width: 100px;
@@ -135,6 +144,10 @@ export const PortfolioDetailsContainer = styled.div`
 
     ${laptopL} {
       width: 65%;
+      img,
+      img.is-svg {
+        max-width: 80px;
+      }
     }
 
     ${laptopXS} {
@@ -142,20 +155,16 @@ export const PortfolioDetailsContainer = styled.div`
     }
 
     ${tabletMM} {
+      margin-top: 0;
       width: 84%;
-      img {
-        max-width: 85px;
-
-        &.is-svg {
-          width: 85px;
-          width: 100px;
-        }
+      img,
+      img.is-svg {
+        max-width: 70px;
       }
     }
 
     ${tabletS} {
       flex-direction: column;
-      margin-top: 5rem;
 
       li:not(:last-child) {
         margin-bottom: 3rem;
@@ -164,6 +173,19 @@ export const PortfolioDetailsContainer = styled.div`
   }
 
   & > .demo-section {
+    ${cssIndex.flexCenterCol}
+    width: 100%;
     margin-top: 5rem;
+
+    .iframe {
+      ${tabletMM} {
+        width: 90%;
+      }
+
+      ${mobileM} {
+        width: 85%;
+        height: 265px;
+      }
+    }
   }
 `
