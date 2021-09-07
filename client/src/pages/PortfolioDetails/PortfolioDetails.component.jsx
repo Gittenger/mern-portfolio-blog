@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useShouldUpdateCache } from '../../utils/hooks.js'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
@@ -121,9 +121,6 @@ const PortfolioDetails = () => {
 				alt=""
 				className="gif"
 			/>
-			<div className="description-long">
-				<ReactMarkdown components={renderers} children={descriptionLong} />
-			</div>
 			<div className="links">
 				<a className="text-link" href={link} target="_blank">
 					Link to project
@@ -135,6 +132,9 @@ const PortfolioDetails = () => {
 					<GithubLogo />
 				</a>
 			</div>
+			<div className="description-long">
+				<ReactMarkdown components={renderers} children={descriptionLong} />
+			</div>
 			<ul className="tech-stack">
 				{techStack.map((el, i) => {
 					const elLow = el.toLowerCase()
@@ -145,8 +145,10 @@ const PortfolioDetails = () => {
 					)
 				})}
 			</ul>
-			<H2 className="demo-section">Project Demo:</H2>
-			<YtEmbed linkId="FOg5UFERRHA" />
+			<div className="demo-section">
+				<H2>Project Demo:</H2>
+				<YtEmbed linkId="FOg5UFERRHA" className="iframe" />
+			</div>
 		</PortfolioDetailsContainer>
 	)
 }
