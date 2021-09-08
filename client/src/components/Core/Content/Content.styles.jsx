@@ -12,7 +12,7 @@ export const ContentContainer = styled.div`
 	justify-content: flex-start;
 	background: none;
 	padding-bottom: 15rem;
-	margin-top: var(--titleHeight);
+	margin-top: var(--navHeight);
 
 	${tabletMM} {
 		min-height: 99vh;
