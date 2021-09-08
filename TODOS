@@ -29,14 +29,15 @@ ___
 	--Contact UI
 	--Resume ui --drive resume? --inline resume?
 	###--better/different navbar
-		---improve for mobile
-			---bring in from side, like bootstrap nav
+		---bring in from side, like bootstrap nav ??
 		---sticky
 	--admin UI
 	###--projects details -- almost done
 		--Create GIF's of finished projects running, for demo on project page
 			--same as above for picture w/ proj overview
 	--finish nitpick styling
+	--typography, fonts, font-sizing
+	--colors
 6. Remove all console.logs()
 7. Make README
 8. aria
