@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import { device, cssIndex } from '../../../styles/css/utils.styles.js'
-
-const { tabletS } = device
+import { cssIndex } from '../../../styles/css/utils.styles.js'
 
 export const ToggleNavButtonContainer = styled.button`
 	${cssIndex.flexCenter}
