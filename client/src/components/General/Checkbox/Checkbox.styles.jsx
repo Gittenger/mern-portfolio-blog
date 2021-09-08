@@ -39,21 +39,21 @@ export const CheckboxContainer = styled.div`
 
 	[type='checkbox']:not(:checked) + label:after,
 	[type='checkbox']:checked + label:after {
-		content: 'x';
+		content: '■';
 		position: absolute;
-		top: 0.8rem;
-		left: 0.3rem;
-		font-size: 2rem;
+		top: 9.3px;
+		left: 0.8px;
+		font-size: 2.6rem;
 		font-weight: 600;
-		color: var(--main);
+		color: var(--blackDark);
 		line-height: 0;
 		-webkit-transition: all 0.2s;
 		transition: all 0.2s;
 	}
 	[type='checkbox']:not(:checked) + label:after {
 		opacity: 0;
-		-webkit-transform: scale(0) rotate(45deg);
-		transform: scale(0) rotate(45deg);
+		-webkit-transform: scale(0) rotate(10deg);
+		transform: scale(0) rotate(10deg);
 	}
 
 	[type='checkbox']:checked + label:after {
