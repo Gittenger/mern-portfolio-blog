@@ -127,13 +127,11 @@ export const cssIndex = {
 		}
 		&::-webkit-scrollbar-thumb {
 			background-color: #fff;
+			border-radius: 4px;
 			background-image: -webkit-linear-gradient(
 				90deg,
-				rgba(0, 0, 0, 1) 0%,
-				rgba(0, 0, 0, 1) 25%,
-				transparent 100%,
-				rgba(0, 0, 0, 1) 75%,
-				transparent
+				rgba(0, 0, 0, 1) 0,
+				rgba(20, 20, 20, 1) 100%
 			);
 		}
 	`,
