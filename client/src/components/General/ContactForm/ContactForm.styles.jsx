@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { cssIndex, device } from '../../../styles/css/utils.styles.js'
 import { PSmallStyles, P } from '../../typography/typography.components.js'
-const { laptopXS, tabletMM, mobileM } = device
+const { laptopXS, laptopS, tabletMM, mobileM } = device
 
 export const ContactFormContainer = styled.div`
 	${cssIndex.flexCenterCol}
@@ -15,9 +15,10 @@ export const ContactFormContainer = styled.div`
 export const ContactFormForm = styled.form`
 	${cssIndex.flexCenterCol}
 	box-shadow: var(--shadowBoxPart);
-	width: 75%;
+	width: 40%;
 	padding: 3rem;
 	border-radius: var(--bRadM);
+	background: var(--blackDark);
 
 	.checkbox {
 		margin-top: var(--m-XS);
@@ -44,6 +45,18 @@ export const ContactFormForm = styled.form`
 			transform: translateY(1px);
 		}
 	}
+
+	${laptopS} {
+		width: 50%;
+	}
+
+	${laptopXS} {
+		width: 55%;
+	}
+
+	${tabletMM} {
+		width: 65%;
+	}
 `
 
 export const FormInstructions = styled(P)`
@@ -62,7 +75,6 @@ export const Row = styled.div`
 	justify-content: center;
 	align-content: center;
 	justify-items: center;
-	overflow: hidden;
 
 	${laptopXS} {
 		grid-template-columns: 1fr;
@@ -92,11 +104,11 @@ export const Row = styled.div`
 	// input
 	& > :last-child {
 		justify-self: start;
-		width: 60%;
-		min-width: 20rem;
+		width: 55%;
+		min-width: 23rem;
 		font-size: 1.4rem;
 		margin: 0;
-		padding: 0 0.5rem;
+		padding: 0.7rem 0.7rem;
 		color: black;
 	}
 
