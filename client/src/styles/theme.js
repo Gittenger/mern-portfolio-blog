@@ -19,7 +19,7 @@ const colorsRGB = {
 	greyMedium: '221, 221, 221',
 	dark: '54, 52, 53',
 	darker: '37, 35, 36',
-	black: '15, 14, 15',
+	black: '23, 25, 30',
 }
 
 const gradient = {
