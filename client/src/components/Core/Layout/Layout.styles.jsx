@@ -9,7 +9,7 @@ export const BackgroundContainer = styled.div`
 	& > .toggle-nav-button {
 		position: fixed;
 		z-index: 500;
-		bottom: 4rem;
+		bottom: 3rem;
 		right: 1.2rem;
 	}
 `
