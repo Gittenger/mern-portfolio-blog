@@ -27,7 +27,9 @@ export const NavListContainer = styled.ul`
 				z-index: 10;
 				${cssIndex.flexCenter}
 				padding: 0 1rem;
-				// transition: all 0.3s;
+
+				// inverse skew on text
+				transform: var(--inverseSkewNav);
 
 				&:link,
 				&:visited {
@@ -61,22 +63,22 @@ export const NavListContainer = styled.ul`
 					filter: brightness(0.9);
 				}
 				&-2 {
-					filter: brightness(0.75);
+					filter: brightness(0.82);
 				}
 				&-3 {
-					filter: brightness(0.6);
+					filter: brightness(0.74);
 				}
 				&-4 {
-					filter: brightness(0.5);
+					filter: brightness(0.65);
 				}
 				&-5 {
-					filter: brightness(0.38);
+					filter: brightness(0.57);
 				}
 				&-6 {
-					filter: brightness(0.3);
+					filter: brightness(0.49);
 				}
 				&-7 {
-					filter: brightness(0.2);
+					filter: brightness(0.41);
 				}
 			}
 		}
