@@ -6,6 +6,8 @@ export const BackgroundContainer = styled.div`
 	width: 100%;
 	overflow-x: hidden;
 
+	--navHeight: 9rem;
+
 	& > .toggle-nav-button {
 		position: fixed;
 		z-index: 500;
