@@ -18,18 +18,15 @@ C) General improvements
 ___
 1. Loading spinner while API is fetching for Portfolio/Blog??
 2. Write Markdowns describing projects
-3. Add test GIF's to project details page
+###3. Add test GIF's to project details page
 ###4. Animations for pages/components
-	--working now, but try diff anim lib
+	--working now, but try diff anim lib ??
 5. Tighten up UI in general. Margins, etc.
 	--Projects section on front page
 		--load from cache ?
 			--or, just pick a select few to display
 	--Blog overview
 	--Resume ui --drive resume? --inline resume?
-	###--better/different navbar
-		---bring in from side, like bootstrap nav ??
-		---sticky
 	--admin UI
 	###--projects details -- almost done
 		--Create GIF's of finished projects running, for demo on project page
