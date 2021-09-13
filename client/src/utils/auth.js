@@ -6,7 +6,7 @@ export const auth = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
+      credentials: process.env.REACT_APP_REQ_CREDENTIALS,
       body: JSON.stringify(user),
     })
       .then((res) => res.json())
@@ -20,8 +20,7 @@ export const auth = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-
-      credentials: 'include',
+      credentials: process.env.REACT_APP_REQ_CREDENTIALS,
     })
       .then(() => {
         window.location.reload()
