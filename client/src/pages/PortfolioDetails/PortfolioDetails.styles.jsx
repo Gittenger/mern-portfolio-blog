@@ -183,7 +183,6 @@ export const PortfolioDetailsContainer = styled.div`
       }
 
       ${mobileM} {
-        width: 85%;
         height: 265px;
       }
     }
