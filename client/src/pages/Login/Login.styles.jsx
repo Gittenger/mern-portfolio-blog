@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { PSmallStyles } from '../../components/typography/typography.components.js'
 import { cssIndex } from '../../styles/css/utils.styles.js'
 
 export const LoginPageContentContainer = styled.div`
@@ -25,6 +26,10 @@ export const Row = styled.div`
   input {
     font-family: inherit;
     border-radius: 0.3rem;
+  }
+
+  label {
+    ${PSmallStyles}
   }
 
   &:not(:last-child) {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 
+import CIndex from '../../components/components.index.js'
 import { Form, Row, LoginPageContentContainer } from './Login.styles'
 
 import auth from '../../utils/auth.js'
@@ -17,17 +18,17 @@ const Login = () => {
 
 	const { email, password, error, loggedIn } = values
 
-	const handleChange = name => event => {
+	const handleChange = (name) => (event) => {
 		setValues({
 			...values,
 			[name]: event.target.value,
 		})
 	}
 
-	const handleSubmit = event => {
+	const handleSubmit = (event) => {
 		event.preventDefault()
 		setValues({ ...values, error: '' })
-		authUser({ email, password }, { authRoute: 'login' }).then(res => {
+		authUser({ email, password }, { authRoute: 'login' }).then((res) => {
 			if (res.error) {
 				console.log(res)
 				setValues({ ...values, error: res.message })
@@ -73,11 +74,15 @@ const Login = () => {
 		</Form>
 	)
 
+	const {
+		TComp: { H2 },
+	} = CIndex
+
 	return loggedIn ? (
 		<Redirect to="/admin" />
 	) : (
 		<LoginPageContentContainer>
-			<h2>Login:</h2>
+			<H2>Login:</H2>
 			{LoginForm()}
 			<button onClick={handleSubmit}>Submit</button>
 			{showError()}
