@@ -5,8 +5,8 @@ import { cssIndex, device } from '../../../styles/css/utils.styles.js'
 const { tabletMM } = device
 
 export const NavDeskContainer = styled.nav`
-	--skewNav: skewY(-0.5deg) translateY(-3px);
-	--inverseSkewNav: skewY(0.5deg) translateY(-3px);
+	--skewNav: skewY(-0.5deg) translateY(-8.5px);
+	--inverseSkewNav: skewY(0.5deg) translateY(-4px);
 
 	width: 100%;
 	${cssIndex.flexCenter}
