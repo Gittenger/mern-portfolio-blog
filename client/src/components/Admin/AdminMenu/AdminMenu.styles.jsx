@@ -1,9 +1,11 @@
 import styled from 'styled-components'
+import { navStyles } from '../../typography/typography.components.js'
 
 export const AdminMenuContainer = styled.ul`
+	${navStyles}
 	position: fixed;
-	bottom: 4px;
-	left: 4px;
+	top: 8px;
+	right: 10px;
 	z-index: 10000;
 	display: none;
 
@@ -18,8 +20,6 @@ export const AdminMenuContainer = styled.ul`
 	a,
 	a:link,
 	a:visited {
-		text-decoration: underline;
-		color: var(--white);
 		transition: color 0.2s;
 
 		&:hover {
