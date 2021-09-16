@@ -66,7 +66,7 @@ const Blog = () => {
 		return () => {
 			unmounted = true
 		}
-	}, [])
+	}, [shouldFetchNewApi])
 
 	return (
 		<BlogPageContentContainer>
