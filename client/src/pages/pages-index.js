@@ -7,7 +7,7 @@ import Skills from './Skills/Skills.component.jsx'
 import Blog from './Blog/Blog.component.jsx'
 import BlogDetails from './BlogDetails/BlogDetails.component.jsx'
 import Resume from './Resume/Resume.component.jsx'
-import Build from './Build/Build.component.jsx'
+import CreatePost from './CreatePost/CreatePost.component.jsx'
 
 import getPage from './PageComponent.jsx'
 
@@ -21,7 +21,7 @@ const pages = {
 	BlogPage: getPage('Blog', Blog),
 	BlogDetailsPage: getPage('Blog', BlogDetails),
 	ResumePage: getPage('Resume', Resume),
-	BuildPage: getPage('Build', Build),
+	CreatePostPage: getPage('Create Post', CreatePost),
 }
 
 export const {
@@ -34,5 +34,5 @@ export const {
 	BlogPage,
 	BlogDetailsPage,
 	ResumePage,
-	BuildPage,
+	CreatePostPage,
 } = pages

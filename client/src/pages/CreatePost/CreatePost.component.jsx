@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { remark } from 'remark'
 
-import { BuildPageContentContainer } from './Build.styles'
+import { CreatePostContentContainer } from './CreatePost.styles'
 
 const Build = () => {
 	const [values, setValues] = useState({
@@ -41,7 +41,7 @@ const Build = () => {
 	}
 
 	return (
-		<BuildPageContentContainer>
+		<CreatePostContentContainer>
 			<form>
 				<input
 					name="title"
@@ -74,7 +74,7 @@ const Build = () => {
 
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
-		</BuildPageContentContainer>
+		</CreatePostContentContainer>
 	)
 }
 

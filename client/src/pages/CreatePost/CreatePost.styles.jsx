@@ -2,6 +2,6 @@ import styled from 'styled-components'
 
 import { cssIndex } from '../../styles/css/utils.styles.js'
 
-export const BuildPageContentContainer = styled.div`
+export const CreatePostContentContainer = styled.div`
   ${cssIndex.flexCenterCol}
 `
