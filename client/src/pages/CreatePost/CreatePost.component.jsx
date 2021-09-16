@@ -3,7 +3,7 @@ import { remark } from 'remark'
 
 import { CreatePostContentContainer } from './CreatePost.styles'
 
-const Build = () => {
+const CreatePost = () => {
 	const [values, setValues] = useState({
 		title: '',
 		excerpt: '',
@@ -78,4 +78,4 @@ const Build = () => {
 	)
 }
 
-export default Build
+export default CreatePost
