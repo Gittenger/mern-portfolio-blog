@@ -53,14 +53,6 @@ const NavList = () => (
 				<div className="nav-highlight nav-highlight-6"></div>
 			</div>
 		</li>
-		<li>
-			<div className="nav-link-box">
-				<Link data-page="build" to="/build">
-					Build
-				</Link>
-				<div className="nav-highlight nav-highlight-7"></div>
-			</div>
-		</li>
 	</NavListContainer>
 )
 
