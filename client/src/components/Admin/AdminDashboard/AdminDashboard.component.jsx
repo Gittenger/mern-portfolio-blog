@@ -21,6 +21,9 @@ const AdminDashboard = () => {
 						<Link to="/">Home</Link>
 					</li>
 					<li>
+						<Link to="/create-post">Create Post</Link>
+					</li>
+					<li>
 						<a onClick={logout} to="/">
 							Logout
 						</a>
