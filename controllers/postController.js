@@ -48,3 +48,29 @@ exports.createPost = async (req, res) => {
 		})
 	})
 }
+
+exports.deletePost = async (req, res) => {
+	const id = req.params.id
+
+	const post = await Markdown.findById(id)
+
+	if (post) {
+		await Markdown.findByIdAndDelete(id)
+
+		const serverUpdateRes = await ServerUpdated.find()
+		const serverUpdateObj = serverUpdateRes[0]
+
+		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+			value: Date.now(),
+		})
+
+		res.status(204).json({
+			message: 'post successfully deleted',
+			data: null,
+		})
+	} else {
+		return res.status(404).json({
+			message: 'no post with that id',
+		})
+	}
+}
