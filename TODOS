@@ -12,7 +12,15 @@ ___
 4. Improved naming convention (js vs jsx for styles?)
 	--Project vs portfolio?
 	--project/blog overview?
-5. Move "Build" to admin section
+
+ADMIN SECTION
+- Delete all posts, update post
+- Add project, delete project, update
+- Add skill, update, delete
+
+BACK-END
+- Add protect function to protect post update/delete/create
+	-- same for skills/projects
 
 C) General improvements
 ___
@@ -27,7 +35,7 @@ ___
 			--or, just pick a select few to display
 	--Blog overview
 	--Resume ui --drive resume? --inline resume?
-	--admin UI
+	###--admin UI
 	###--projects details -- almost done
 		--Create GIF's of finished projects running, for demo on project page
 			--same as above for picture w/ proj overview
