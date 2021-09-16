@@ -12,7 +12,7 @@ import {
   ContactPage,
   SkillsPage,
   ResumePage,
-  BuildPage,
+  CreatePostPage,
   BlogPage,
   BlogDetailsPage,
 } from './pages/pages-index.js'
@@ -43,10 +43,10 @@ const Routes = () => {
           <Route path="/contact" exact component={ContactPage} />
           <Route path="/skills" exact component={SkillsPage} />
           <Route path="/resume" exact component={ResumePage} />
-          <Route path="/build" exact component={BuildPage} />
           <Route path="/blog" exact component={BlogPage} />
           <Route path="/blog/posts" exact component={BlogPage} />
           <Route path="/blog/posts/:slug" exact component={BlogDetailsPage} />
+          <AdminRoute path="/create-post" exact component={CreatePostPage} />
           <AdminRoute path="/admin" exact component={AdminDashboard} />
           <AdminRoute
             path="/forgot-password"
@@ -58,7 +58,7 @@ const Routes = () => {
             exact
             component={ChangePassword}
           />
-          <AdminRoute
+          <Route
             path="/reset-password/:token"
             exact
             component={ResetPassword}
