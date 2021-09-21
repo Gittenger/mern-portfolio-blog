@@ -74,3 +74,35 @@ exports.deletePost = async (req, res) => {
 		})
 	}
 }
+
+exports.updatePost = async (req, res) => {
+	const form = new formidable.IncomingForm()
+
+	form.parse(req, async (err, fields) => {
+		const { title, excerpt, date, content } = fields
+
+		const slug = slugify.default(title, {
+			lower: true,
+		})
+
+		const md = await Markdown.findByIdAndUpdate(req.params.id, {
+			title,
+			excerpt,
+			date,
+			slug,
+			content,
+		})
+
+		const serverUpdateRes = await ServerUpdated.find()
+		const serverUpdateObj = serverUpdateRes[0]
+
+		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+			value: Date.now(),
+		})
+
+		res.status(200).json({
+			message: 'post successfully updated',
+			data: md,
+		})
+	})
+}
