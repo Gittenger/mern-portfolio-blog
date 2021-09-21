@@ -14,6 +14,8 @@ import {
   ResumePage,
   CreatePostPage,
   DeletePostPage,
+  EditPostsPage,
+  EditPostPage,
   BlogPage,
   BlogDetailsPage,
 } from './pages/pages-index.js'
@@ -49,6 +51,12 @@ const Routes = () => {
           <Route path="/blog/posts/:slug" exact component={BlogDetailsPage} />
           <AdminRoute path="/create-post" exact component={CreatePostPage} />
           <AdminRoute path="/delete-posts" exact component={DeletePostPage} />
+          <AdminRoute path="/edit-posts" exact component={EditPostsPage} />
+          <AdminRoute
+            path={`/edit-posts/:slug`}
+            exact
+            component={EditPostPage}
+          />
           <AdminRoute path="/admin" exact component={AdminDashboard} />
           <AdminRoute
             path="/forgot-password"

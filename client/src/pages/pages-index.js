@@ -9,6 +9,8 @@ import BlogDetails from './BlogDetails/BlogDetails.component.jsx'
 import Resume from './Resume/Resume.component.jsx'
 import CreatePost from './CreatePost/CreatePost.component.jsx'
 import DeletePost from './DeletePost/DeletePost.component.jsx'
+import EditPosts from './EditPosts/EditPosts.component.jsx'
+import EditPost from './EditPost/EditPost.component.jsx'
 
 import getPage from './PageComponent.jsx'
 
@@ -24,6 +26,8 @@ const pages = {
 	ResumePage: getPage('Resume', Resume),
 	CreatePostPage: getPage('Create Post', CreatePost),
 	DeletePostPage: getPage('Delete Posts', DeletePost),
+	EditPostsPage: getPage('Edit Posts', EditPosts),
+	EditPostPage: getPage('Edit Post', EditPost),
 }
 
 export const {
@@ -38,4 +42,6 @@ export const {
 	ResumePage,
 	CreatePostPage,
 	DeletePostPage,
+	EditPostsPage,
+	EditPostPage,
 } = pages
