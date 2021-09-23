@@ -21,21 +21,21 @@ const PostsOverview = () => {
 			},
 			method: 'GET',
 		})
-			.then(res => res.json())
-			.then(res => {
+			.then((res) => res.json())
+			.then((res) => {
 				if (!unmounted) {
 					setValues({ ...values, posts: res.data })
 				}
 			})
-			.catch(err => console.error(err))
+			.catch((err) => console.error(err))
 
 		return () => {
 			unmounted = true
 		}
 	}, [])
 
-	const handleDelete = e => {
-		const deleteUrl = `${process.env.REACT_APP_API}/posts/${e.target.dataset.id}`
+	const handleDelete = (e) => {
+		const deleteUrl = `${process.env.REACT_APP_API}/projects/${e.target.dataset.id}`
 		fetch(deleteUrl, {
 			method: 'DELETE',
 			headers: {
@@ -43,11 +43,11 @@ const PostsOverview = () => {
 				Accept: 'application/json',
 			},
 		})
-			.then(res => {
+			.then((res) => {
 				console.log(res)
 				window.location.reload()
 			})
-			.catch(err => console.error(err))
+			.catch((err) => console.error(err))
 	}
 
 	const {
