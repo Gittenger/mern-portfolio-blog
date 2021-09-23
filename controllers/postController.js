@@ -27,13 +27,11 @@ exports.createPost = async (req, res) => {
 	const form = new formidable.IncomingForm()
 
 	form.parse(req, async (err, fields) => {
-		const { title, excerpt, date, content } = fields
-
-		const slug = slugify.default(title, {
+		const slug = slugify.default(fields.title, {
 			lower: true,
 		})
 
-		const mds = await Markdown.create({ title, excerpt, date, slug, content })
+		const mds = await Markdown.create({ ...fields, slug })
 
 		const serverUpdateRes = await ServerUpdated.find()
 		const serverUpdateObj = serverUpdateRes[0]

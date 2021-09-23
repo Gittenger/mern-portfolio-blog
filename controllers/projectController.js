@@ -21,10 +21,14 @@ exports.getOne = catchAsync(async (req, res, next) => {
 })
 
 exports.createProject = catchAsync(async (req, res, next) => {
-	const newForm = formidable()
-	newForm.parse(req, async (err, fields) => {
+	const form = new formidable.IncomingForm()
+
+	form.parse(req, async (err, fields) => {
+		const slug = slugify.default(fields.name, {
+			lower: true,
+		})
 		const techStack = fields.techStack.split(', ')
-		const project = await Project.create({ ...fields, techStack })
+		const project = await Project.create({ ...fields, slug, techStack })
 
 		res.status(200).json({
 			message: 'success',
