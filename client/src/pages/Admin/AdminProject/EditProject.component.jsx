@@ -43,6 +43,7 @@ const EditProject = () => {
 					descriptionLong: data.descriptionLong,
 					github: data.github,
 					techStack: data.techStack.join(', '),
+					id: data._id,
 				})
 			})
 			.catch(err => console.error(err))
@@ -51,7 +52,7 @@ const EditProject = () => {
 	const handleSubmit = async e => {
 		e.preventDefault()
 
-		const submitUrl = `${process.env.REACT_APP_API}/posts/${values.id}`
+		const submitUrl = `${process.env.REACT_APP_API}/projects/${values.id}`
 		const transformedMarkdown = await remark().process(descriptionLong)
 
 		const formData = new FormData()
