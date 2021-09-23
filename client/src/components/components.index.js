@@ -1,5 +1,4 @@
 import AddProject from './Admin/AddProject/AddProject.component.jsx'
-import AdminDashboard from './Admin/AdminDashboard/AdminDashboard.component.jsx'
 import AdminMenu from './Admin/AdminMenu/AdminMenu.component.jsx'
 import AdminRoute from './Admin/AdminRoute/AdminRoute.component.jsx'
 import ChangePassword from './Admin/ChangePassword/ChangePassword.component.jsx'
@@ -22,7 +21,6 @@ import YtEmbed from './General/YtEmbed/YtEmbed.component.jsx'
 import TComp from './typography/typography.components.js'
 export const CIndex = {
 	AddProject,
-	AdminDashboard,
 	AdminMenu,
 	AdminRoute,
 	ChangePassword,
