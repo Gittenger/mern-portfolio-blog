@@ -23,30 +23,6 @@ exports.getAll = async (req, res) => {
 	})
 }
 
-exports.createPost = async (req, res) => {
-	const form = new formidable.IncomingForm()
-
-	form.parse(req, async (err, fields) => {
-		const slug = slugify.default(fields.title, {
-			lower: true,
-		})
-
-		const mds = await Markdown.create({ ...fields, slug })
-
-		const serverUpdateRes = await ServerUpdated.find()
-		const serverUpdateObj = serverUpdateRes[0]
-
-		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-			value: Date.now(),
-		})
-
-		res.status(200).json({
-			message: 'post successfully uploaded',
-			data: mds,
-		})
-	})
-}
-
 exports.deletePost = async (req, res) => {
 	const id = req.params.id
 
@@ -73,23 +49,15 @@ exports.deletePost = async (req, res) => {
 	}
 }
 
-exports.updatePost = async (req, res) => {
+exports.createPost = async (req, res) => {
 	const form = new formidable.IncomingForm()
 
 	form.parse(req, async (err, fields) => {
-		const { title, excerpt, date, content } = fields
-
-		const slug = slugify.default(title, {
+		const slug = slugify(fields.title, {
 			lower: true,
 		})
 
-		const md = await Markdown.findByIdAndUpdate(req.params.id, {
-			title,
-			excerpt,
-			date,
-			slug,
-			content,
-		})
+		const mds = await Markdown.create({ ...fields, slug })
 
 		const serverUpdateRes = await ServerUpdated.find()
 		const serverUpdateObj = serverUpdateRes[0]
@@ -99,8 +67,42 @@ exports.updatePost = async (req, res) => {
 		})
 
 		res.status(200).json({
-			message: 'post successfully updated',
-			data: md,
+			message: 'post successfully uploaded',
+			data: mds,
 		})
 	})
+}
+
+exports.updatePost = async (req, res) => {
+	const id = req.params.id
+	if (id) {
+		const form = new formidable.IncomingForm()
+
+		form.parse(req, async (err, fields) => {
+			const slug = slugify(fields.title, {
+				lower: true,
+			})
+
+			const md = await Markdown.findByIdAndUpdate(id, {
+				...fields,
+				slug,
+			})
+
+			const serverUpdateRes = await ServerUpdated.find()
+			const serverUpdateObj = serverUpdateRes[0]
+
+			await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+				value: Date.now(),
+			})
+
+			res.status(200).json({
+				message: 'post successfully updated',
+				data: md,
+			})
+		})
+	} else {
+		res.status(404).json({
+			messsage: 'no post found with that id',
+		})
+	}
 }

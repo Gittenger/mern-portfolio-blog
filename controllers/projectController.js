@@ -1,6 +1,8 @@
 const Project = require('../models/projectSchema')
+const ServerUpdated = require('../models/serverUpdated')
 const catchAsync = require('../utils/catchAsync')
 const formidable = require('formidable')
+const slugify = require('slugify')
 
 exports.getAll = catchAsync(async (req, res, next) => {
 	const projects = await Project.find()
@@ -24,7 +26,7 @@ exports.createProject = catchAsync(async (req, res, next) => {
 	const form = new formidable.IncomingForm()
 
 	form.parse(req, async (err, fields) => {
-		const slug = slugify.default(fields.name, {
+		const slug = slugify(fields.name, {
 			lower: true,
 		})
 		const techStack = fields.techStack.split(', ')
@@ -35,4 +37,58 @@ exports.createProject = catchAsync(async (req, res, next) => {
 			data: project,
 		})
 	})
+})
+
+exports.updateProject = async (req, res, next) => {
+	const id = req.params.id
+	if (id) {
+		const form = new formidable.IncomingForm()
+
+		form.parse(req, async (err, fields) => {
+			const slug = slugify(fields.name, {
+				lower: true,
+			})
+			const techStack = fields.techStack.split(', ')
+			const project = await Project.findByIdAndUpdate(id, {
+				...fields,
+				slug,
+				techStack,
+			})
+
+			res.status(200).json({
+				message: 'project successfully updated',
+				data: project,
+			})
+		})
+	} else {
+		res.status(404).json({
+			message: 'no project found with that ID',
+		})
+	}
+}
+
+exports.deleteProject = catchAsync(async (req, res, next) => {
+	const id = req.params.id
+
+	const project = await Project.findById(id)
+
+	if (project) {
+		await Project.findByIdAndDelete(id)
+
+		const serverUpdateRes = await ServerUpdated.find()
+		const serverUpdateObj = serverUpdateRes[0]
+
+		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+			value: Date.now(),
+		})
+
+		res.status(204).json({
+			message: 'Project successfully deleted',
+			data: null,
+		})
+	} else {
+		return res.status(404).json({
+			message: 'no project with that id',
+		})
+	}
 })
