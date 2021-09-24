@@ -14,14 +14,14 @@ const CreateProject = () => {
 
 	const url = `${process.env.REACT_APP_API}/projects`
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setValues({
 			...values,
 			[e.target.name]: e.target.value,
 		})
 	}
 
-	const handleSubmit = e => {
+	const handleSubmit = (e) => {
 		e.preventDefault()
 		const formData = new FormData()
 		formData.append('name', name)
@@ -35,11 +35,11 @@ const CreateProject = () => {
 			method: 'POST',
 			body: formData,
 		})
-			.then(res => res.json())
-			.then(res => {
+			.then((res) => res.json())
+			.then((res) => {
 				console.log(res)
 			})
-			.catch(err => console.error(err))
+			.catch((err) => console.error(err))
 	}
 
 	const { name, description, descriptionLong, techStack, link, github } = values
@@ -86,6 +86,7 @@ const CreateProject = () => {
 					cols="30"
 					rows="10"
 					onChange={handleChange}
+					value={descriptionLong}
 					placeholder="descriptionLong"
 				></textarea>
 				<button onClick={handleSubmit}>Submit</button>
