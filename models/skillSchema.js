@@ -5,6 +5,9 @@ const skillSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	slug: {
+		type: String,
+	},
 	desc: {
 		type: String,
 		required: true,
