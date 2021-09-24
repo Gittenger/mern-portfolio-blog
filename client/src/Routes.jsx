@@ -20,12 +20,16 @@ import {
 	AdminDashboardPage,
 	AdminPostsDashboardPage,
 	AdminProjectsDashboardPage,
+	AdminSkillsDashboardPage,
 	CreatePostPage,
 	CreateProjectPage,
+	CreateSkillPage,
 	EditPostPage,
 	EditProjectPage,
+	EditSkillPage,
 	PostsOverviewPage,
 	ProjectsOverviewPage,
+	SkillsOverviewPage,
 } from './pages/Admin/admin-pages-index.js'
 
 const Routes = () => {
@@ -39,7 +43,11 @@ const Routes = () => {
 					<Route path="/" exact component={HomePage} />
 					<Route path="/login" exact component={LoginPage} />
 					<Route path="/portfolio" exact component={PortfolioPage} />
-					<Route path="/portfolio/:slug" exact component={PortfolioDetailsPage} />
+					<Route
+						path="/portfolio/:slug"
+						exact
+						component={PortfolioDetailsPage}
+					/>
 					<Route path="/contact" exact component={ContactPage} />
 					<Route path="/skills" exact component={SkillsPage} />
 					<Route path="/resume" exact component={ResumePage} />
@@ -48,6 +56,7 @@ const Routes = () => {
 					<Route path="/blog/posts/:slug" exact component={BlogDetailsPage} />
 
 					{/* admin routes */}
+					{/* */}
 					<AdminRoute path="/admin" exact component={AdminDashboardPage} />
 					<AdminRoute
 						path="/admin/posts"
@@ -59,13 +68,30 @@ const Routes = () => {
 						exact
 						component={AdminProjectsDashboardPage}
 					/>
-					<AdminRoute path="/admin/create-post" exact component={CreatePostPage} />
-					<AdminRoute path="/admin/edit-posts" exact component={PostsOverviewPage} />
+					<AdminRoute
+						path="/admin/skills"
+						exact
+						component={AdminSkillsDashboardPage}
+					/>
+
+					{/* posts */}
+					<AdminRoute
+						path="/admin/create-post"
+						exact
+						component={CreatePostPage}
+					/>
+					<AdminRoute
+						path="/admin/edit-posts"
+						exact
+						component={PostsOverviewPage}
+					/>
 					<AdminRoute
 						path={`/admin/edit-post/:slug`}
 						exact
 						component={EditPostPage}
 					/>
+
+					{/* projects */}
 					<AdminRoute
 						path="/admin/create-project"
 						exact
@@ -81,10 +107,39 @@ const Routes = () => {
 						exact
 						component={EditProjectPage}
 					/>
+
+					{/* skills */}
+					<AdminRoute
+						path="/admin/create-skill"
+						exact
+						component={CreateSkillPage}
+					/>
+					<AdminRoute
+						path="/admin/edit-skills"
+						exact
+						component={SkillsOverviewPage}
+					/>
+					<AdminRoute
+						path="/admin/edit-skill/:slug"
+						exact
+						component={EditSkillPage}
+					/>
 					{/* password routes */}
-					<AdminRoute path="/forgot-password" exact component={ForgotPassword} />
-					<AdminRoute path="/change-password" exact component={ChangePassword} />
-					<Route path="/reset-password/:token" exact component={ResetPassword} />
+					<AdminRoute
+						path="/forgot-password"
+						exact
+						component={ForgotPassword}
+					/>
+					<AdminRoute
+						path="/change-password"
+						exact
+						component={ChangePassword}
+					/>
+					<Route
+						path="/reset-password/:token"
+						exact
+						component={ResetPassword}
+					/>
 				</Switch>
 			</Fragment>
 		</BrowserRouter>
