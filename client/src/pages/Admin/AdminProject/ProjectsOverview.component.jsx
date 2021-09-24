@@ -6,7 +6,7 @@ import CIndex from '../../../components/components.index'
 
 const PostsOverview = () => {
 	const [values, setValues] = useState({
-		posts: [],
+		projects: [],
 	})
 	const url = `${process.env.REACT_APP_API}/projects`
 
@@ -24,7 +24,7 @@ const PostsOverview = () => {
 			.then((res) => res.json())
 			.then((res) => {
 				if (!unmounted) {
-					setValues({ ...values, posts: res.data })
+					setValues({ ...values, projects: res.data })
 				}
 			})
 			.catch((err) => console.error(err))
@@ -58,14 +58,16 @@ const PostsOverview = () => {
 		<OverviewContainer>
 			<Link to="/admin/create-project">Create Project</Link>
 			<ul>
-				{values.posts.map((project, i) => (
+				{values.projects.map((project, i) => (
 					<li key={i}>
 						<Row>
 							<PSmall>Project name: {project.name}</PSmall>
 							<button data-id={project._id} onClick={handleDelete}>
 								Delete
 							</button>
-							<Link to={`/admin/edit-project/${project.slug}`}>Edit Post</Link>
+							<Link to={`/admin/edit-project/${project.slug}`}>
+								Edit Project
+							</Link>
 						</Row>
 					</li>
 				))}
