@@ -12,7 +12,6 @@ ___
 
 ADMIN SECTION
 - Delete all posts/projects/skills
-- Add skill, update, delete
 
 BACK-END
 - Add protect function to protect post update/delete/create
