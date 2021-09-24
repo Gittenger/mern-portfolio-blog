@@ -1,22 +1,17 @@
 const Skill = require('../models/skillSchema')
 const ServerUpdated = require('../models/serverUpdated')
 const catchAsync = require('../utils/catchAsync')
+const formidable = require('formidable')
+const slugify = require('slugify')
 
-exports.createCard = catchAsync(async (req, res) => {
-	const { name, desc, img, years, bullet } = req.body
+exports.getOne = catchAsync(async (req, res) => {
+	const slug = req.params.slug
 
-	const skill = await Skill.create({ name, desc, img, years, bullet })
-
-	const serverUpdateRes = await ServerUpdated.find()
-	const serverUpdateObj = serverUpdateRes[0]
-
-	await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-		value: Date.now(),
-	})
+	const skill = await Skill.findOne({ slug })
 
 	res.status(200).json({
-		message: 'Skill card info saved to DB',
-		skill,
+		message: 'found',
+		data: skill,
 	})
 })
 
@@ -24,6 +19,66 @@ exports.getAll = catchAsync(async (req, res) => {
 	const skills = await Skill.find()
 
 	res.status(200).json({
-		skills,
+		message: 'success',
+		data: skills,
 	})
+})
+
+exports.createCard = catchAsync(async (req, res) => {
+	const form = new formidable.IncomingForm()
+
+	form.parse(req, async (err, fields) => {
+		const bullet = fields.bullet.split(':, ')
+		const slug = slugify(fields.name, {
+			lower: true,
+		})
+
+		const skill = await Skill.create({ ...fields, slug, bullet })
+
+		const serverUpdateRes = await ServerUpdated.find()
+		const serverUpdateObj = serverUpdateRes[0]
+		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+			value: Date.now(),
+		})
+
+		res.status(200).json({
+			message: 'New skill card created and saved to DB',
+			skill,
+		})
+	})
+})
+
+exports.updateCard = catchAsync(async (req, res) => {
+	const id = req.params.id
+	if (id) {
+		const form = new formidable.IncomingForm()
+
+		form.parse(req, async (err, fields) => {
+			const bullet = fields.bullet.split(':, ')
+			const slug = slugify(fields.name, {
+				lower: true,
+			})
+
+			const skill = await Skill.findByIdAndUpdate(id, {
+				...fields,
+				slug,
+				bullet,
+			})
+
+			const serverUpdateRes = await ServerUpdated.find()
+			const serverUpdateObj = serverUpdateRes[0]
+			await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
+				value: Date.now(),
+			})
+
+			res.status(200).json({
+				message: 'New skill card created and saved to DB',
+				skill,
+			})
+		})
+	} else {
+		res.status(404).json({
+			message: 'no Skill found with that ID',
+		})
+	}
 })
