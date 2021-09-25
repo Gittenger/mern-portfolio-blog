@@ -1,8 +1,8 @@
 const Skill = require('../models/skillSchema')
-const ServerUpdated = require('../models/serverUpdated')
 const catchAsync = require('../utils/catchAsync')
 const formidable = require('formidable')
 const slugify = require('slugify')
+const updateServer = require('../utils/updateServer')
 
 exports.getOne = catchAsync(async (req, res) => {
 	const slug = req.params.slug
@@ -35,11 +35,7 @@ exports.createCard = catchAsync(async (req, res) => {
 
 		const skill = await Skill.create({ ...fields, slug, bullet })
 
-		const serverUpdateRes = await ServerUpdated.find()
-		const serverUpdateObj = serverUpdateRes[0]
-		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-			value: Date.now(),
-		})
+		await updateServer()
 
 		res.status(200).json({
 			message: 'New skill card created and saved to DB',
@@ -65,11 +61,7 @@ exports.updateCard = catchAsync(async (req, res) => {
 				bullet,
 			})
 
-			const serverUpdateRes = await ServerUpdated.find()
-			const serverUpdateObj = serverUpdateRes[0]
-			await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-				value: Date.now(),
-			})
+			await updateServer()
 
 			res.status(200).json({
 				message: 'New skill card created and saved to DB',

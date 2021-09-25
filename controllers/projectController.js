@@ -3,6 +3,7 @@ const ServerUpdated = require('../models/serverUpdated')
 const catchAsync = require('../utils/catchAsync')
 const formidable = require('formidable')
 const slugify = require('slugify')
+const updateServer = require('../utils/updateServer')
 
 exports.getAll = catchAsync(async (req, res, next) => {
 	const projects = await Project.find()
@@ -32,6 +33,8 @@ exports.createProject = catchAsync(async (req, res, next) => {
 		const techStack = fields.techStack.split(', ')
 		const project = await Project.create({ ...fields, slug, techStack })
 
+		await updateServer()
+
 		res.status(200).json({
 			message: 'success',
 			data: project,
@@ -55,6 +58,8 @@ exports.updateProject = async (req, res, next) => {
 				techStack,
 			})
 
+			await updateServer()
+
 			res.status(200).json({
 				message: 'project successfully updated',
 				data: project,
@@ -75,12 +80,7 @@ exports.deleteProject = catchAsync(async (req, res, next) => {
 	if (project) {
 		await Project.findByIdAndDelete(id)
 
-		const serverUpdateRes = await ServerUpdated.find()
-		const serverUpdateObj = serverUpdateRes[0]
-
-		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-			value: Date.now(),
-		})
+		await updateServer()
 
 		res.status(204).json({
 			message: 'Project successfully deleted',

@@ -1,7 +1,7 @@
 const Markdown = require('../models/postSchema')
-const ServerUpdated = require('../models/serverUpdated')
 const slugify = require('slugify')
 const formidable = require('formidable')
+const updateServer = require('../utils/updateServer')
 
 exports.getFile = async (req, res) => {
 	const slug = req.params.slug
@@ -31,12 +31,7 @@ exports.deletePost = async (req, res) => {
 	if (post) {
 		await Markdown.findByIdAndDelete(id)
 
-		const serverUpdateRes = await ServerUpdated.find()
-		const serverUpdateObj = serverUpdateRes[0]
-
-		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-			value: Date.now(),
-		})
+		await updateServer()
 
 		res.status(204).json({
 			message: 'post successfully deleted',
@@ -59,12 +54,7 @@ exports.createPost = async (req, res) => {
 
 		const mds = await Markdown.create({ ...fields, slug })
 
-		const serverUpdateRes = await ServerUpdated.find()
-		const serverUpdateObj = serverUpdateRes[0]
-
-		await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-			value: Date.now(),
-		})
+		await updateServer()
 
 		res.status(200).json({
 			message: 'post successfully uploaded',
@@ -88,12 +78,7 @@ exports.updatePost = async (req, res) => {
 				slug,
 			})
 
-			const serverUpdateRes = await ServerUpdated.find()
-			const serverUpdateObj = serverUpdateRes[0]
-
-			await ServerUpdated.findByIdAndUpdate(serverUpdateObj._id, {
-				value: Date.now(),
-			})
+			await updateServer()
 
 			res.status(200).json({
 				message: 'post successfully updated',
