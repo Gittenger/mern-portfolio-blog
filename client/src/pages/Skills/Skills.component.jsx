@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useShouldUpdateCache } from '../../utils/hooks.js'
 
 import CIndex from '../../components/components.index'
 import {
@@ -11,40 +12,74 @@ import UrlsContext from '../../contexts/UrlsContext.js'
 const Skills = () => {
 	const { SkillCard } = CIndex
 	const [values, setValues] = useState({
-		data: [{ name: '', desc: '', bullet: [], img: '', years: '' }],
+		data: {
+			key: {
+				name: '',
+				desc: '',
+				bullet: [],
+				img: '',
+				years: '',
+			},
+		},
 		timeStamp: '',
 	})
-	const [shouldFetchNewApi, setShouldFetchNewApi] = useState(false)
 	const { urls, setUrlsContext } = useContext(UrlsContext)
 
 	const url = `${process.env.REACT_APP_API}/skills`
-	const checkServerUrl = `${process.env.REACT_APP_API}/checkForUpdate`
+	const shouldFetchNewApi = useShouldUpdateCache(url)
+
+	const cachedItem = JSON.parse(localStorage.getItem(url))
 
 	useEffect(() => {
-		fetch(checkServerUrl, {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-			.then(res => res.json())
-			.then(res => {
-				if (JSON.parse(localStorage.getItem(url))) {
-					if (JSON.parse(localStorage.getItem(url)).timeStamp < res.lastUpdated) {
-						setShouldFetchNewApi(true)
-					}
-				}
-				if (urls[url]) {
-					if (urls[url].timeStamp && urls[url].timeStamp < res.lastUpdated) {
-						setShouldFetchNewApi(true)
-					}
-				}
+		let unmounted = false
+		if (unmounted) return
+
+		if (cachedItem && shouldFetchNewApi === false) {
+			console.log('from local')
+			if (!unmounted) {
+				setValues(cachedItem)
+			}
+			setUrlsContext(url, cachedItem)
+		} else if (urls[url] && shouldFetchNewApi === false) {
+			console.log('from context')
+			if (!unmounted) {
+				setValues(urls[url])
+			}
+		} else {
+			console.log('from api')
+			fetch(url, {
+				method: 'GET',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
 			})
-	}, [])
+				.then((res) => res.json())
+				.then((res) => {
+					const fromData = {}
+					res.data.forEach((skill) => {
+						fromData[skill.slug] = skill
+					})
+					const dataObject = { timeStamp: new Date(), data: fromData }
+					localStorage.setItem(url, JSON.stringify(dataObject))
+					setUrlsContext(url, dataObject)
+					if (!unmounted) {
+						setValues(dataObject)
+					}
+				})
+				.catch((err) => console.error(err))
+		}
+
+		return () => {
+			unmounted = true
+		}
+	}, [shouldFetchNewApi])
 
 	useEffect(() => {
-		if (localStorage.getItem(url) && shouldFetchNewApi == false) {
+		let unmounted = false
+		if (unmounted) return
+
+		if (cachedItem && shouldFetchNewApi === false) {
 			console.log('getting from local')
 			setValues(JSON.parse(localStorage.getItem(url)))
 			setUrlsContext(
@@ -63,14 +98,20 @@ const Skills = () => {
 					'Content-Type': 'application/json',
 				},
 			})
-				.then(res => res.json())
-				.then(res => {
-					const dataObj = { timeStamp: new Date(), data: res.skills }
-					localStorage.setItem(url, JSON.stringify(dataObj))
-					setUrlsContext(url, dataObj)
-					setValues(dataObj)
+				.then((res) => res.json())
+				.then((res) => {
+					const fromData = {}
+					res.data.forEach((skill) => {
+						fromData[skill.slug] = skill
+					})
+					const dataObject = { timeStamp: new Date(), data: fromData }
+					localStorage.setItem(url, JSON.stringify(dataObject))
+					setUrlsContext(url, dataObject)
+					if (!unmounted) {
+						setValues(dataObject)
+					}
 				})
-				.catch(err => console.error(err))
+				.catch((err) => console.error(err))
 		}
 	}, [shouldFetchNewApi])
 
@@ -82,9 +123,9 @@ const Skills = () => {
 			</div>
 			<SkillCardsContainer>
 				<ul>
-					{values.data.map(({ ...props }, i) => (
+					{Object.keys(values.data).map((skill, i) => (
 						<li key={i}>
-							<SkillCard {...props} />
+							<SkillCard {...values.data[skill]} />
 						</li>
 					))}
 				</ul>
