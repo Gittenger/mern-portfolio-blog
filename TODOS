@@ -1,42 +1,64 @@
-A) Skills Page
+Skills Page
 ___
-1. Write up skill details to go on each card
-2. Check for ::marker compatibility, if compatible, custom marker using ::marker
+- write skill details
+- Check for ::marker compatibility, if compatible, custom marker using ::marker
 
-B) Structure
+
+Home Page
 ___
-###1. Refactor caching to be even more efficient -- almost done
-	###--on update/create projects/blog posts, set update time on SERVER SIDE
-###2. rename imgs in assets (skills)
-3. Improved naming convention (js vs jsx for styles?)
+- Projects section on front page
+	- load from cache ?
+		- or, just pick a select few to display
 
-ADMIN SECTION
+
+Resume Page
+___
+- change UI, add some content
+	- link to drive resume
+- display resume content on page?
+
+
+Projects Page
+___
+- write markdowns
+- Proper gif's
+- Proper picture for project overview prev
+- Proper YT videos
+	- add youtube link to admin edit page
+
+
+Blog Page
+___
+- Proper blog overview UI
+
+
+Admin section
+___
 - Delete all posts/projects/skills
+- Reload on submit form
+	- check all forms -- hitting enter should submit
+- make UI better
 
-BACK-END
+
+Back-end
+___
 - Add protect function to protect post update/delete/create
 	-- same for skills/projects
 
-C) General improvements
+
+General improvements
 ___
-1. Loading spinner while API is fetching for Portfolio/Blog??
-2. Write Markdowns describing projects
-###3. Add test GIF's to project details page
-###4. Animations for pages/components
-	--working now, but try diff anim lib ??
-5. Tighten up UI in general. Margins, etc.
-	--Projects section on front page
-		--load from cache ?
-			--or, just pick a select few to display
-	--Blog overview
-	--Resume ui --drive resume? --inline resume?
-	###--admin UI
-	###--projects details -- almost done
-		--Create GIF's of finished projects running, for demo on project page
-			--same as above for picture w/ proj overview
-	--finish nitpick styling
-	--typography, fonts, font-sizing
-	--colors
-6. Remove all console.logs()
-7. Make README
-8. aria
+- Loading spinner while API is fetching
+- try different animation library?
+	- page transition animations
+- margins, general UI
+- typography, fonts, font-sizing
+- colors
+- Remove all console.logs()
+- Make README
+- aria
+
+
+Structure
+___
+- Improved naming convention (js vs jsx for styles?)
