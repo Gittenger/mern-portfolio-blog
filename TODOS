@@ -38,6 +38,7 @@ ___
 - Reload on submit form
 	- check all forms -- hitting enter should submit
 - make UI better
+- Create reusable util func for deleting to be called from handler
 
 
 Back-end
