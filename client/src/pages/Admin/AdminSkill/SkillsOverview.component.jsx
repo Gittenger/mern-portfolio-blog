@@ -1,38 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { useApiData } from '../../../utils/hooks'
 
 import { OverviewContainer, Row } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index'
 
 const SkillsOverview = () => {
-	const [values, setValues] = useState({
-		skills: [],
-	})
 	const url = `${process.env.REACT_APP_API}/skills`
-
-	useEffect(() => {
-		let unmounted = false
-		if (unmounted) return
-
-		fetch(url, {
-			headers: {
-				'Content-Type': 'application/json',
-				Accept: 'application/json',
-			},
-			method: 'GET',
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				if (!unmounted) {
-					setValues({ ...values, skills: res.data })
-				}
-			})
-			.catch((err) => console.error(err))
-
-		return () => {
-			unmounted = true
-		}
-	}, [])
+	const [apiData, dataProcessed] = useApiData(url)
 
 	const handleDelete = (e) => {
 		const deleteUrl = `${process.env.REACT_APP_API}/skills/${e.target.dataset.id}`
@@ -54,23 +29,28 @@ const SkillsOverview = () => {
 		TComp: { PSmall },
 	} = CIndex
 
+	const { data } = apiData
+
 	return (
 		<OverviewContainer>
 			<Link to="/admin/create-skill">Create Skill</Link>
 			<ul>
-				{values.skills.map((skill, i) => (
-					<li key={i}>
-						<Row>
-							<PSmall>Skill name: {skill.name}</PSmall>
-							<button data-id={skill._id} onClick={handleDelete}>
-								Delete
-							</button>
-							<Link to={`/admin/edit-skill/${skill.name.toLowerCase()}`}>
-								Edit Skill
-							</Link>
-						</Row>
-					</li>
-				))}
+				{dataProcessed &&
+					Object.keys(data).map((skill, i) => (
+						<li key={i}>
+							<Row>
+								<PSmall>Skill name: {data[skill].name}</PSmall>
+								<button data-id={data[skill]._id} onClick={handleDelete}>
+									Delete
+								</button>
+								<Link
+									to={`/admin/edit-skill/${data[skill].name.toLowerCase()}`}
+								>
+									Edit Skill
+								</Link>
+							</Row>
+						</li>
+					))}
 			</ul>
 		</OverviewContainer>
 	)

@@ -1,38 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { useApiData } from '../../../utils/hooks'
 
 import { OverviewContainer, Row } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index'
 
 const PostsOverview = () => {
-	const [values, setValues] = useState({
-		projects: [],
-	})
 	const url = `${process.env.REACT_APP_API}/projects`
-
-	useEffect(() => {
-		let unmounted = false
-		if (unmounted) return
-
-		fetch(url, {
-			headers: {
-				'Content-Type': 'application/json',
-				Accept: 'application/json',
-			},
-			method: 'GET',
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				if (!unmounted) {
-					setValues({ ...values, projects: res.data })
-				}
-			})
-			.catch((err) => console.error(err))
-
-		return () => {
-			unmounted = true
-		}
-	}, [])
+	const [apiData, dataProcessed] = useApiData(url)
 
 	const handleDelete = (e) => {
 		const deleteUrl = `${process.env.REACT_APP_API}/projects/${e.target.dataset.id}`
@@ -54,23 +29,26 @@ const PostsOverview = () => {
 		TComp: { PSmall },
 	} = CIndex
 
+	const { data } = apiData
+
 	return (
 		<OverviewContainer>
 			<Link to="/admin/create-project">Create Project</Link>
 			<ul>
-				{values.projects.map((project, i) => (
-					<li key={i}>
-						<Row>
-							<PSmall>Project name: {project.name}</PSmall>
-							<button data-id={project._id} onClick={handleDelete}>
-								Delete
-							</button>
-							<Link to={`/admin/edit-project/${project.slug}`}>
-								Edit Project
-							</Link>
-						</Row>
-					</li>
-				))}
+				{dataProcessed &&
+					Object.keys(data).map((project, i) => (
+						<li key={i}>
+							<Row>
+								<PSmall>Project name: {data[project].name}</PSmall>
+								<button data-id={data[project]._id} onClick={handleDelete}>
+									Delete
+								</button>
+								<Link to={`/admin/edit-project/${data[project].slug}`}>
+									Edit Project
+								</Link>
+							</Row>
+						</li>
+					))}
 			</ul>
 		</OverviewContainer>
 	)
