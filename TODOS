@@ -4,18 +4,10 @@ ___
 - Check for ::marker compatibility, if compatible, custom marker using ::marker
 
 
-Home Page
-___
-- Projects section on front page
-	- load from cache ?
-		- or, just pick a select few to display
-
-
 Resume Page
 ___
 - change UI, add some content
-	- link to drive resume
-- display resume content on page?
+- display resume content on page
 
 
 Projects Page
