@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useApiData } from '../../utils/hooks.js'
 import sal from 'sal.js'
 import 'sal.js/dist/sal.css'
 
@@ -7,7 +8,7 @@ import CIndex from '../../components/components.index.js'
 import { HomePageContainer, BgImgBox } from './Home.styles.jsx'
 
 import Images from '../../assets/img/img-index'
-import data from './Home.data.js'
+import iconData from './Home.data.js'
 
 const Home = () => {
 	useEffect(() => {
@@ -15,6 +16,10 @@ const Home = () => {
 			threshold: 0.25,
 		})
 	}, [])
+
+	const url = `${process.env.REACT_APP_API}/projects`
+	const [apiData, dataProcessed] = useApiData(url)
+	const { data } = apiData
 
 	const {
 		TComp: { P, PSmall },
@@ -60,7 +65,7 @@ const Home = () => {
 				<P>My skills include but are not limited to...</P>
 			</div>
 			<ul>
-				{data.map((el, i) => (
+				{iconData.map((el, i) => (
 					<li key={i} data-sal="fade" data-sal-duration="800">
 						<SkillIconBox
 							skillClassName="skill-img"
@@ -84,13 +89,14 @@ const Home = () => {
 				<PSmall>Here is a sampling of the work I've done:</PSmall>
 			</div>
 			<div className="projects-sample" data-sal="fade" data-sal-delay="200">
-				<div className="project-link">
-					<Link to="/portfolio/my-first-project">Project One</Link>
-				</div>
-
-				<div className="project-link">
-					<Link to="/portfolio/project-two">Project Two</Link>
-				</div>
+				{dataProcessed &&
+					Object.keys(data).map((project, i) => (
+						<div class="project-link">
+							<Link to={`/portfolio/${data[project].slug}`}>
+								{data[project].name}
+							</Link>
+						</div>
+					))}
 			</div>
 			<div className="text-box cta" data-sal="fade" data-sal-delay="200">
 				<P className="cta-leading">
