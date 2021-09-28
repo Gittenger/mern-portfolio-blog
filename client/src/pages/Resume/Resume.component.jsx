@@ -20,6 +20,9 @@ const Resume = () => {
 			})
 	}
 
+	const driveUrl =
+		'https://drive.google.com/file/d/1fqA2Q1UlK8iUHy-x-HAM-t-8TVFGBTbq/view?usp=sharing'
+
 	return (
 		<ResumePageContentContainer>
 			<h1>Resume</h1>
@@ -27,6 +30,10 @@ const Resume = () => {
 			<button onClick={() => download(downloadUrl, 'my-resume.pdf')}>
 				Download resume
 			</button>
+			<p>Link to view on Google Drive:</p>
+			<a href={driveUrl} target="_blank">
+				View on Drive
+			</a>
 		</ResumePageContentContainer>
 	)
 }
