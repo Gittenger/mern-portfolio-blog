@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { useShouldUpdateCache } from '../../utils/hooks.js'
+import React from 'react'
+import { useApiData } from '../../utils/hooks.js'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
@@ -8,64 +8,15 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import CIndex from '../../components/components.index.js'
 import { PortfolioDetailsContainer } from './PortfolioDetails.styles'
 
-import UrlsContext from '../../contexts/UrlsContext.js'
 import leo from '../../assets/gif/leo.gif'
 import poke from '../../assets/gif/poke.gif'
 import { ReactComponent as GithubLogo } from '../../assets/icons/github.svg'
 
 const PortfolioDetails = () => {
-	const [values, setValues] = useState({
-		name: '',
-		descriptionLong: '',
-		link: '',
-		github: '',
-		techStack: [],
-	})
 	const { slug } = useParams()
-	const { urls, setUrlsContext } = useContext(UrlsContext)
 
-	const projectsUrl = `${process.env.REACT_APP_API}/projects`
-	const projectUrl = `${process.env.REACT_APP_API}/projects/${slug}`
-	const shouldFetchNewApi = useShouldUpdateCache(projectUrl)
-
-	const cachedItem = JSON.parse(localStorage.getItem(projectsUrl)).data[slug]
-
-	useEffect(() => {
-		let unmounted = false
-		if (unmounted) return
-
-		if (cachedItem && shouldFetchNewApi === false) {
-			console.log('from local')
-			if (!unmounted) {
-				setValues(cachedItem)
-			}
-			setUrlsContext(projectUrl, cachedItem)
-		} else if (urls[projectUrl] && shouldFetchNewApi === false) {
-			console.log('from context')
-			setValues({ ...urls[projectUrl] })
-		} else {
-			console.log('from api')
-			fetch(projectUrl, {
-				method: 'GET',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},
-			})
-				.then((res) => res.json())
-				.then((res) => {
-					setUrlsContext(projectUrl, res.data)
-					if (!unmounted) {
-						setValues({ ...res.data })
-					}
-				})
-				.catch((err) => console.error(err))
-		}
-
-		return () => {
-			unmounted = true
-		}
-	}, [])
+	const url = `${process.env.REACT_APP_API}/projects`
+	const [apiData, dataProcessed] = useApiData(url)
 
 	const renderers = {
 		code({ node, inline, className, children, ...props }) {
@@ -105,38 +56,41 @@ const PortfolioDetails = () => {
 		},
 	}
 
-	const { name, descriptionLong, link, github, techStack } = values
-
 	const {
 		TComp: { PSmall, H1, H3, H2 },
 		SkillImage,
 		YtEmbed,
 	} = CIndex
 
-	return (
+	const { data } = apiData
+
+	return dataProcessed ? (
 		<PortfolioDetailsContainer>
-			<H1 className="title">{name}</H1>
+			<H1 className="title">{data[slug].name}</H1>
 			<img
 				src={slug === 'fantastic-flames' ? leo : poke}
 				alt=""
 				className="gif"
 			/>
 			<div className="links">
-				<a className="text-link" href={link} target="_blank">
+				<a className="text-link" href={data[slug].link} target="_blank">
 					Link to project
 				</a>
-				<a className="text-link" href={github} target="_blank">
+				<a className="text-link" href={data[slug].github} target="_blank">
 					GitHub Link
 				</a>
-				<a className="icon-link" href={github} target="_blank">
+				<a className="icon-link" href={data[slug].github} target="_blank">
 					<GithubLogo />
 				</a>
 			</div>
 			<div className="description-long">
-				<ReactMarkdown components={renderers} children={descriptionLong} />
+				<ReactMarkdown
+					components={renderers}
+					children={data[slug].descriptionLong}
+				/>
 			</div>
 			<ul className="tech-stack">
-				{techStack.map((el, i) => {
+				{data[slug].techStack.map((el, i) => {
 					const elLow = el.toLowerCase()
 					return (
 						<li key={i}>
@@ -147,9 +101,11 @@ const PortfolioDetails = () => {
 			</ul>
 			<div className="demo-section">
 				<H2>Project Demo:</H2>
-				<YtEmbed linkId="FOg5UFERRHA" className="iframe" />
+				<YtEmbed linkId={data[slug].youtubeId} className="iframe" />
 			</div>
 		</PortfolioDetailsContainer>
+	) : (
+		<h1>Loading</h1>
 	)
 }
 
