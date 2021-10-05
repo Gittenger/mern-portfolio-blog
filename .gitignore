@@ -2,3 +2,4 @@ node_modules
 .env
 /public
 .production.env
+.local.env
