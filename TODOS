@@ -16,26 +16,25 @@ ___
 - Proper gif's
 - Proper picture for project overview prev
 - Proper YT videos
-	- add youtube link to admin edit page
 
 
 Blog Page
 ___
-- Proper blog overview UI
+* - Proper blog overview UI
 
 
 Admin section
 ___
-- Delete all posts/projects/skills
-- Reload on submit form
+* - Delete all posts/projects/skills
+* - Reload on submit form
 	- check all forms -- hitting enter should submit
 - make UI better
-- Create reusable util func for deleting to be called from handler
+* - Create reusable util func for deleting to be called from handler
 
 
 General improvements
 ___
-- Loading spinner while API is fetching
+* - Loading spinner while API is fetching
 - try different animation library?
 	- page transition animations
 - margins, general UI

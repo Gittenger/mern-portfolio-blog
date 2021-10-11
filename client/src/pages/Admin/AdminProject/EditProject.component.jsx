@@ -13,10 +13,19 @@ const EditProject = () => {
 		descriptionLong: '',
 		link: '',
 		github: '',
+		youtubeId: '',
 		techStack: '',
 		id: '',
 	})
-	const { name, description, descriptionLong, link, github, techStack } = values
+	const {
+		name,
+		description,
+		descriptionLong,
+		link,
+		github,
+		youtubeId,
+		techStack,
+	} = values
 	const { slug } = useParams()
 	const { token } = checkAuthToken()
 
@@ -45,6 +54,7 @@ const EditProject = () => {
 					description: data.description,
 					descriptionLong: data.descriptionLong,
 					github: data.github,
+					youtubeId: data.youtubeId,
 					techStack: data.techStack.join(', '),
 					id: data._id,
 				})
@@ -110,6 +120,13 @@ const EditProject = () => {
 					onChange={handleChange}
 					value={github}
 					placeholder="github"
+				/>
+				<input
+					name="youtubeId"
+					type="text"
+					onChange={handleChange}
+					value={youtubeId}
+					placeholder="youtubeId"
 				/>
 				<input
 					name="techStack"

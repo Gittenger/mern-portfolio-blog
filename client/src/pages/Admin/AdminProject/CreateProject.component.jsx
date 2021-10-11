@@ -11,6 +11,7 @@ const CreateProject = () => {
 		techStack: '',
 		link: '',
 		github: '',
+		youtubeId: '',
 		descriptionLong: '',
 	})
 
@@ -48,7 +49,15 @@ const CreateProject = () => {
 			.catch((err) => console.error(err))
 	}
 
-	const { name, description, descriptionLong, techStack, link, github } = values
+	const {
+		name,
+		description,
+		descriptionLong,
+		techStack,
+		link,
+		github,
+		youtubeId,
+	} = values
 	return (
 		<EditPostContainer>
 			<form>
@@ -79,6 +88,13 @@ const CreateProject = () => {
 					value={link}
 					name="link"
 					placeholder="link"
+				/>
+				<input
+					name="youtubeId"
+					type="text"
+					onChange={handleChange}
+					value={youtubeId}
+					placeholder="youtubeId"
 				/>
 				<input
 					onChange={handleChange}
