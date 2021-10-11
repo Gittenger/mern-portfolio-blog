@@ -33,12 +33,6 @@ ___
 - Create reusable util func for deleting to be called from handler
 
 
-Back-end
-___
-- Add protect function to protect post update/delete/create
-	-- same for skills/projects
-
-
 General improvements
 ___
 - Loading spinner while API is fetching
