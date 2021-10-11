@@ -10,7 +10,7 @@ const router = express.Router()
 router.get('/:slug', getFile)
 router.get('/', getAll)
 
-// router.use(protect)
+router.use(protect)
 
 router.post('/', createPost)
 router.delete('/:id', deletePost)
