@@ -4,6 +4,9 @@ import { remark } from 'remark'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
 
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
+
 const EditPost = () => {
 	const [values, setValues] = useState({
 		title: '',
@@ -14,8 +17,9 @@ const EditPost = () => {
 	})
 	const { title, excerpt, date, content } = values
 	const { slug } = useParams()
+	const { token } = checkAuthToken()
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setValues({
 			...values,
 			[e.target.name]: e.target.value,
@@ -32,7 +36,7 @@ const EditPost = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then(res => res.json())
+			.then((res) => res.json())
 			.then(({ data }) => {
 				setValues({
 					id: data._id,
@@ -42,10 +46,10 @@ const EditPost = () => {
 					content: data.content,
 				})
 			})
-			.catch(err => console.error(err))
+			.catch((err) => console.error(err))
 	}, [])
 
-	const handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		const submitUrl = `${process.env.REACT_APP_API}/posts/${values.id}`
@@ -59,13 +63,16 @@ const EditPost = () => {
 
 		fetch(submitUrl, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
-			.then(res => res.json())
-			.then(res => {
+			.then((res) => res.json())
+			.then((res) => {
 				console.log(res)
 			})
-			.catch(err => console.log(err))
+			.catch((err) => console.log(err))
 	}
 
 	return (

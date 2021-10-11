@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const CreateSkill = () => {
 	const [values, setValues] = useState({
@@ -12,6 +14,7 @@ const CreateSkill = () => {
 	})
 
 	const url = `${process.env.REACT_APP_API}/skills`
+	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
 		setValues({
@@ -31,6 +34,9 @@ const CreateSkill = () => {
 
 		fetch(url, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
 			.then((res) => res.json())

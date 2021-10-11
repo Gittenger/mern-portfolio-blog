@@ -4,10 +4,13 @@ import { useApiData } from '../../../utils/hooks'
 
 import { OverviewContainer, Row } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index'
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const SkillsOverview = () => {
 	const url = `${process.env.REACT_APP_API}/skills`
 	const [apiData, dataProcessed] = useApiData(url)
+	const { token } = checkAuthToken()
 
 	const handleDelete = (e) => {
 		const deleteUrl = `${process.env.REACT_APP_API}/skills/${e.target.dataset.id}`
@@ -16,6 +19,7 @@ const SkillsOverview = () => {
 			headers: {
 				'Content-Type': 'application/json',
 				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 		})
 			.then((res) => {

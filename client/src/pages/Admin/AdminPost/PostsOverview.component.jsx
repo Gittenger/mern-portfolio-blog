@@ -4,10 +4,13 @@ import { useApiData } from '../../../utils/hooks.js'
 
 import { OverviewContainer, Row } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index'
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const PostsOverview = () => {
 	const url = `${process.env.REACT_APP_API}/posts`
 	const [apiData, dataProcessed] = useApiData(url)
+	const { token } = checkAuthToken()
 
 	const handleDelete = (e) => {
 		const deleteUrl = `${process.env.REACT_APP_API}/posts/${e.target.dataset.id}`
@@ -16,6 +19,7 @@ const PostsOverview = () => {
 			headers: {
 				'Content-Type': 'application/json',
 				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 		})
 			.then((res) => {

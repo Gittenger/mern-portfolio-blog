@@ -3,6 +3,9 @@ import { remark } from 'remark'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
 
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
+
 const CreatePost = () => {
 	const [values, setValues] = useState({
 		title: '',
@@ -11,15 +14,16 @@ const CreatePost = () => {
 		content: '',
 	})
 	const { title, excerpt, date, content } = values
+	const { token } = checkAuthToken()
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setValues({
 			...values,
 			[e.target.name]: e.target.value,
 		})
 	}
 
-	const handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		const submitUrl = `${process.env.REACT_APP_API}/posts`
@@ -33,13 +37,16 @@ const CreatePost = () => {
 
 		fetch(submitUrl, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
-			.then(res => res.json())
-			.then(res => {
+			.then((res) => res.json())
+			.then((res) => {
 				console.log(res)
 			})
-			.catch(err => console.log(err))
+			.catch((err) => console.log(err))
 	}
 
 	return (

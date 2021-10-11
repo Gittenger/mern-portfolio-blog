@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { EditProjectContainer } from '../AdminGeneral.styles'
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const EditSkill = () => {
 	const [values, setValues] = useState({
@@ -14,6 +16,7 @@ const EditSkill = () => {
 	})
 	const { name, desc, img, years, bullet } = values
 	const { slug } = useParams()
+	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
 		setValues({
@@ -30,6 +33,7 @@ const EditSkill = () => {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
 			},
 		})
 			.then((res) => res.json())

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const CreateProject = () => {
 	const [values, setValues] = useState({
@@ -13,6 +15,7 @@ const CreateProject = () => {
 	})
 
 	const url = `${process.env.REACT_APP_API}/projects`
+	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
 		setValues({
@@ -33,6 +36,9 @@ const CreateProject = () => {
 
 		fetch(url, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
 			.then((res) => res.json())
