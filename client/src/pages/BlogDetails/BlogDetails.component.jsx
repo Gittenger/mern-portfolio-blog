@@ -38,6 +38,7 @@ const BlogDetails = () => {
 
 	const {
 		TComp: { PSmall, H2 },
+		Spinner,
 	} = CIndex
 
 	const { data } = apiData
@@ -48,7 +49,7 @@ const BlogDetails = () => {
 			<ReactMarkdown components={renderers} children={data[slug].content} />
 		</BlogDetailsContainer>
 	) : (
-		<h1>Loading</h1>
+		<Spinner />
 	)
 }
 
