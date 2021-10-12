@@ -74,3 +74,24 @@ exports.updateCard = catchAsync(async (req, res) => {
 		})
 	}
 })
+
+exports.deleteCard = catchAsync(async (req, res, next) => {
+	const id = req.params.id
+
+	const skill = await Skill.findById(id)
+
+	if (skill) {
+		await Skill.findByIdAndDelete(id)
+
+		await updateServer()
+
+		res.status(204).json({
+			message: 'skill successfully deleted',
+			data: null,
+		})
+	} else {
+		return res.status(404).json({
+			message: 'no skill with that id',
+		})
+	}
+})
