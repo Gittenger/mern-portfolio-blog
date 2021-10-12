@@ -34,7 +34,6 @@ ___
 
 General improvements
 ___
-* - Loading spinner while API is fetching
 - try different animation library?
 	- page transition animations
 - margins, general UI
