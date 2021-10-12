@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { remark } from 'remark'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
 
 import auth from '../../../utils/auth.js'
 const { checkAuthToken } = auth
@@ -15,7 +16,13 @@ const EditPost = () => {
 		content: '',
 		id: '',
 	})
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
+
 	const { title, excerpt, date, content } = values
+	const { error, message } = messageData
 	const { slug } = useParams()
 	const { token } = checkAuthToken()
 
@@ -46,7 +53,12 @@ const EditPost = () => {
 					content: data.content,
 				})
 			})
-			.catch((err) => console.error(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error getting the data from the server',
+				})
+			})
 	}, [])
 
 	const handleSubmit = async (e) => {
@@ -70,10 +82,20 @@ const EditPost = () => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
+
+	const { DisplayMessage } = CIndex
 
 	return (
 		<EditPostContainer>
@@ -110,6 +132,8 @@ const EditPost = () => {
 
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditPostContainer>
 	)
 }
