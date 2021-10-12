@@ -8,7 +8,7 @@ import {
 } from './Skills.styles'
 
 const Skills = () => {
-	const { SkillCard } = CIndex
+	const { SkillCard, Spinner } = CIndex
 
 	const url = `${process.env.REACT_APP_API}/skills`
 	const [apiData, dataProcessed] = useApiData(url)
@@ -23,12 +23,15 @@ const Skills = () => {
 			</div>
 			<SkillCardsContainer>
 				<ul>
-					{dataProcessed &&
+					{dataProcessed ? (
 						Object.keys(data).map((skill, i) => (
 							<li key={i}>
 								<SkillCard {...data[skill]} />
 							</li>
-						))}
+						))
+					) : (
+						<Spinner />
+					)}
 				</ul>
 			</SkillCardsContainer>
 		</SkillsPageContentContainer>

@@ -12,7 +12,7 @@ const SkillsOverview = () => {
 	const [apiData, dataProcessed] = useApiData(url)
 	const { token } = checkAuthToken()
 
-	const handleDelete = (e) => {
+	const handleDelete = e => {
 		const deleteUrl = `${process.env.REACT_APP_API}/skills/${e.target.dataset.id}`
 		fetch(deleteUrl, {
 			method: 'DELETE',
@@ -22,15 +22,16 @@ const SkillsOverview = () => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then((res) => {
+			.then(res => {
 				console.log(res)
 				window.location.reload()
 			})
-			.catch((err) => console.error(err))
+			.catch(err => console.error(err))
 	}
 
 	const {
 		TComp: { PSmall },
+		Spinner,
 	} = CIndex
 
 	const { data } = apiData
@@ -39,7 +40,7 @@ const SkillsOverview = () => {
 		<OverviewContainer>
 			<Link to="/admin/create-skill">Create Skill</Link>
 			<ul>
-				{dataProcessed &&
+				{dataProcessed ? (
 					Object.keys(data).map((skill, i) => (
 						<li key={i}>
 							<Row>
@@ -47,14 +48,15 @@ const SkillsOverview = () => {
 								<button data-id={data[skill]._id} onClick={handleDelete}>
 									Delete
 								</button>
-								<Link
-									to={`/admin/edit-skill/${data[skill].name.toLowerCase()}`}
-								>
+								<Link to={`/admin/edit-skill/${data[skill].name.toLowerCase()}`}>
 									Edit Skill
 								</Link>
 							</Row>
 						</li>
-					))}
+					))
+				) : (
+					<Spinner />
+				)}
 			</ul>
 		</OverviewContainer>
 	)

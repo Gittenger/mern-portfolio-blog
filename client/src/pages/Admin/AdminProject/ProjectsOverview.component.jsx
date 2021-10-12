@@ -12,7 +12,7 @@ const PostsOverview = () => {
 	const [apiData, dataProcessed] = useApiData(url)
 	const { token } = checkAuthToken()
 
-	const handleDelete = (e) => {
+	const handleDelete = e => {
 		const deleteUrl = `${process.env.REACT_APP_API}/projects/${e.target.dataset.id}`
 		fetch(deleteUrl, {
 			method: 'DELETE',
@@ -22,15 +22,16 @@ const PostsOverview = () => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then((res) => {
+			.then(res => {
 				console.log(res)
 				window.location.reload()
 			})
-			.catch((err) => console.error(err))
+			.catch(err => console.error(err))
 	}
 
 	const {
 		TComp: { PSmall },
+		Spinner,
 	} = CIndex
 
 	const { data } = apiData
@@ -39,7 +40,7 @@ const PostsOverview = () => {
 		<OverviewContainer>
 			<Link to="/admin/create-project">Create Project</Link>
 			<ul>
-				{dataProcessed &&
+				{dataProcessed ? (
 					Object.keys(data).map((project, i) => (
 						<li key={i}>
 							<Row>
@@ -52,7 +53,10 @@ const PostsOverview = () => {
 								</Link>
 							</Row>
 						</li>
-					))}
+					))
+				) : (
+					<Spinner />
+				)}
 			</ul>
 		</OverviewContainer>
 	)

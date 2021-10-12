@@ -12,7 +12,7 @@ const PostsOverview = () => {
 	const [apiData, dataProcessed] = useApiData(url)
 	const { token } = checkAuthToken()
 
-	const handleDelete = (e) => {
+	const handleDelete = e => {
 		const deleteUrl = `${process.env.REACT_APP_API}/posts/${e.target.dataset.id}`
 		fetch(deleteUrl, {
 			method: 'DELETE',
@@ -22,15 +22,16 @@ const PostsOverview = () => {
 				Authorization: `Bearer ${token}`,
 			},
 		})
-			.then((res) => {
+			.then(res => {
 				console.log(res)
 				window.location.reload()
 			})
-			.catch((err) => console.error(err))
+			.catch(err => console.error(err))
 	}
 
 	const {
 		TComp: { PSmall },
+		Spinner,
 	} = CIndex
 
 	const { data } = apiData
@@ -39,7 +40,7 @@ const PostsOverview = () => {
 		<OverviewContainer>
 			<Link to="/admin/create-post">Create Post</Link>
 			<ul>
-				{dataProcessed &&
+				{dataProcessed ? (
 					Object.keys(data).map((post, i) => (
 						<li key={i}>
 							<Row>
@@ -47,12 +48,13 @@ const PostsOverview = () => {
 								<button data-id={data[post]._id} onClick={handleDelete}>
 									Delete
 								</button>
-								<Link to={`/admin/edit-post/${data[post].slug}`}>
-									Edit Post
-								</Link>
+								<Link to={`/admin/edit-post/${data[post].slug}`}>Edit Post</Link>
 							</Row>
 						</li>
-					))}
+					))
+				) : (
+					<Spinner />
+				)}
 			</ul>
 		</OverviewContainer>
 	)
