@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { remark } from 'remark'
 
 import { EditProjectContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
+
 import auth from '../../../utils/auth.js'
 const { checkAuthToken } = auth
 
@@ -17,6 +19,13 @@ const EditProject = () => {
 		techStack: '',
 		id: '',
 	})
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
+
+	const { error, message } = messageData
+
 	const {
 		name,
 		description,
@@ -59,7 +68,12 @@ const EditProject = () => {
 					id: data._id,
 				})
 			})
-			.catch((err) => console.error(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error getting the data from the server',
+				})
+			})
 	}, [])
 
 	const handleSubmit = async (e) => {
@@ -85,10 +99,20 @@ const EditProject = () => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
+
+	const { DisplayMessage } = CIndex
 
 	return (
 		<EditProjectContainer>
@@ -145,6 +169,8 @@ const EditProject = () => {
 				></textarea>
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditProjectContainer>
 	)
 }

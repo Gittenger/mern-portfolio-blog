@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { remark } from 'remark'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
 
 import auth from '../../../utils/auth.js'
 const { checkAuthToken } = auth
@@ -13,7 +14,13 @@ const CreatePost = () => {
 		date: '',
 		content: '',
 	})
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
+
 	const { title, excerpt, date, content } = values
+	const { error, message } = messageData
 	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
@@ -44,10 +51,26 @@ const CreatePost = () => {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
+				setValues({
+					title: '',
+					excerpt: '',
+					date: '',
+					content: '',
+				})
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
+
+	const { DisplayMessage } = CIndex
 
 	return (
 		<EditPostContainer>
@@ -84,6 +107,8 @@ const CreatePost = () => {
 
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditPostContainer>
 	)
 }
