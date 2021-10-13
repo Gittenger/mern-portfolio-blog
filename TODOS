@@ -26,7 +26,6 @@ ___
 Admin section
 ___
 * - Delete all posts/projects/skills
-* - hitting enter on login form should submit
 - make UI better
 * - Create reusable util func for deleting to be called from handler
 

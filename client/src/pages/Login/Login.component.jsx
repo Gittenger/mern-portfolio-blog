@@ -71,6 +71,7 @@ const Login = () => {
 					onChange={handleChange('password')}
 				/>
 			</Row>
+			<button onClick={handleSubmit}>Submit</button>
 		</Form>
 	)
 
@@ -84,7 +85,6 @@ const Login = () => {
 		<LoginPageContentContainer>
 			<H2>Login:</H2>
 			{LoginForm()}
-			<button onClick={handleSubmit}>Submit</button>
 			{showError()}
 		</LoginPageContentContainer>
 	)
