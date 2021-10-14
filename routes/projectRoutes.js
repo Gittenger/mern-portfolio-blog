@@ -10,6 +10,7 @@ const {
 	createProject,
 	deleteProject,
 	updateProject,
+	deleteAll,
 } = projectController
 const { protect } = authController
 
@@ -21,5 +22,6 @@ router.use(protect)
 router.post('/', createProject)
 router.post('/:id', updateProject)
 router.delete('/:id', deleteProject)
+router.delete('/', deleteAll)
 
 module.exports = router

@@ -2,6 +2,7 @@ const Markdown = require('../models/postSchema')
 const slugify = require('slugify')
 const formidable = require('formidable')
 const updateServer = require('../utils/updateServer')
+const catchAsync = require('../utils/catchAsync')
 
 exports.getFile = async (req, res) => {
 	const slug = req.params.slug
@@ -43,6 +44,17 @@ exports.deletePost = async (req, res) => {
 		})
 	}
 }
+
+exports.deleteAll = catchAsync(async (req, res, next) => {
+	await Markdown.deleteMany()
+
+	await updateServer()
+
+	res.status(204).json({
+		message: 'posts successfully deleted',
+		data: null,
+	})
+})
 
 exports.createPost = async (req, res) => {
 	const form = new formidable.IncomingForm()

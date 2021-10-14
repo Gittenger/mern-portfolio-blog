@@ -92,3 +92,14 @@ exports.deleteProject = catchAsync(async (req, res, next) => {
 		})
 	}
 })
+
+exports.deleteAll = catchAsync(async (req, res, next) => {
+	await Project.deleteMany()
+
+	await updateServer()
+
+	res.status(204).json({
+		message: 'Project successfully deleted',
+		data: null,
+	})
+})

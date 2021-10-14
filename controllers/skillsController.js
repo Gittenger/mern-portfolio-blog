@@ -95,3 +95,14 @@ exports.deleteCard = catchAsync(async (req, res, next) => {
 		})
 	}
 })
+
+exports.deleteAll = catchAsync(async (req, res, next) => {
+	await Skill.deleteMany()
+
+	await updateServer()
+
+	res.status(204).json({
+		message: 'Skill card successfully deleted',
+		data: null,
+	})
+})
