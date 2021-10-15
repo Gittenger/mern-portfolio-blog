@@ -8,18 +8,25 @@ import CreateSkill from './AdminSkill/CreateSkill.component'
 import EditPost from './AdminPost/EditPost.component'
 import EditProject from './AdminProject/EditProject.component'
 import EditSkill from './AdminSkill/EditSkill.component'
-import PostsOverview from './AdminPost/PostsOverview.component'
-import ProjectsOverview from './AdminProject/ProjectsOverview.component'
-import SkillsOverview from './AdminSkill/SkillsOverview.component'
+import EditOverview from './EditOverview.component'
 import getPage from '../PageComponent.jsx'
 
 const pages = {
 	CreatePostPage: getPage('Create Post', CreatePost),
 	CreateProjectPage: getPage('Create Project', CreateProject),
 	CreateSkillPage: getPage('Create Skill', CreateSkill),
-	PostsOverviewPage: getPage('Posts Dashboard', PostsOverview),
-	ProjectsOverviewPage: getPage('Projects Dashboard', ProjectsOverview),
-	SkillsOverviewPage: getPage('Skills Dashboard', SkillsOverview),
+	PostsOverviewPage: getPage('Posts Dashboard', EditOverview, {
+		name: 'posts',
+		nameSingular: 'post',
+	}),
+	ProjectsOverviewPage: getPage('Projects Dashboard', EditOverview, {
+		name: 'projects',
+		nameSingular: 'project',
+	}),
+	SkillsOverviewPage: getPage('Skills Dashboard', EditOverview, {
+		name: 'skills',
+		nameSingular: 'skill',
+	}),
 	EditPostPage: getPage('Edit Post', EditPost),
 	EditProjectPage: getPage('Edit Project', EditProject),
 	EditSkillPage: getPage('Edit Skill', EditSkill),

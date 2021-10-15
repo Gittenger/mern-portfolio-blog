@@ -28,7 +28,6 @@ ___
 -- Delete all
 	-- test for projects/skills
 	-- check if message for successful delete all is working?
-- refactor overview sections
 - make UI better
 * - Create reusable util func for deleting to be called from handler
 
