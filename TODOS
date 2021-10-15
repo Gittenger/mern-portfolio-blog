@@ -25,9 +25,8 @@ ___
 
 Admin section
 ___
-** -- Delete all
-	** -- extract delete-prompt to its own component
-	** -- test projects/skills
+-- Delete all
+	-- test for projects/skills
 	-- check if message for successful delete all is working?
 - refactor overview sections
 - make UI better
