@@ -44,6 +44,7 @@ ___
 - add all catchAsync func to back-end handlers
 - rm unneccessary request headers (accept, content-type)
 - improve security (cookies not localstorage for jwt)
+** - Make data models consistent (use name instead of title on posts)
 
 
 Structure
