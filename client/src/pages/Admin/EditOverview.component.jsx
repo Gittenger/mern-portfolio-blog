@@ -47,7 +47,7 @@ const EditOverview = ({ name, nameSingular }) => {
 						<li key={i}>
 							<Row>
 								<PSmall>
-									{nameSingular} name: {data[item].name}
+									{nameSingular} name: {data[item].slug}
 								</PSmall>
 								<button data-id={data[item]._id} onClick={handleDelete}>
 									Delete
