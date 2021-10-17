@@ -10,6 +10,7 @@ import NavDesk from "./Core/NavDesk/NavDesk.component.jsx"
 import NavList from "./Core/NavList/NavList.component.jsx"
 import NavMobile from "./Core/NavMobile/NavMobile.component.jsx"
 import ToggleNavButton from "./Core/ToggleNavButton/ToggleNavButton.component.jsx"
+import BlogPostPreview from "./General/BlogPostPreview/BlogPostPreview.component.jsx"
 import Checkbox from "./General/Checkbox/Checkbox.component.jsx"
 import ContactForm from "./General/ContactForm/ContactForm.component.jsx"
 import DeletePrompt from "./General/DeletePrompt/DeletePrompt.component.jsx"
@@ -22,7 +23,7 @@ import Spinner from "./General/Spinner/Spinner.component.jsx"
 import YtEmbed from "./General/YtEmbed/YtEmbed.component.jsx"
 import TComp from "./typography/typography.components.js"
 export const CIndex = {
-		AdminMenu,AdminRoute,ChangePassword,ForgotPassword,ResetPassword,Content,Footer,Layout,NavDesk,NavList,NavMobile,ToggleNavButton,Checkbox,ContactForm,DeletePrompt,DisplayMessage,ProjectCard,SkillCard,SkillIconBox,SkillImage,Spinner,YtEmbed, TComp
+		AdminMenu,AdminRoute,ChangePassword,ForgotPassword,ResetPassword,Content,Footer,Layout,NavDesk,NavList,NavMobile,ToggleNavButton,BlogPostPreview,Checkbox,ContactForm,DeletePrompt,DisplayMessage,ProjectCard,SkillCard,SkillIconBox,SkillImage,Spinner,YtEmbed, TComp
 	}
 	export default CIndex
 	
