@@ -60,7 +60,7 @@ exports.createPost = async (req, res) => {
 	const form = new formidable.IncomingForm()
 
 	form.parse(req, async (err, fields) => {
-		const slug = slugify(fields.title, {
+		const slug = slugify(fields.name, {
 			lower: true,
 		})
 
@@ -81,7 +81,7 @@ exports.updatePost = async (req, res) => {
 		const form = new formidable.IncomingForm()
 
 		form.parse(req, async (err, fields) => {
-			const slug = slugify(fields.title, {
+			const slug = slugify(fields.name, {
 				lower: true,
 			})
 

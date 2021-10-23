@@ -19,7 +19,7 @@ const Blog = () => {
 					<BlogPostPreview
 						key={i}
 						linkTo={`/blog/posts/${data[post].slug}`}
-						title={data[post].title}
+						title={data[post].name}
 					/>
 				))
 			) : (

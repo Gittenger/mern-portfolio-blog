@@ -26,8 +26,8 @@ ___
 Admin section
 ___
 -- Delete all
-	-- test for projects/skills
-	-- check if message for successful delete all is working?
+	** -- test for projects/skills
+	** -- check if message for successful delete all is working?
 - make UI better
 
 
@@ -44,7 +44,6 @@ ___
 - add all catchAsync func to back-end handlers
 - rm unneccessary request headers (accept, content-type)
 - improve security (cookies not localstorage for jwt)
-** - Make data models consistent (use name instead of title on posts)
 
 
 Structure

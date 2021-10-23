@@ -10,7 +10,7 @@ const { checkAuthToken } = auth
 
 const EditPost = () => {
 	const [values, setValues] = useState({
-		title: '',
+		name: '',
 		excerpt: '',
 		date: '',
 		content: '',
@@ -21,7 +21,7 @@ const EditPost = () => {
 		message: '',
 	})
 
-	const { title, excerpt, date, content } = values
+	const { name, excerpt, date, content } = values
 	const { error, message } = messageData
 	const { slug } = useParams()
 	const { token } = checkAuthToken()
@@ -47,7 +47,7 @@ const EditPost = () => {
 			.then(({ data }) => {
 				setValues({
 					id: data._id,
-					title: data.title,
+					name: data.name,
 					excerpt: data.excerpt,
 					date: data.date,
 					content: data.content,
@@ -68,7 +68,7 @@ const EditPost = () => {
 		const transformedMarkdown = await remark().process(content)
 
 		const formData = new FormData()
-		formData.append('title', title)
+		formData.append('name', name)
 		formData.append('excerpt', excerpt)
 		formData.append('date', date)
 		formData.append('content', String(transformedMarkdown))
@@ -101,11 +101,11 @@ const EditPost = () => {
 		<EditPostContainer>
 			<form>
 				<input
-					name="title"
+					name="name"
 					type="text"
 					onChange={handleChange}
-					value={title}
-					placeholder="title"
+					value={name}
+					placeholder="name"
 				/>
 				<input
 					name="excerpt"
