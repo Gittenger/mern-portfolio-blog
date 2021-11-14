@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom'
 import { remark } from 'remark'
 
 import { EditProjectContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
+
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const EditProject = () => {
 	const [values, setValues] = useState({
@@ -11,13 +15,30 @@ const EditProject = () => {
 		descriptionLong: '',
 		link: '',
 		github: '',
+		youtubeId: '',
 		techStack: '',
 		id: '',
 	})
-	const { name, description, descriptionLong, link, github, techStack } = values
-	const { slug } = useParams()
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
 
-	const handleChange = e => {
+	const { error, message } = messageData
+
+	const {
+		name,
+		description,
+		descriptionLong,
+		link,
+		github,
+		youtubeId,
+		techStack,
+	} = values
+	const { slug } = useParams()
+	const { token } = checkAuthToken()
+
+	const handleChange = (e) => {
 		setValues({
 			...values,
 			[e.target.name]: e.target.value,
@@ -34,7 +55,7 @@ const EditProject = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then(res => res.json())
+			.then((res) => res.json())
 			.then(({ data }) => {
 				setValues({
 					name: data.name,
@@ -42,14 +63,20 @@ const EditProject = () => {
 					description: data.description,
 					descriptionLong: data.descriptionLong,
 					github: data.github,
+					youtubeId: data.youtubeId,
 					techStack: data.techStack.join(', '),
 					id: data._id,
 				})
 			})
-			.catch(err => console.error(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error getting the data from the server',
+				})
+			})
 	}, [])
 
-	const handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		const submitUrl = `${process.env.REACT_APP_API}/projects/${values.id}`
@@ -65,14 +92,27 @@ const EditProject = () => {
 
 		fetch(submitUrl, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
-			.then(res => res.json())
-			.then(res => {
-				console.log(res)
+			.then((res) => res.json())
+			.then((res) => {
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
 			})
-			.catch(err => console.log(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
+
+	const { DisplayMessage } = CIndex
 
 	return (
 		<EditProjectContainer>
@@ -106,6 +146,13 @@ const EditProject = () => {
 					placeholder="github"
 				/>
 				<input
+					name="youtubeId"
+					type="text"
+					onChange={handleChange}
+					value={youtubeId}
+					placeholder="youtubeId"
+				/>
+				<input
 					name="techStack"
 					type="text"
 					onChange={handleChange}
@@ -122,6 +169,8 @@ const EditProject = () => {
 				></textarea>
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditProjectContainer>
 	)
 }

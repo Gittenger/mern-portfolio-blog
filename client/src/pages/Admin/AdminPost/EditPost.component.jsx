@@ -3,19 +3,30 @@ import { useParams } from 'react-router-dom'
 import { remark } from 'remark'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
+
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const EditPost = () => {
 	const [values, setValues] = useState({
-		title: '',
+		name: '',
 		excerpt: '',
 		date: '',
 		content: '',
 		id: '',
 	})
-	const { title, excerpt, date, content } = values
-	const { slug } = useParams()
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
 
-	const handleChange = e => {
+	const { name, excerpt, date, content } = values
+	const { error, message } = messageData
+	const { slug } = useParams()
+	const { token } = checkAuthToken()
+
+	const handleChange = (e) => {
 		setValues({
 			...values,
 			[e.target.name]: e.target.value,
@@ -32,51 +43,69 @@ const EditPost = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then(res => res.json())
+			.then((res) => res.json())
 			.then(({ data }) => {
 				setValues({
 					id: data._id,
-					title: data.title,
+					name: data.name,
 					excerpt: data.excerpt,
 					date: data.date,
 					content: data.content,
 				})
 			})
-			.catch(err => console.error(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error getting the data from the server',
+				})
+			})
 	}, [])
 
-	const handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
 		const submitUrl = `${process.env.REACT_APP_API}/posts/${values.id}`
 		const transformedMarkdown = await remark().process(content)
 
 		const formData = new FormData()
-		formData.append('title', title)
+		formData.append('name', name)
 		formData.append('excerpt', excerpt)
 		formData.append('date', date)
 		formData.append('content', String(transformedMarkdown))
 
 		fetch(submitUrl, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
-			.then(res => res.json())
-			.then(res => {
-				console.log(res)
+			.then((res) => res.json())
+			.then((res) => {
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
 			})
-			.catch(err => console.log(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
+
+	const { DisplayMessage } = CIndex
 
 	return (
 		<EditPostContainer>
 			<form>
 				<input
-					name="title"
+					name="name"
 					type="text"
 					onChange={handleChange}
-					value={title}
-					placeholder="title"
+					value={name}
+					placeholder="name"
 				/>
 				<input
 					name="excerpt"
@@ -103,6 +132,8 @@ const EditPost = () => {
 
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditPostContainer>
 	)
 }

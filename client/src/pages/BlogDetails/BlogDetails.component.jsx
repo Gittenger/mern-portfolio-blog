@@ -38,17 +38,18 @@ const BlogDetails = () => {
 
 	const {
 		TComp: { PSmall, H2 },
+		Spinner,
 	} = CIndex
 
 	const { data } = apiData
 
 	return dataProcessed ? (
 		<BlogDetailsContainer>
-			<H2>{data[slug].title}</H2>
+			<H2>{data[slug].name}</H2>
 			<ReactMarkdown components={renderers} children={data[slug].content} />
 		</BlogDetailsContainer>
 	) : (
-		<h1>Loading</h1>
+		<Spinner />
 	)
 }
 

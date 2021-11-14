@@ -45,7 +45,10 @@ const corsOptions =
 				origin: [process.env.CORS_ORIGIN, process.env.CORS_ORIGIN_WWW],
 				credentials: true,
 		  }
-		: {}
+		: {
+				origin: [process.env.CORS_ORIGIN],
+				credentials: true,
+		  }
 app.use(cors(corsOptions))
 app.options('*', cors())
 

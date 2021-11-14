@@ -9,7 +9,10 @@ export const LoginPageContentContainer = styled.div`
 
 export const Form = styled.form`
   ${cssIndex.flexCenterCol}
-  margin: var(--m-XS) auto;
+
+  button {
+    margin-top: var(--m-XXS);
+  }
 `
 
 export const Row = styled.div`

@@ -20,7 +20,8 @@ const PageComponent = ({ title, Component, ...props }) => {
 	)
 }
 
-export const getPage = (title, component) => () =>
-	<PageComponent title={title} Component={component} />
+export const getPage = (title, component, props) => () => (
+	<PageComponent title={title} Component={component} {...props} />
+)
 
 export default getPage

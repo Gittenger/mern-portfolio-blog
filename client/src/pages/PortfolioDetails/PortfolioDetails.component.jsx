@@ -60,6 +60,7 @@ const PortfolioDetails = () => {
 		TComp: { PSmall, H1, H3, H2 },
 		SkillImage,
 		YtEmbed,
+		Spinner,
 	} = CIndex
 
 	const { data } = apiData
@@ -67,11 +68,7 @@ const PortfolioDetails = () => {
 	return dataProcessed ? (
 		<PortfolioDetailsContainer>
 			<H1 className="title">{data[slug].name}</H1>
-			<img
-				src={slug === 'fantastic-flames' ? leo : poke}
-				alt=""
-				className="gif"
-			/>
+			<img src={slug === 'fantastic-flames' ? leo : poke} alt="" className="gif" />
 			<div className="links">
 				<a className="text-link" href={data[slug].link} target="_blank">
 					Link to project
@@ -105,7 +102,7 @@ const PortfolioDetails = () => {
 			</div>
 		</PortfolioDetailsContainer>
 	) : (
-		<h1>Loading</h1>
+		<Spinner />
 	)
 }
 

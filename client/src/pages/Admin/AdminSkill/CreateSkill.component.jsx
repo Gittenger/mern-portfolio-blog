@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
+
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const CreateSkill = () => {
 	const [values, setValues] = useState({
@@ -10,8 +14,14 @@ const CreateSkill = () => {
 		years: '',
 		bullet: '',
 	})
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
 
 	const url = `${process.env.REACT_APP_API}/skills`
+	const { error, message } = messageData
+	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
 		setValues({
@@ -31,16 +41,29 @@ const CreateSkill = () => {
 
 		fetch(url, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
 			})
-			.catch((err) => console.error(err))
+			.catch((err) =>
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			)
 	}
 
 	const { name, desc, img, years, bullet } = values
+	const { DisplayMessage } = CIndex
+
 	return (
 		<EditPostContainer>
 			<form>
@@ -82,6 +105,8 @@ const CreateSkill = () => {
 				></textarea>
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditPostContainer>
 	)
 }

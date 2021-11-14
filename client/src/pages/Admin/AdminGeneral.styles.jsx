@@ -16,6 +16,16 @@ export const OverviewContainer = styled.div`
 			margin-bottom: 2rem;
 		}
 	}
+
+	.delete-prompt {
+		display: none;
+		opacity: 0;
+		transition: opacity 0.4s;
+
+		&.active {
+			opacity: 1;
+		}
+	}
 `
 
 export const Row = styled.div`

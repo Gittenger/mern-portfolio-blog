@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
 import { EditPostContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
+
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const CreateProject = () => {
 	const [values, setValues] = useState({
@@ -9,10 +13,17 @@ const CreateProject = () => {
 		techStack: '',
 		link: '',
 		github: '',
+		youtubeId: '',
 		descriptionLong: '',
+	})
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
 	})
 
 	const url = `${process.env.REACT_APP_API}/projects`
+	const { error, message } = messageData
+	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
 		setValues({
@@ -33,16 +44,47 @@ const CreateProject = () => {
 
 		fetch(url, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
+				setValues({
+					name: '',
+					description: '',
+					techStack: '',
+					link: '',
+					github: '',
+					youtubeId: '',
+					descriptionLong: '',
+				})
 			})
-			.catch((err) => console.error(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
 
-	const { name, description, descriptionLong, techStack, link, github } = values
+	const {
+		name,
+		description,
+		descriptionLong,
+		techStack,
+		link,
+		github,
+		youtubeId,
+	} = values
+
+	const { DisplayMessage } = CIndex
+
 	return (
 		<EditPostContainer>
 			<form>
@@ -75,6 +117,13 @@ const CreateProject = () => {
 					placeholder="link"
 				/>
 				<input
+					name="youtubeId"
+					type="text"
+					onChange={handleChange}
+					value={youtubeId}
+					placeholder="youtubeId"
+				/>
+				<input
 					onChange={handleChange}
 					type="text"
 					value={github}
@@ -91,6 +140,8 @@ const CreateProject = () => {
 				></textarea>
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditPostContainer>
 	)
 }

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { EditProjectContainer } from '../AdminGeneral.styles'
+import CIndex from '../../../components/components.index.js'
+
+import auth from '../../../utils/auth.js'
+const { checkAuthToken } = auth
 
 const EditSkill = () => {
 	const [values, setValues] = useState({
@@ -12,8 +16,15 @@ const EditSkill = () => {
 		bullet: '',
 		id: '',
 	})
+	const [messageData, setMessageData] = useState({
+		error: false,
+		message: '',
+	})
+
 	const { name, desc, img, years, bullet } = values
+	const { error, message } = messageData
 	const { slug } = useParams()
+	const { token } = checkAuthToken()
 
 	const handleChange = (e) => {
 		setValues({
@@ -43,7 +54,12 @@ const EditSkill = () => {
 					id: data._id,
 				})
 			})
-			.catch((err) => console.error(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error getting the data from the server',
+				})
+			})
 	}, [])
 
 	const handleSubmit = async (e) => {
@@ -60,14 +76,27 @@ const EditSkill = () => {
 
 		fetch(submitUrl, {
 			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
 			body: formData,
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res)
+				setMessageData({
+					error: false,
+					message: res.message,
+				})
 			})
-			.catch((err) => console.log(err))
+			.catch((err) => {
+				setMessageData({
+					error: true,
+					message: 'There was an error submitting the data',
+				})
+			})
 	}
+
+	const { DisplayMessage } = CIndex
 
 	return (
 		<EditProjectContainer>
@@ -110,6 +139,8 @@ const EditSkill = () => {
 				></textarea>
 				<button onClick={handleSubmit}>Submit</button>
 			</form>
+
+			<DisplayMessage message={message} className={error ? 'error' : ''} />
 		</EditProjectContainer>
 	)
 }

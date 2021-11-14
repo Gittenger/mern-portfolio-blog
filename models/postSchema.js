@@ -5,7 +5,7 @@ const markdownSchema = new mongoose.Schema({
 		type: String,
 		required: [true, 'Content is a required field'],
 	},
-	title: {
+	name: {
 		type: String,
 		required: [true, 'Title is required in metadata'],
 	},
