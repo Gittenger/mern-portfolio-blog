@@ -2,12 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import auth from '../../../utils/auth.js'
 
-import {
-	AdminDashboardContainer,
-	Links,
-	RowOne,
-	RowTwo,
-} from './AdminDashboard.styles'
+import { AdminDashboardContainer, ButtonsBox } from './AdminDashboard.styles'
 
 const { logout } = auth
 
@@ -15,8 +10,9 @@ const AdminDashboard = () => {
 	return (
 		<AdminDashboardContainer>
 			<h2>Admin Tools</h2>
-			<Links>
-				<RowOne>
+			<h2>Manage Content</h2>
+			<ButtonsBox cols="3">
+				<ul>
 					<li>
 						<Link to="/admin/posts">Posts</Link>
 					</li>
@@ -26,17 +22,19 @@ const AdminDashboard = () => {
 					<li>
 						<Link to="/admin/skills">Skills</Link>
 					</li>
-				</RowOne>
-				<h2>Password Stuff</h2>
-				<RowTwo>
+				</ul>
+			</ButtonsBox>
+			<h2>Manage Account</h2>
+			<ButtonsBox cols="2">
+				<ul>
 					<li>
-						<Link to="/forgot-password">Forgot password</Link>
+						<Link to="/forgot-password">Forgot Password</Link>
 					</li>
 					<li>
-						<Link to="/change-password">Change password</Link>
+						<Link to="/change-password">Change Password</Link>
 					</li>
-				</RowTwo>
-			</Links>
+				</ul>
+			</ButtonsBox>
 		</AdminDashboardContainer>
 	)
 }
