@@ -13,7 +13,7 @@ const AdminSkillsDashboard = () => {
 			<Links>
 				<RowOne>
 					<li>
-						<Link to="/admin">Admin</Link>
+						<Link to="/">Home</Link>
 					</li>
 					<li>
 						<Link to="/admin/create-skill">Create Skill</Link>

@@ -13,7 +13,7 @@ const AdminPostsDashboard = () => {
 			<Links>
 				<RowOne>
 					<li>
-						<Link to="/admin">Admin</Link>
+						<Link to="/">Home</Link>
 					</li>
 					<li>
 						<Link to="/admin/create-project">Create Project</Link>

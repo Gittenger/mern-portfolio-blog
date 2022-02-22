@@ -6,6 +6,7 @@ const { tabletMM } = device
 export const AdminDashboardContainer = styled.div`
 	${cssIndex.flexCenterCol}
 	justify-content: flex-start;
+	background-color: var(--black);
 	color: var(--white);
 	min-width: 100vw;
 	min-height: 100vh;
@@ -14,48 +15,6 @@ export const AdminDashboardContainer = styled.div`
 
 	& > h2 {
 		margin-top: var(--m-L);
-		margin-bottom: var(--m-S);
-	}
-`
-
-export const ButtonsBox = styled.div`
-	background-color: var(--blackLight);
-	min-width: 60%;
-	padding: 3rem;
-
-	& > ul {
-		width: 100%;
-		display: grid;
-		grid-template-columns: ${({ cols }) => `repeat(${cols}, 1fr)`};
-		justify-items: center;
-		align-items: center;
-		grid-gap: 1.5rem;
-
-		li {
-			width: 50%;
-		}
-	}
-
-	// link
-	a,
-	a:link,
-	a:visited {
-		display: block;
-		text-align: center;
-		width: 100%;
-		height: 100%;
-		white-space: nowrap;
-		cursor: pointer;
-		margin-right: var(--m-XS);
-		padding: 0.7rem;
-		background-color: var(--grey);
-		color: var(--black);
-		transition: all 0.3s;
-	}
-
-	a:hover {
-		color: var(--grey);
-		background-color: var(--main);
 	}
 `
 

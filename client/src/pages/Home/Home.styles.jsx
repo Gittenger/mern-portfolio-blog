@@ -210,11 +210,40 @@ export const HomePageContainer = styled.div`
 `
 
 export const BgImgBox = styled.div`
-	border-radius: 50%;
+	border-radius: 50px;
 	background-image: ${({ bgImg }) => `url('${bgImg}')`};
 	background-size: cover;
 	background-position: bottom 0 left 0;
 	background-repeat: no-repeat;
-	width: 30rem;
-	height: 30rem;
+	width: 50%;
+	height: 1400px;
+
+	${desktop} {
+		width: 60%;
+		height: 1300px;
+	}
+
+	${laptopS} {
+		width: 70%;
+		height: 1150px;
+	}
+
+	${tabletLand} {
+		width: 80%;
+		height: 970px;
+	}
+
+	${tabletMM} {
+		width: 85%;
+		height: 800px;
+	}
+
+	${mobileMM} {
+		width: 90%;
+		height: 650px;
+	}
+
+	${mobileS} {
+		height: 500px;
+	}
 `

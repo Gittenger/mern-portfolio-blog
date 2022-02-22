@@ -19,7 +19,6 @@ import pug from './skills/svg/pug.svg'
 import react from './skills/svg/react.svg'
 import vim from './skills/svg/vim.svg'
 import profile from './profile.jpeg'
-import profileSm from './profile-sm.jpg'
 import projectDefault from './projects/default.png'
 import projectFF from './projects/ff.png'
 
@@ -46,7 +45,6 @@ export const Images = {
 		default: projectDefault,
 	},
 	profile,
-	profileSm,
 }
 
 export default Images
