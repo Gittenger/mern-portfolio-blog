@@ -27,6 +27,7 @@ export const NavListContainer = styled.ul`
 				z-index: 10;
 				${cssIndex.flexCenter}
 				padding: 0 1rem;
+				height: 100%;
 
 				// inverse skew on text
 				transform: var(--inverseSkewNav);
