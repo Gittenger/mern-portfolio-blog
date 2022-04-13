@@ -1,41 +1,48 @@
 Skills Page
-___
-- write skill details
+
+---
+
 - Check for ::marker compatibility, if compatible, custom marker using ::marker
 
-
 Resume Page
-___
+
+---
+
 - change UI, add some content
 - display resume content on page
 
-
 Projects Page
-___
+
+---
+
 - write markdowns
 - Proper gif's
 - Proper picture for project overview prev
 - Proper YT videos
 
-
 Blog Page
-___
-* - Proper blog overview UI
 
+---
+
+- - Proper blog overview UI
 
 Admin section
-___
+
+---
+
 -- Delete all
-	** -- test for projects/skills
-	** -- check if message for successful delete all is working?
+** -- test for projects/skills
+** -- check if message for successful delete all is working?
+
 - make UI better
 - make "change password" admin only
 
-
 General improvements
-___
+
+---
+
 - try different animation library?
-	- page transition animations
+  - page transition animations
 - margins, general UI
 - typography, fonts, font-sizing
 - colors
@@ -46,7 +53,8 @@ ___
 - rm unneccessary request headers (accept, content-type)
 - improve security (cookies not localstorage for jwt)
 
-
 Structure
-___
+
+---
+
 - Improved naming convention (js vs jsx for styles?)
