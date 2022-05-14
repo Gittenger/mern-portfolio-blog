@@ -21,32 +21,44 @@ import vim from './skills/svg/vim.svg'
 import profile from './profile.jpeg'
 import profileSm from './profile-sm.jpg'
 import projectDefault from './projects/default.png'
-import projectFF from './projects/ff.png'
+import projectFF from './projects/fantastic-flames.png'
+import projectPoke from './projects/pokedex.png'
+import projectArt from './projects/art-shoppe.png'
+import projectMern from './projects/mern-demo.png'
+import projectMockPort from './projects/mock-portfolio.png'
+import projectJS30 from './projects/javascript-30.png'
+import projectNatours from './projects/natours.png'
 
 export const Images = {
-	skills: {
-		png: {
-			node,
-			aws,
-			html,
-			redux,
-			css,
-			gatsby,
-			python,
-			git,
-			sass,
-			mongo,
-			mongoose,
-			digitalOcean,
-		},
-		svg: { figma, firebase, graphql, linux, nextjs, pug, react, vim },
-	},
-	projects: {
-		ff: projectFF,
-		default: projectDefault,
-	},
-	profile,
-	profileSm,
+  skills: {
+    png: {
+      node,
+      aws,
+      html,
+      redux,
+      css,
+      gatsby,
+      python,
+      git,
+      sass,
+      mongo,
+      mongoose,
+      digitalOcean,
+    },
+    svg: { figma, firebase, graphql, linux, nextjs, pug, react, vim },
+  },
+  projects: {
+    'fantastic-flames': projectFF,
+    'default': projectDefault,
+    'art-shoppe': projectArt,
+    'pokedex': projectPoke,
+    'mern-template-demo': projectMern,
+    'mock-portfolio': projectMockPort,
+    'javascript-30': projectJS30,
+    'natours': projectNatours,
+  },
+  profile,
+  profileSm,
 }
 
 export default Images
