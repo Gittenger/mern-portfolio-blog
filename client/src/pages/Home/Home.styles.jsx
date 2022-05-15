@@ -158,11 +158,17 @@ export const HomePageContainer = styled.div`
 
 		& > .project-link {
 			${cssIndex.flexCenterCol}
-			background: red;
-			border-radius: 50%;
-			width: 100px;
-			height: 100px;
+			background: ${({ theme: { colors } }) => colors.darker};
+			border-radius: 15px;
+			border: solid 1.5px darkgrey;
+			width: 200px;
+			height: 130px;
 			margin: 0 2rem;
+			padding: 1.5rem;
+
+			&:hover {
+				background: ${({ theme: { colors } }) => colors.dark};
+			}
 
 			a {
 				${cssIndex.flexCenterCol}
@@ -210,11 +216,11 @@ export const HomePageContainer = styled.div`
 `
 
 export const BgImgBox = styled.div`
-	border-radius: 50%;
-	background-image: ${({ bgImg }) => `url('${bgImg}')`};
-	background-size: cover;
-	background-position: bottom 0 left 0;
-	background-repeat: no-repeat;
-	width: 30rem;
-	height: 30rem;
+  border-radius: 50%;
+  background-image: ${({ bgImg }) => `url('${bgImg}')`};
+  background-size: cover;
+  background-position: bottom 0 left 0;
+  background-repeat: no-repeat;
+  width: 30rem;
+  height: 30rem;
 `
