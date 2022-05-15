@@ -46,7 +46,7 @@ const Home = () => {
       </div>
       <BgImgBox
         className="img-box"
-        bgImg={Images.profileSm}
+        bgImg={Images.profile}
         data-sal="fade"
         data-sal-duration="800"
       ></BgImgBox>

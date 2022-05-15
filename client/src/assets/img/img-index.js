@@ -18,8 +18,6 @@ import nextjs from './skills/svg/nextjs.svg'
 import pug from './skills/svg/pug.svg'
 import react from './skills/svg/react.svg'
 import vim from './skills/svg/vim.svg'
-import profile from './profile.jpeg'
-import profileSm from './profile-sm.jpg'
 import projectDefault from './projects/default.png'
 import projectFF from './projects/fantastic-flames.png'
 import projectPoke from './projects/pokedex.png'
@@ -28,6 +26,7 @@ import projectMern from './projects/mern-demo.png'
 import projectMockPort from './projects/mock-portfolio.png'
 import projectJS30 from './projects/javascript-30.png'
 import projectNatours from './projects/natours.png'
+import profile from './headshot.jpeg'
 
 export const Images = {
   skills: {
@@ -58,7 +57,6 @@ export const Images = {
     'natours': projectNatours,
   },
   profile,
-  profileSm,
 }
 
 export default Images
