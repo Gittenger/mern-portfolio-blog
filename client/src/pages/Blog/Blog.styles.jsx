@@ -11,7 +11,7 @@ export const BlogPageContentContainer = styled.div`
     transition: color 0.3s;
 
     &:hover {
-      color: navy;
+      color: royalblue;
     }
   }
 `
