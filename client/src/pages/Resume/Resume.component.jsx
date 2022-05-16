@@ -27,12 +27,12 @@ const Resume = () => {
     <ResumePageContentContainer>
       <h1>Resume...</h1>
       <div>
-        <div>
+        {/* <div>
           <p>Link to download:</p>
           <button onClick={() => download(downloadUrl, 'my-resume.pdf')}>
             Download resume
           </button>
-        </div>
+        </div> */}
         <div>
           <p>Link to view on Google Drive:</p>
           <a href={driveUrl} target="_blank">
