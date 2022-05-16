@@ -21,7 +21,7 @@ const Resume = () => {
   }
 
   const driveUrl =
-    'https://drive.google.com/file/d/1fqA2Q1UlK8iUHy-x-HAM-t-8TVFGBTbq/view?usp=sharing'
+    'https://drive.google.com/file/d/1AYgxXNKEOEDYtimMk0xS4PxaynQ5Pj9B/view?usp=sharing'
 
   return (
     <ResumePageContentContainer>
