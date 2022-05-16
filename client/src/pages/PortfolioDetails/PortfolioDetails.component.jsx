@@ -68,11 +68,11 @@ const PortfolioDetails = () => {
   return dataProcessed ? (
     <PortfolioDetailsContainer>
       <H1 className="title">{data[slug].name}</H1>
-      <img
+      {/* <img
         src={slug === 'fantastic-flames' ? leo : poke}
         alt=""
         className="gif"
-      />
+      /> */}
       <div className="links">
         <a className="text-link" href={data[slug].link} target="_blank">
           Link to project
