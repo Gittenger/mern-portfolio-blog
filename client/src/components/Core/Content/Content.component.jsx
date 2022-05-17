@@ -9,7 +9,7 @@ const Content = ({ children }) => {
   return (
     <ContentContainer>
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </ContentContainer>
   )
 }
