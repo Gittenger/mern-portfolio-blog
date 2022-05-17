@@ -4,14 +4,14 @@ import CIndex from '../../components.index.js'
 import { ContentContainer } from './Content.styles'
 
 const Content = ({ children }) => {
-	const { Footer } = CIndex
+  const { Footer } = CIndex
 
-	return (
-		<ContentContainer>
-			{children}
-			<Footer />
-		</ContentContainer>
-	)
+  return (
+    <ContentContainer>
+      {children}
+      {/* <Footer /> */}
+    </ContentContainer>
+  )
 }
 
 export default Content
