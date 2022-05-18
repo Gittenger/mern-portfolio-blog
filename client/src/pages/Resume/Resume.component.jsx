@@ -29,7 +29,9 @@ const Resume = () => {
       <div>
         <div>
           <p>Link to download:</p>
-          <button onClick={() => download(downloadUrl, 'my-resume.pdf')}>
+          <button
+            onClick={() => download(downloadUrl, 'John-Pittenger-Resume.pdf')}
+          >
             Download resume
           </button>
         </div>
