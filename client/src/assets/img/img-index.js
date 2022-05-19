@@ -24,7 +24,7 @@ import projectPoke from './projects/pokedex.png'
 import projectArt from './projects/art-shoppe.png'
 import projectMern from './projects/mern-demo.png'
 import projectMockPort from './projects/mock-portfolio.png'
-import projectJS30 from './projects/javascript-30.png'
+import projectJS30 from './projects/js30.png'
 import projectNatours from './projects/natours.png'
 import profile from './headshot.jpeg'
 
