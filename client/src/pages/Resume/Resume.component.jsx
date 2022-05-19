@@ -37,7 +37,7 @@ const Resume = () => {
         </div>
         <div>
           <p>Link to view on Google Drive:</p>
-          <a href={driveUrl} target="_blank">
+          <a href={driveUrl} target="_blank" rel="noreferrer">
             View on Drive
           </a>
         </div>
