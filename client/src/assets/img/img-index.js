@@ -26,6 +26,7 @@ import projectMern from './projects/mern-demo.png'
 import projectMockPort from './projects/mock-portfolio.png'
 import projectJS30 from './projects/js30.png'
 import projectNatours from './projects/natours.png'
+import projectFem from './projects/fem.png'
 import profile from './headshot.jpeg'
 
 export const Images = {
@@ -55,6 +56,7 @@ export const Images = {
     'mock-portfolio': projectMockPort,
     'javascript-30': projectJS30,
     'natours': projectNatours,
+    'frontend-mentor-projects': projectFem,
   },
   profile,
 }
