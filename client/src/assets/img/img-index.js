@@ -29,8 +29,18 @@ import projectNatours from './projects/natours.png'
 import projectFem from './projects/fem.png'
 import projectPortfolio from './projects/portfolio.png'
 import profile from './headshot.jpeg'
+import CertCss from './certificates/Adv.Css-Cert.jpg'
+import CertFccJs from './certificates/FCC-JS-cert.jpg'
+import CertNode from './certificates/Node-Cert.jpg'
+import CertReact from './certificates/React-Cert.jpg'
 
 export const Images = {
+  certs: {
+    CertCss,
+    CertFccJs,
+    CertNode,
+    CertReact,
+  },
   skills: {
     png: {
       node,
