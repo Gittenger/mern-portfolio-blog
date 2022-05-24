@@ -13,8 +13,8 @@ const Contact = () => {
 
   return (
     <ContactPageContainer>
-      {/* <ContactForm /> */}
-      <ContactTempBox>
+      <ContactForm />
+      {/* <ContactTempBox>
         <PSmall>
           I'm currently fixing my automated email system by migrating to a new
           provider, <a href="https://www.sendinblue.com/">SendInBlue</a>.
@@ -23,7 +23,7 @@ const Contact = () => {
           In the meantime, feel free to reach out and email me at:
         </PSmall>
         <a href="mailto:john@johnpittenger.dev">john@johnpittenger.dev</a>
-      </ContactTempBox>
+      </ContactTempBox> */}
     </ContactPageContainer>
   )
 }
