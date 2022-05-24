@@ -68,7 +68,7 @@ class EmailContact {
     this.email = formInfo.email
     this.desc = formInfo.desc
     this.phone = formInfo.phone
-    this.from = `${process.env.SITE_TITLE} <${process.env.EMAIL_FROM}>`
+    this.from = process.env.EMAIL_FROM
   }
 
   newTransport() {
