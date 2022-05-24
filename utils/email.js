@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer')
-const nodemailerSendgrid = require('nodemailer-sendgrid')
 const htmlToText = require('html-to-text')
 const pug = require('pug')
 const path = require('path')
@@ -73,13 +72,6 @@ class EmailContact {
   }
 
   newTransport() {
-    if (process.env.NODE_ENV === 'production') {
-      // Sendgrid
-      return nodemailer.createTransport(
-        nodemailerSendgrid({ apiKey: process.env.SENDGRID_API_KEY })
-      )
-    }
-
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,
