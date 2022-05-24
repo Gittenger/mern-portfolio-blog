@@ -40,7 +40,7 @@ const Home = () => {
           outlook towards the future.
         </P>
         <PSmall className="leading-sub-two">
-          I have over three years of coding experience and I specialize in web
+          I have over four years of coding experience and I specialize in web
           technologies. My stack of choice is MERN.
         </PSmall>
       </div>
