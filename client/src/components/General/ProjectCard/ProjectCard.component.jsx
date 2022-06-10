@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import CIndex from '../../components.index'
 
-import { CardContainer, Overlay } from './ProjectCard.styles'
+import { CardContainer, Overlay, ImgBox } from './ProjectCard.styles'
 import Images from '../../../assets/img/img-index.js'
 
 const ProjectCard = ({ title, description, anchor, coverImg }) => {
@@ -18,7 +18,7 @@ const ProjectCard = ({ title, description, anchor, coverImg }) => {
 
   const { projects } = Images
   const {
-    TComp: { H1, PSmall },
+    TComp: { H2, PSmall },
   } = CIndex
 
   return (
@@ -30,12 +30,10 @@ const ProjectCard = ({ title, description, anchor, coverImg }) => {
         <button>See Details</button>
       </Overlay>
       <div className="text-box">
-        <H1>{title}</H1>
+        <H2>{title}</H2>
         <PSmall>{description}</PSmall>
       </div>
-      <div className="img-box">
-        <img src={coverImg ? projects[coverImg] : projects.default} alt="" />
-      </div>
+      <ImgBox bgImg={coverImg ? projects[coverImg] : projects.default}></ImgBox>
     </CardContainer>
   )
 }

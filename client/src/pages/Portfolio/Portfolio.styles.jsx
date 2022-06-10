@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { cssIndex, device } from '../../styles/css/utils.styles.js'
-const { tabletLand, tabletMM } = device
+const { tabletLand, tabletMM, tabletM } = device
 
 export const PortfolioPageContainer = styled.div`
   ${cssIndex.flexCenterCol}
@@ -14,9 +14,29 @@ export const PortfolioCardList = styled.ul`
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
+  width: 100%;
+
+  & > li {
+    width: 100%;
+    display: grid;
+  }
+
+  & > li:nth-child(even) {
+    place-items: start;
+  }
+
+  & > li:nth-child(odd) {
+    place-items: end;
+  }
 
   ${tabletLand} {
     grid-template-columns: 1fr;
+
+    & > li,
+    & > li:nth-child(odd),
+    & > li:nth-child(even) {
+      place-items: center;
+    }
   }
 
   ${tabletMM} {
@@ -24,10 +44,10 @@ export const PortfolioCardList = styled.ul`
     justify-items: center;
     width: 90%;
 
-    & > li {
-      display: grid;
+    & > li,
+    & > li:nth-child(odd),
+    & > li:nth-child(even) {
       place-items: center;
-      width: 100%;
     }
   }
 `
