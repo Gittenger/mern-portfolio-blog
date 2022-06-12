@@ -32,11 +32,9 @@ export const SkillsPageContentContainer = styled.div`
 export const SkillCardsContainer = styled.div`
   ${cssIndex.flexCenterCol}
   ${cssIndex.keyFrames.fadein}
-  width: 100%;
 
   & > ul {
     display: grid;
-    min-width: 55%;
     grid-template-columns: 1fr;
     grid-row-gap: 4rem;
     justify-content: center;
@@ -56,10 +54,6 @@ export const SkillCardsContainer = styled.div`
   }
 
   ${tabletM} {
-    width: 85%;
-  }
-
-  ${mobileM} {
-    width: 95%;
+    width: 90%;
   }
 `
