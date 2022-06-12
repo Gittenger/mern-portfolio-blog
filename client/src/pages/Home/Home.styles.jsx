@@ -153,8 +153,9 @@ export const HomePageContainer = styled.div`
 	// projects
 	& > .projects-sample {
 		${cssIndex.flexCenter}
+		flex-wrap: wrap;
 		align-items: space-evenly;
-		margin-bottom: 9rem;
+		margin-bottom: 3rem;
 
 		& > .project-link {
 			${cssIndex.flexCenterCol}
@@ -163,7 +164,7 @@ export const HomePageContainer = styled.div`
 			border: solid 1.5px darkgrey;
 			width: 200px;
 			height: 130px;
-			margin: 0 2rem;
+			margin: 3rem 2rem;
 			padding: 1.5rem;
 
 			&:hover {

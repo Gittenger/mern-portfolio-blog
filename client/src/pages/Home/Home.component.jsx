@@ -110,8 +110,8 @@ const Home = () => {
         <P className="cta-leading">
           Right now I am more than ready to put my skills to good use and am
           currently looking for an employer with whom I'll be a good fit. I'm
-          looking for work in the New York City, New Jersey, and Philadelphia
-          areas -- or remote work.
+          looking for work in the Cincinnati, New York City, New Jersey, and
+          Philadelphia areas -- or remote work.
         </P>
         <PSmall className="cta-sub">
           If you'd like to discuss work or collaboration opportunities, I'd love
