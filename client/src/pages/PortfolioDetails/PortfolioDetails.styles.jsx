@@ -121,6 +121,33 @@ export const PortfolioDetailsContainer = styled.div`
           }
         }
       }
+
+      ${tabletMM} {
+        svg {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+
+    ${tabletMM} {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding-left: 7rem;
+
+      & > *:not(:last-child) {
+        margin: 1rem 3rem;
+      }
+
+      & > .text-link:first-of-type {
+        // text-align: center;
+        width: 100%;
+      }
+    }
+
+    ${mobileM} {
+      padding: 1rem;
+      font-size: 1.4rem;
     }
   }
 
