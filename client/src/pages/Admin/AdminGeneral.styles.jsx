@@ -3,40 +3,82 @@ import styled from 'styled-components'
 import { cssIndex } from '../../styles/css/utils.styles.js'
 
 export const EditPostContainer = styled.div`
-	${cssIndex.flexCenterCol}
+  ${cssIndex.flexCenterCol}
 `
 
 export const EditProjectContainer = styled.div`
-	${cssIndex.flexCenterCol}
+  ${cssIndex.flexCenterCol}
 `
 
 export const OverviewContainer = styled.div`
-	ul {
-		& > * {
-			margin-bottom: 2rem;
-		}
-	}
+  width: 80%;
 
-	.delete-prompt {
-		display: none;
-		opacity: 0;
-		transition: opacity 0.4s;
+  .delete-prompt {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s;
 
-		&.active {
-			opacity: 1;
-		}
-	}
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .create-link,
+    .delete-button {
+      display: block;
+      text-align: center;
+      width: 22rem;
+      height: 100%;
+      white-space: nowrap;
+      cursor: pointer;
+      padding: 0.7rem;
+      background-color: var(--grey);
+      color: var(--black);
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--grey);
+        background-color: var(--main);
+      }
+    }
+  }
+
+  ul {
+    li > div {
+      width: 100%;
+    }
+
+    .name {
+      width: 45%;
+      text-align: left;
+    }
+
+    .delete-button {
+      width: 15%;
+    }
+
+    .edit-button {
+      width: 15%;
+    }
+  }
 `
 
 export const Row = styled.div`
-	${cssIndex.flexCenter}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-	p {
-		margin-bottom: 0;
-	}
+  p {
+    margin-bottom: 0;
+  }
 
-	button {
-		margin-left: 0.7rem;
-		cursor: pointer;
-	}
+  button {
+    margin-left: 0.7rem;
+    cursor: pointer;
+  }
 `
