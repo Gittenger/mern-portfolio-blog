@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { EditPostContainer } from '../AdminGeneral.styles'
+import { EditContainer } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index.js'
 
 import auth from '../../../utils/auth.js'
@@ -87,7 +87,7 @@ const CreateProject = () => {
   const { DisplayMessage } = CIndex
 
   return (
-    <EditPostContainer>
+    <EditContainer>
       <form>
         <input
           onChange={handleChange}
@@ -143,7 +143,7 @@ const CreateProject = () => {
       </form>
 
       <DisplayMessage message={message} className={error ? 'error' : ''} />
-    </EditPostContainer>
+    </EditContainer>
   )
 }
 export default CreateProject

@@ -1,148 +1,148 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { EditProjectContainer } from '../AdminGeneral.styles'
+import { EditContainer } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index.js'
 
 import auth from '../../../utils/auth.js'
 const { checkAuthToken } = auth
 
 const EditSkill = () => {
-	const [values, setValues] = useState({
-		name: '',
-		desc: '',
-		img: '',
-		years: '',
-		bullet: '',
-		id: '',
-	})
-	const [messageData, setMessageData] = useState({
-		error: false,
-		message: '',
-	})
+  const [values, setValues] = useState({
+    name: '',
+    desc: '',
+    img: '',
+    years: '',
+    bullet: '',
+    id: '',
+  })
+  const [messageData, setMessageData] = useState({
+    error: false,
+    message: '',
+  })
 
-	const { name, desc, img, years, bullet } = values
-	const { error, message } = messageData
-	const { slug } = useParams()
-	const { token } = checkAuthToken()
+  const { name, desc, img, years, bullet } = values
+  const { error, message } = messageData
+  const { slug } = useParams()
+  const { token } = checkAuthToken()
 
-	const handleChange = (e) => {
-		setValues({
-			...values,
-			[e.target.name]: e.target.value,
-		})
-	}
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    })
+  }
 
-	useEffect(() => {
-		const url = `${process.env.REACT_APP_API}/skills/${slug}`
+  useEffect(() => {
+    const url = `${process.env.REACT_APP_API}/skills/${slug}`
 
-		fetch(url, {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((res) => res.json())
-			.then(({ data }) => {
-				setValues({
-					name: data.name,
-					desc: data.desc,
-					img: data.img,
-					years: data.years,
-					bullet: data.bullet.join(':, '),
-					id: data._id,
-				})
-			})
-			.catch((err) => {
-				setMessageData({
-					error: true,
-					message: 'There was an error getting the data from the server',
-				})
-			})
-	}, [])
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then(({ data }) => {
+        setValues({
+          name: data.name,
+          desc: data.desc,
+          img: data.img,
+          years: data.years,
+          bullet: data.bullet.join(':, '),
+          id: data._id,
+        })
+      })
+      .catch((err) => {
+        setMessageData({
+          error: true,
+          message: 'There was an error getting the data from the server',
+        })
+      })
+  }, [])
 
-	const handleSubmit = async (e) => {
-		e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-		const submitUrl = `${process.env.REACT_APP_API}/skills/${values.id}`
+    const submitUrl = `${process.env.REACT_APP_API}/skills/${values.id}`
 
-		const formData = new FormData()
-		formData.append('name', name)
-		formData.append('desc', desc)
-		formData.append('img', img)
-		formData.append('years', years)
-		formData.append('bullet', bullet)
+    const formData = new FormData()
+    formData.append('name', name)
+    formData.append('desc', desc)
+    formData.append('img', img)
+    formData.append('years', years)
+    formData.append('bullet', bullet)
 
-		fetch(submitUrl, {
-			method: 'POST',
-			headers: {
-				Authorization: `Bearer ${token}`,
-			},
-			body: formData,
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				setMessageData({
-					error: false,
-					message: res.message,
-				})
-			})
-			.catch((err) => {
-				setMessageData({
-					error: true,
-					message: 'There was an error submitting the data',
-				})
-			})
-	}
+    fetch(submitUrl, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setMessageData({
+          error: false,
+          message: res.message,
+        })
+      })
+      .catch((err) => {
+        setMessageData({
+          error: true,
+          message: 'There was an error submitting the data',
+        })
+      })
+  }
 
-	const { DisplayMessage } = CIndex
+  const { DisplayMessage } = CIndex
 
-	return (
-		<EditProjectContainer>
-			<form>
-				<input
-					onChange={handleChange}
-					type="text"
-					value={name}
-					name="name"
-					placeholder="name"
-				/>
-				<input
-					onChange={handleChange}
-					type="text"
-					value={desc}
-					name="desc"
-					placeholder="description"
-				/>
-				<input
-					onChange={handleChange}
-					type="text"
-					value={img}
-					name="img"
-					placeholder="image"
-				/>
-				<input
-					onChange={handleChange}
-					type="text"
-					value={years}
-					name="years"
-					placeholder="Years exp."
-				/>
-				<textarea
-					name="bullet"
-					cols="30"
-					rows="10"
-					onChange={handleChange}
-					value={bullet}
-					placeholder="list of bullet points, sep = :,"
-				></textarea>
-				<button onClick={handleSubmit}>Submit</button>
-			</form>
+  return (
+    <EditContainer>
+      <form>
+        <input
+          onChange={handleChange}
+          type="text"
+          value={name}
+          name="name"
+          placeholder="name"
+        />
+        <input
+          onChange={handleChange}
+          type="text"
+          value={desc}
+          name="desc"
+          placeholder="description"
+        />
+        <input
+          onChange={handleChange}
+          type="text"
+          value={img}
+          name="img"
+          placeholder="image"
+        />
+        <input
+          onChange={handleChange}
+          type="text"
+          value={years}
+          name="years"
+          placeholder="Years exp."
+        />
+        <textarea
+          name="bullet"
+          cols="30"
+          rows="10"
+          onChange={handleChange}
+          value={bullet}
+          placeholder="list of bullet points, sep = :,"
+        ></textarea>
+        <button onClick={handleSubmit}>Submit</button>
+      </form>
 
-			<DisplayMessage message={message} className={error ? 'error' : ''} />
-		</EditProjectContainer>
-	)
+      <DisplayMessage message={message} className={error ? 'error' : ''} />
+    </EditContainer>
+  )
 }
 
 export default EditSkill

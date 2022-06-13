@@ -6,8 +6,13 @@ export const EditPostContainer = styled.div`
   ${cssIndex.flexCenterCol}
 `
 
-export const EditProjectContainer = styled.div`
+export const EditContainer = styled.div`
   ${cssIndex.flexCenterCol}
+  width: 100%;
+
+  form {
+    width: 80%;
+  }
 `
 
 export const OverviewContainer = styled.div`
