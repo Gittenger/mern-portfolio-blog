@@ -91,6 +91,7 @@ export const OverviewContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 1.5rem;
 
     .create-link,
     .delete-button {
@@ -113,6 +114,15 @@ export const OverviewContainer = styled.div`
   }
 
   ul {
+    li {
+      margin-bottom: 1rem;
+    }
+
+    & > li:not(:last-child) {
+      border-bottom: white solid 1px;
+      padding-bottom: 1rem;
+    }
+
     li > div {
       width: 100%;
     }
