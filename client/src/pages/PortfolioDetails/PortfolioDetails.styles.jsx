@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { cssIndex, device } from '../../styles/css/utils.styles.js'
-const { laptopXS, laptopL, tabletMM, tabletS, mobileM } = device
+const { laptopXS, laptopL, tabletMM, tabletS, mobileM, tabletLand } = device
 
 export const PortfolioDetailsContainer = styled.div`
   ${cssIndex.flexCenterCol}
@@ -143,7 +143,7 @@ export const PortfolioDetailsContainer = styled.div`
     }
 
     ${laptopL} {
-      width: 65%;
+      width: 70%;
       img,
       img.is-svg {
         max-width: 80px;
@@ -151,23 +151,36 @@ export const PortfolioDetailsContainer = styled.div`
     }
 
     ${laptopXS} {
-      width: 80%;
+      width: 85%;
+    }
+
+    ${tabletLand} {
+      flex-wrap: wrap;
+      img,
+      img.is-svg {
+        max-width: 60px;
+      }
     }
 
     ${tabletMM} {
       margin-top: 0;
-      width: 84%;
       img,
       img.is-svg {
-        max-width: 70px;
+        max-width: 50px;
       }
     }
 
     ${tabletS} {
-      flex-direction: column;
+      flex-wrap: wrap;
+      width: 90%;
 
-      li:not(:last-child) {
-        margin-bottom: 3rem;
+      img,
+      img.is-svg {
+        max-width: 70px;
+      }
+
+      li {
+        margin: 1.5rem 1rem;
       }
     }
   }
