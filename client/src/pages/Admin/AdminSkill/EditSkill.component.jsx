@@ -106,28 +106,28 @@ const EditSkill = () => {
           type="text"
           value={name}
           name="name"
-          placeholder="name"
+          placeholder="Name"
         />
         <input
           onChange={handleChange}
           type="text"
           value={desc}
           name="desc"
-          placeholder="description"
+          placeholder="Description"
         />
         <input
           onChange={handleChange}
           type="text"
           value={img}
           name="img"
-          placeholder="image"
+          placeholder="Which image icon"
         />
         <input
           onChange={handleChange}
           type="text"
           value={years}
           name="years"
-          placeholder="Years exp."
+          placeholder="Years experience"
         />
         <textarea
           name="bullet"
@@ -135,7 +135,7 @@ const EditSkill = () => {
           rows="10"
           onChange={handleChange}
           value={bullet}
-          placeholder="list of bullet points, sep = :,"
+          placeholder="List of bullet points, sep = :,<space>"
         ></textarea>
         <button onClick={handleSubmit}>Submit</button>
       </form>

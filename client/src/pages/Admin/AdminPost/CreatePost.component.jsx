@@ -80,21 +80,21 @@ const CreatePost = () => {
           type="text"
           onChange={handleChange}
           value={name}
-          placeholder="name"
+          placeholder="Name"
         />
         <input
           name="excerpt"
           type="text"
           onChange={handleChange}
           value={excerpt}
-          placeholder="excerpt"
+          placeholder="Excerpt"
         />
         <input
           name="date"
           type="text"
           onChange={handleChange}
           value={date}
-          placeholder="date"
+          placeholder="Date"
         />
         <textarea
           name="content"
@@ -102,7 +102,7 @@ const CreatePost = () => {
           rows="10"
           onChange={handleChange}
           value={content}
-          placeholder="content"
+          placeholder="Content in markdown"
         ></textarea>
 
         <button onClick={handleSubmit}>Submit</button>

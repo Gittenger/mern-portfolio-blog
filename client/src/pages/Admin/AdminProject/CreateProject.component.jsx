@@ -94,42 +94,42 @@ const CreateProject = () => {
           type="text"
           value={name}
           name="name"
-          placeholder="name"
+          placeholder="Name"
         />
         <input
           onChange={handleChange}
           type="text"
           value={description}
           name="description"
-          placeholder="description"
+          placeholder="Short description"
         />
         <input
           onChange={handleChange}
           type="text"
           value={techStack}
           name="techStack"
-          placeholder="techStack"
+          placeholder="Tech stack, separated by commas"
         />
         <input
           onChange={handleChange}
           type="text"
           value={link}
           name="link"
-          placeholder="link"
+          placeholder="Link to project"
         />
         <input
           name="youtubeId"
           type="text"
           onChange={handleChange}
           value={youtubeId}
-          placeholder="youtubeId"
+          placeholder="YouTube ID"
         />
         <input
           onChange={handleChange}
           type="text"
           value={github}
           name="github"
-          placeholder="github"
+          placeholder="Github link"
         />
         <textarea
           name="descriptionLong"
@@ -137,7 +137,7 @@ const CreateProject = () => {
           rows="10"
           onChange={handleChange}
           value={descriptionLong}
-          placeholder="descriptionLong"
+          placeholder="Full markdown description"
         ></textarea>
         <button onClick={handleSubmit}>Submit</button>
       </form>
