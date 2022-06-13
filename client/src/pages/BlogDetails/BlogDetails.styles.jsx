@@ -4,65 +4,73 @@ import { cssIndex, device } from '../../styles/css/utils.styles.js'
 const { tabletMM, mobileM } = device
 
 export const BlogDetailsContainer = styled.div`
-	${cssIndex.flexCenterCol}
-	align-items: flex-start;
-	width: 70%;
-	${cssIndex.keyFrames.fadein}
+  ${cssIndex.flexCenterCol}
+  align-items: flex-start;
+  width: 70%;
+  ${cssIndex.keyFrames.fadein}
 
-	pre {
-		width: 100%;
-	}
+  & > h2 {
+    white-space: normal;
+  }
 
-	& > p > code {
-		background: #282a36;
-		color: #f1fa8c;
-		padding: 5px;
-	}
+  ${tabletMM} {
+    width: 90%;
+  }
 
-	& > pre > div > code {
-		width: 85%;
-	}
+  pre {
+    width: 100%;
+  }
 
-	& > p {
-		text-align: left;
-		margin-bottom: 0;
-	}
+  & > p > code {
+    background: #282a36;
+    color: #f1fa8c;
+    padding: 5px;
+  }
 
-	& > p + * {
-		margin-top: 0.8rem;
-	}
+  & > pre > div > code {
+    width: 85%;
+  }
 
-	& > p + pre {
-		margin-top: 0;
-	}
+  & > p {
+    text-align: left;
+    margin-bottom: 0;
+  }
 
-	pre {
-		margin-bottom: 0.8rem;
-	}
+  & > p + * {
+    margin-top: 0.8rem;
+  }
 
-	${tabletMM} {
-		pre > div {
-			padding: 0.8em !important;
-			line-height: 1.1 !important;
+  & > p + pre {
+    margin-top: 0;
+  }
 
-			& code {
-				line-height: 1.1 !important;
+  pre {
+    margin-bottom: 0.8rem;
+  }
 
-				span {
-					font-size: 0.85em;
-				}
-			}
-		}
+  ${tabletMM} {
+    pre > div {
+      padding: 0.8em !important;
+      line-height: 1.1 !important;
 
-		// embedded code
-		& > p > code {
-			padding: 1px;
-		}
-	}
+      & code {
+        line-height: 1.1 !important;
 
-	${mobileM} {
-		pre > div code span {
-			font-size: 0.6em;
-		}
-	}
+        span {
+          font-size: 0.85em;
+        }
+      }
+    }
+
+    // embedded code
+    & > p > code {
+      padding: 1px;
+    }
+  }
+
+  ${mobileM} {
+    pre > div code span {
+      font-size: 0.6em;
+    }
+  }
 `
