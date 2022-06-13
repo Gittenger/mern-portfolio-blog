@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { remark } from 'remark'
 
 import { EditContainer } from '../AdminGeneral.styles'
@@ -20,6 +20,7 @@ const EditPost = () => {
     error: false,
     message: '',
   })
+  const history = useHistory()
 
   const { name, excerpt, date, content } = values
   const { error, message } = messageData
@@ -134,6 +135,9 @@ const EditPost = () => {
       </form>
 
       <DisplayMessage message={message} className={error ? 'error' : ''} />
+      <button onClick={history.goBack} className="menu-button">
+        &#8612; Menu
+      </button>
     </EditContainer>
   )
 }

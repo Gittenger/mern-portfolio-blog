@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useApiData } from '../../utils/hooks'
 
 import { OverviewContainer, Row } from './AdminGeneral.styles'
@@ -11,6 +11,7 @@ const EditOverview = ({ name, nameSingular }) => {
   const url = `${process.env.REACT_APP_API}/${name}`
   const [apiData, dataProcessed] = useApiData(url)
   const { token } = checkAuthToken()
+  const history = useHistory()
 
   const handleDelete = (e) => {
     const deleteUrl = `${process.env.REACT_APP_API}/${name}/${e.target.dataset.id}`
@@ -39,6 +40,9 @@ const EditOverview = ({ name, nameSingular }) => {
 
   return (
     <OverviewContainer>
+      <button onClick={history.goBack} className="menu-button">
+        &#8612; Menu
+      </button>
       <div className="top-row">
         <Link className="create-link" to={`/admin/create-${nameSingular}`}>
           Create {nameSingular}

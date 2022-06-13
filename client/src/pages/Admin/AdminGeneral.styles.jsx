@@ -11,6 +11,21 @@ export const EditContainer = styled.div`
   ${cssIndex.flexCenterCol}
   width: 100%;
 
+  .menu-button {
+    margin-top: 2rem;
+    text-decoration: underline;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0.6rem;
+    transition: color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--main);
+    }
+  }
+
   form {
     width: 30%;
     display: flex;
@@ -68,6 +83,21 @@ export const EditContainer = styled.div`
 
 export const OverviewContainer = styled.div`
   width: 80%;
+
+  .menu-button {
+    margin-bottom: 2rem;
+    text-decoration: underline;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0.6rem;
+    transition: color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--main);
+    }
+  }
 
   .delete-prompt {
     display: none;

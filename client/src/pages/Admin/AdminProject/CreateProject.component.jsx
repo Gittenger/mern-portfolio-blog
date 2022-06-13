@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { EditContainer } from '../AdminGeneral.styles'
 import CIndex from '../../../components/components.index.js'
@@ -20,6 +21,7 @@ const CreateProject = () => {
     error: false,
     message: '',
   })
+  const history = useHistory()
 
   const url = `${process.env.REACT_APP_API}/projects`
   const { error, message } = messageData
@@ -143,6 +145,9 @@ const CreateProject = () => {
       </form>
 
       <DisplayMessage message={message} className={error ? 'error' : ''} />
+      <button onClick={history.goBack} className="menu-button">
+        &#8612; Menu
+      </button>
     </EditContainer>
   )
 }
