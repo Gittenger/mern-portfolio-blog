@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { cssIndex } from '../../styles/css/utils.styles.js'
+import { cssIndex, device } from '../../styles/css/utils.styles.js'
+const { laptopM, tabletMM, mobileMM } = device
 
 export const EditPostContainer = styled.div`
   ${cssIndex.flexCenterCol}
@@ -11,7 +12,65 @@ export const EditContainer = styled.div`
   width: 100%;
 
   form {
-    width: 80%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    input,
+    textarea {
+      width: 100%;
+    }
+
+    input {
+      padding: 0.625rem;
+    }
+
+    input {
+      margin-bottom: 1.5rem;
+    }
+
+    textarea {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      display: block;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      white-space: nowrap;
+      cursor: pointer;
+      margin-right: var(--m-XS);
+      padding: 0.7rem;
+      background-color: var(--grey);
+      color: var(--black);
+      transition: all 0.3s;
+
+      &:hover {
+        color: var(--grey);
+        background-color: var(--main);
+      }
+    }
+  }
+
+  ${laptopM} {
+    form {
+      width: 50%;
+    }
+  }
+
+  ${tabletMM} {
+    form {
+      width: 70%;
+    }
+  }
+
+  ${mobileMM} {
+    form {
+      width: 85%;
+    }
   }
 `
 
