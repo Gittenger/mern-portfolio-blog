@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { cssIndex, device } from '../../styles/css/utils.styles.js'
-const { laptopM, tabletMM, mobileMM } = device
+const { laptopM, tabletMM, mobileMM, tabletLand } = device
 
 export const EditPostContainer = styled.div`
   ${cssIndex.flexCenterCol}
@@ -87,6 +87,10 @@ export const OverviewContainer = styled.div`
     }
   }
 
+  ${tabletMM} {
+    width: 90%;
+  }
+
   .top-row {
     display: flex;
     justify-content: space-between;
@@ -105,10 +109,27 @@ export const OverviewContainer = styled.div`
       background-color: var(--grey);
       color: var(--black);
       transition: all 0.3s;
+      border: 0;
+      font-size: 1.7rem;
 
       &:hover {
         color: var(--grey);
         background-color: var(--main);
+      }
+    }
+
+    ${tabletLand} {
+      flex-direction: column;
+      margin-bottom: 2.5rem;
+
+      & > div {
+        width: 100%;
+      }
+
+      .create-link,
+      .delete-button {
+        margin-bottom: 0.8rem;
+        width: 100%;
       }
     }
   }
@@ -138,6 +159,54 @@ export const OverviewContainer = styled.div`
 
     .edit-button {
       width: 15%;
+      text-align: center;
+    }
+
+    ${laptopM} {
+      .name {
+        width: 40%;
+      }
+
+      .delete-button {
+        width: 23%;
+      }
+
+      .edit-button {
+        width: 23%;
+      }
+    }
+
+    ${tabletLand} {
+      .name {
+        width: 35%;
+      }
+
+      .delete-button {
+        width: 28%;
+      }
+
+      .edit-button {
+        width: 28%;
+      }
+    }
+
+    ${mobileMM} {
+      .name {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .delete-button {
+        width: 45%;
+      }
+
+      .edit-button {
+        width: 45%;
+      }
+    }
+    li {
+      margin-bottom: 2rem;
     }
   }
 `
@@ -152,7 +221,10 @@ export const Row = styled.div`
   }
 
   button {
-    margin-left: 0.7rem;
     cursor: pointer;
+  }
+
+  ${mobileMM} {
+    flex-wrap: wrap;
   }
 `
