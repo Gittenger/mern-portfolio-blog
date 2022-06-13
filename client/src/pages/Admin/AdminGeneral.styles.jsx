@@ -25,14 +25,12 @@ export const EditContainer = styled.div`
 
     input {
       padding: 0.625rem;
-    }
-
-    input {
       margin-bottom: 1.5rem;
     }
 
     textarea {
       margin-bottom: 1rem;
+      padding: 0.625rem;
     }
 
     button {
@@ -53,22 +51,16 @@ export const EditContainer = styled.div`
         background-color: var(--main);
       }
     }
-  }
 
-  ${laptopM} {
-    form {
+    ${laptopM} {
       width: 50%;
     }
-  }
 
-  ${tabletMM} {
-    form {
+    ${tabletMM} {
       width: 70%;
     }
-  }
 
-  ${mobileMM} {
-    form {
+    ${mobileMM} {
       width: 85%;
     }
   }
