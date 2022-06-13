@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { PSmallStyles } from '../../components/typography/typography.components.js'
-import { cssIndex } from '../../styles/css/utils.styles.js'
+import { cssIndex, device } from '../../styles/css/utils.styles.js'
+const { tabletMM } = device
 
 export const LoginPageContentContainer = styled.div`
   ${cssIndex.flexCenterCol}
@@ -10,13 +11,53 @@ export const LoginPageContentContainer = styled.div`
 export const Form = styled.form`
   ${cssIndex.flexCenterCol}
 
+  textarea,
+  input {
+    font-family: inherit;
+    border-radius: 0.3rem;
+  }
+
   button {
     margin-top: var(--m-XXS);
+  }
+
+  & > div {
+    &:not(:last-child) {
+      margin-bottom: var(--m-XXS);
+    }
+
+    label {
+      ${PSmallStyles}
+      text-align: right;
+      justify-self: end;
+      margin-right: 2rem;
+    }
+
+    input {
+      justify-self: start;
+      width: 100%;
+      font-size: 1.4rem;
+      margin: 0;
+      padding: 0 0.5rem;
+      color: black;
+    }
+
+    ${tabletMM} {
+      label {
+        justify-self: end;
+        margin-right: 1rem;
+      }
+
+      input {
+        min-width: 14rem;
+        padding: 0.4rem 1rem;
+        margin-bottom: 1rem;
+      }
+    }
   }
 `
 
 export const Row = styled.div`
-  text-align: right;
   width: 100%;
   display: grid;
   grid-template-columns: 5fr 5.5fr;
@@ -25,34 +66,7 @@ export const Row = styled.div`
   justify-items: center;
   overflow: hidden;
 
-  textarea,
-  input {
-    font-family: inherit;
-    border-radius: 0.3rem;
+  ${tabletMM} {
+    grid-template-columns: 1fr;
   }
-
-  label {
-    ${PSmallStyles}
-  }
-
-  &:not(:last-child) {
-    margin-bottom: var(--m-XXS);
-  }
-
-  // label
-  & > :first-child {
-    justify-self: end;
-    margin-right: 2rem;
-  }
-
-  // input
-  & > :last-child {
-    justify-self: start;
-    width: 60%;
-    min-width: 20rem;
-    font-size: 1.4rem;
-    margin: 0;
-    padding: 0 0.5rem;
-    color: black;
-
 `
