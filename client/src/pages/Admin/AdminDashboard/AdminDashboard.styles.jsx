@@ -15,6 +15,10 @@ export const AdminDashboardContainer = styled.div`
   & > h2 {
     margin-top: var(--m-S);
     margin-bottom: var(--m-S);
+
+    &:first-child {
+      font-style: italic;
+    }
   }
 `
 
