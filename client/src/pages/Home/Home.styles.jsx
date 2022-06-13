@@ -224,4 +224,14 @@ export const BgImgBox = styled.div`
   background-repeat: no-repeat;
   width: 30rem;
   height: 30rem;
+
+  ${tabletLand} {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  ${mobileMM} {
+    width: 18rem;
+    height: 18rem;
+  }
 `
