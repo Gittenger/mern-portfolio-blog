@@ -8,46 +8,27 @@ Resume Page
 
 ---
 
-- change UI, add some content
 - display resume content on page
 
 Projects Page
 
 ---
 
-##- Set order like in skills
-
 - Create ordering hook
-- Proper gif's
 - Proper YT videos
-
-Blog Page
-
----
-
-- Proper blog overview UI
 
 Admin section
 
 ---
 
--- Delete all
+-- make "change password" admin only
 ** -- test for projects/skills
 ** -- check if message for successful delete all is working?
 
-- make UI better
-- make "change password" admin only
-
-General improvements
-
 ---
 
-##- HOME page links to proj, set for mobile
-
 - try different animation library?
-  - page transition animations
-- margins, general UI
-- typography, fonts, font-sizing
+  - page transition animations?
 - colors
 - Remove all console.logs()
 - Make README
