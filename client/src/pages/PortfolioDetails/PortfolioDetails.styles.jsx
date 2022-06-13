@@ -14,6 +14,7 @@ export const PortfolioDetailsContainer = styled.div`
 
   & > .title {
     margin-bottom: 2rem;
+    white-space: normal;
   }
 
   & > .gif {
@@ -47,6 +48,7 @@ export const PortfolioDetailsContainer = styled.div`
     h2,
     h3 {
       margin-top: 4rem;
+      white-space: normal;
 
       ${mobileM} {
         margin-top: 3rem;
