@@ -30,7 +30,12 @@ export const HomePageContainer = styled.div`
 		.leading {
 			margin-bottom: 3rem;
 			font-weight: bold;
+			font-family: var(--fontHeading);
 			--scale: 1.5;
+
+			${tabletMM} {
+				font-size: 30px;
+			}
 
 			&-sub {
 				margin-bottom: 2rem;
@@ -70,8 +75,9 @@ export const HomePageContainer = styled.div`
 	// list-header
 	& > .list-header {
 		width: 100%;
-
+		
 		& > p {
+			font-family: var(--fontHeading);
 			width: 100%;
 			--scale: 1.1;
 			font-weight: bold;
@@ -162,8 +168,8 @@ export const HomePageContainer = styled.div`
 			background: ${({ theme: { colors } }) => colors.darker};
 			border-radius: 15px;
 			border: solid 1.5px darkgrey;
-			width: 200px;
-			height: 130px;
+			width: 210px;
+			height: 150px;
 			margin: 3rem 2rem;
 			padding: 1.5rem;
 
@@ -200,6 +206,7 @@ export const HomePageContainer = styled.div`
 			padding: 10px;
 			border-radius: 10px;
 			transition: all .3s;
+			white-space: nowrap;
 
 			&:hover {
 				color: var(--main);
@@ -211,6 +218,10 @@ export const HomePageContainer = styled.div`
 				color: var(--black);
 				background: var(--white);
 				border: 2px solid black;
+			}
+
+			${tabletMM} {
+				font-size: .7em;
 			}
 		}
 	}

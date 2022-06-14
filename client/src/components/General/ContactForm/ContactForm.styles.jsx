@@ -19,7 +19,7 @@ export const ContactFormContainer = styled.div`
 export const ContactFormForm = styled.form`
   ${cssIndex.flexCenterCol}
   box-shadow: var(--shadowBoxPart);
-  width: 40%;
+  width: 55%;
   padding: 3rem;
   border-radius: var(--bRadM);
   background: var(--blackDark);
@@ -51,15 +51,15 @@ export const ContactFormForm = styled.form`
   }
 
   ${laptopS} {
-    width: 50%;
+    width: 60%;
   }
 
   ${laptopXS} {
-    width: 55%;
+    width: 65%;
   }
 
   ${tabletMM} {
-    width: 65%;
+    width: 75%;
   }
 
   ${mobileMM} {
