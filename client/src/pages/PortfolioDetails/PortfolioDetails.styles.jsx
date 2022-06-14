@@ -167,7 +167,6 @@ export const PortfolioDetailsContainer = styled.div`
 
       &.is-svg {
         width: 100px;
-        height: 100px;
       }
     }
 
