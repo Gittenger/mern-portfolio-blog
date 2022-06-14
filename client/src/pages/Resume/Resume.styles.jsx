@@ -12,6 +12,7 @@ export const ResumePageContentContainer = styled.div`
     margin-bottom: 2rem;
   }
 
+  // outer box
   & > div {
     ${cssIndex.flexCenter}
     align-items: flex-start;
@@ -25,7 +26,7 @@ export const ResumePageContentContainer = styled.div`
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      width: 300px;
+      width: 350px;
 
       ${tabletM} {
         margin: 1rem 0;
@@ -34,6 +35,13 @@ export const ResumePageContentContainer = styled.div`
 
       & > * {
         text-align: center;
+        display: grid;
+        place-content: end;
+      }
+
+      & > :first-child {
+        height: 65px;
+        margin-bottom: 0.5rem;
       }
     }
 
