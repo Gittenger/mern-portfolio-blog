@@ -44,10 +44,10 @@ import react from './skills/svg/react.svg'
 import vim from './skills/svg/vim.svg'
 import reduxSaga from './skills/svg/redux-saga.svg'
 import profile from './headshot.jpeg'
-import CertCss from './certificates/Adv.Css-Cert.jpg'
-import CertFccJs from './certificates/FCC-JS-cert.jpg'
-import CertNode from './certificates/Node-Cert.jpg'
-import CertReact from './certificates/React-Cert.jpg'
+import CertCss from './certificates/css.jpg'
+import CertFccJs from './certificates/fcc-js.jpg'
+import CertNode from './certificates/node.jpg'
+import CertReact from './certificates/react.jpg'
 
 export const Images = {
   certs: {
